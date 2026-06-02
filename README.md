@@ -1,1 +1,1043 @@
-# Chip-ADP
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chip Marketing — AI Agent Map H2 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --chip-green: #1a3d2b;
+  --chip-green-mid: #2d6045;
+  --chip-green-light: #4a9068;
+  --chip-green-pale: #e8f2ec;
+  --chip-cream: #f7f4ee;
+  --chip-cream-dark: #ede9e0;
+  --ink: #1a1a18;
+  --ink-mid: #3d3d38;
+  --ink-light: #7a7a72;
+  --ink-faint: #b8b8ae;
+  --white: #ffffff;
+
+  --col-clara: #2d6045;
+  --col-krizia: #8b4513;
+  --col-ben: #1a3a5c;
+  --col-justin: #5c1a4a;
+  --col-helena: #1a4a5c;
+  --col-jen: #3a5c1a;
+  --col-eathan: #1a5c4a;
+  --col-tom: #5c4a1a;
+  --col-toby: #3a1a5c;
+  --col-shared: #4a4a42;
+
+  --tag-b1: #fff3cd;
+  --tag-b1-text: #7a5c00;
+  --tag-b2: #d4e8f0;
+  --tag-b2-text: #0a4a6e;
+  --tag-none: #ede9e0;
+  --tag-none-text: #5a5a52;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  background: var(--chip-cream);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--chip-green);
+  color: var(--white);
+  padding: 40px 60px 36px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+.header-left {}
+.header-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--chip-green-light);
+  margin-bottom: 10px;
+}
+.header-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 38px;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.header-title em {
+  font-style: italic;
+  color: #7dd4a8;
+}
+.header-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  font-family: 'DM Mono', monospace;
+}
+.header-right {
+  text-align: right;
+}
+.header-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.8;
+}
+.status-badge {
+  display: inline-block;
+  background: #7dd4a8;
+  color: var(--chip-green);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+/* ── NAV TABS ── */
+.nav-container {
+  background: var(--chip-green);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 0 60px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+}
+.nav-tab {
+  padding: 14px 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color .2s, border-color .2s;
+  letter-spacing: .01em;
+}
+.nav-tab:hover { color: rgba(255,255,255,0.85); }
+.nav-tab.active { color: #7dd4a8; border-bottom-color: #7dd4a8; }
+
+/* ── MAIN CONTENT ── */
+.main { padding: 40px 60px 80px; max-width: 1400px; }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ── PANEL HEADER ── */
+.panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--chip-cream-dark);
+}
+.panel-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  color: var(--chip-green);
+  margin-bottom: 4px;
+}
+.panel-desc {
+  font-size: 13px;
+  color: var(--ink-light);
+  max-width: 520px;
+  line-height: 1.6;
+}
+.panel-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-faint);
+  text-align: right;
+  white-space: nowrap;
+}
+.panel-count strong {
+  display: block;
+  font-size: 28px;
+  color: var(--chip-green);
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+/* ── LEGEND ── */
+.legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--ink-mid);
+  font-family: 'DM Mono', monospace;
+}
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── TABLE ── */
+.agent-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--chip-cream-dark);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--white);
+  margin-bottom: 32px;
+}
+
+.section-header td {
+  background: var(--chip-green);
+  color: var(--white);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+.col-header th {
+  background: var(--chip-green-pale);
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--chip-green);
+  text-align: left;
+  border-bottom: 1px solid var(--chip-cream-dark);
+  letter-spacing: .02em;
+}
+.col-header th small {
+  display: block;
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--ink-light);
+  margin-top: 1px;
+}
+
+.agent-row td {
+  padding: 14px 16px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--chip-cream-dark);
+  border-right: 1px solid var(--chip-cream-dark);
+}
+.agent-row td:last-child { border-right: none; }
+.agent-row:last-child td { border-bottom: none; }
+.agent-row:hover { background: #fafaf7; }
+
+.agent-label-cell {
+  background: #fafaf7;
+  min-width: 160px;
+  max-width: 180px;
+}
+.agent-name {
+  font-weight: 600;
+  font-size: 12.5px;
+  color: var(--ink);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+.phase-tags { display: flex; flex-direction: column; gap: 3px; }
+
+/* ── TAGS ── */
+.tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  padding: 2px 7px;
+  border-radius: 20px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+.tag-b1 { background: var(--tag-b1); color: var(--tag-b1-text); }
+.tag-b2 { background: var(--tag-b2); color: var(--tag-b2-text); }
+.tag-none { background: var(--tag-none); color: var(--tag-none-text); }
+.tag-live { background: #d4f0e8; color: #0a5c38; }
+
+/* ── USE ITEMS ── */
+.use-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.use-item {
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-mid);
+}
+.use-dot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+/* owner dot colours */
+.d-toby   { background: #3a1a5c; }
+.d-clara  { background: var(--col-clara); }
+.d-krizia { background: var(--col-krizia); }
+.d-ben    { background: var(--col-ben); }
+.d-justin { background: var(--col-justin); }
+.d-helena { background: var(--col-helena); }
+.d-jen    { background: var(--col-jen); }
+.d-eathan { background: var(--col-eathan); }
+.d-tom    { background: var(--col-tom); }
+.d-shared { background: var(--col-shared); }
+
+/* ── OPEN QUESTIONS ── */
+.oq-section {
+  margin-top: 36px;
+  border: 1px solid #f0c05a;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--white);
+}
+.oq-header {
+  background: #fdf3d4;
+  padding: 12px 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #7a5c00;
+  font-weight: 500;
+  border-bottom: 1px solid #f0c05a;
+}
+.oq-list { padding: 16px 20px; display: flex; flex-direction: column; gap: 10px; }
+.oq-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+.oq-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #f0c05a;
+  font-weight: 500;
+  background: var(--chip-green);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--chip-green);
+  color: rgba(255,255,255,0.4);
+  padding: 24px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+}
+footer span { color: #7dd4a8; }
+
+@media (max-width: 900px) {
+  .site-header, .nav-container, .main, footer { padding-left: 20px; padding-right: 20px; }
+  .header-right { display: none; }
+  .site-header { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <div class="header-eyebrow">Chip Financial · Internal</div>
+    <h1 class="header-title">Marketing AI<br><em>Agent Map</em></h1>
+    <div class="header-sub">H2 2026 · All three pillars · ADP lighthouse view</div>
+  </div>
+  <div class="header-right">
+    <div class="status-badge">Live document</div>
+    <div class="header-meta">
+      Owner: Toby Prior<br>
+      Head of CRM &amp; Engagement<br>
+      Build 1 from 2 June 2026
+    </div>
+  </div>
+</header>
+
+<nav class="nav-container">
+  <div class="nav-tab active" onclick="show('crm', this)">Pillar 01 · CRM</div>
+  <div class="nav-tab" onclick="show('growth', this)">Pillar 02 · Growth</div>
+  <div class="nav-tab" onclick="show('brand', this)">Pillar 03 · Brand &amp; Content</div>
+  <div class="nav-tab" onclick="show('infra', this)">Cross-cutting infrastructure</div>
+</nav>
+
+<main class="main">
+
+<!-- ═══════════════════════════════ CRM ═══════════════════════════════ -->
+<div id="crm" class="panel active">
+  <div class="panel-header">
+    <div>
+      <div class="panel-title">CRM — rebuilt on AI</div>
+      <div class="panel-desc">The AI loop — monitor → suggest → brief → draft → comply → ship — runs across all three flows. Humans set strategy and sign off. AI does the production work.</div>
+    </div>
+    <div class="panel-count"><strong>5</strong>agents in scope</div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot d-toby"></div>Toby Prior</div>
+    <div class="legend-item"><div class="legend-dot d-clara"></div>Clara Rocha — Day 0–90</div>
+    <div class="legend-item"><div class="legend-dot d-krizia"></div>Krizia Cureg — Loyalty tiers &amp; Wealth Agent</div>
+    <div class="legend-item"><div class="legend-dot d-ben"></div>Ben Poole — CRM Ops &amp; architecture</div>
+  </div>
+
+  <table class="agent-table">
+    <thead>
+      <tr class="col-header">
+        <th style="width:170px">Agent</th>
+        <th>Clara Rocha<small>Day 0–90 activation flow</small></th>
+        <th>Krizia Cureg<small>Loyalty tiers &amp; Wealth Agent</small></th>
+        <th>Ben Poole<small>CRM Ops &amp; architecture</small></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-header"><td colspan="4">AI loop agents</td></tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Monitor Agent</div>
+          <div class="phase-tags"><span class="tag tag-b2">Build 2</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-clara"></div>Daily briefing on Day 0–90 Canvas step performance — opens, clicks, drop-offs at individual message level</li>
+            <li class="use-item"><div class="use-dot d-clara"></div>Flags which emails are working vs drifting before manual review is needed</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-krizia"></div>Loyalty tiers: monitors balance-threshold trigger accuracy and tier upgrade conversion rates — not just message engagement</li>
+            <li class="use-item"><div class="use-dot d-krizia"></div>Wealth Agent: tracks awareness journey in and re-engagement leg separately; monitors handoff signal between the two legs</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-ben"></div>Owns build — defines drift thresholds, signal classification logic, and baseline-setting approach for all three flows</li>
+            <li class="use-item"><div class="use-dot d-ben"></div>Manages Braze data feed; owns Databricks integration (Phase 2, dependency: Mike Kondrashyn)</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Suggest Agent</div>
+          <div class="phase-tags"><span class="tag tag-b2">Build 2</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-clara"></div>Receives specific recommendations when a message drifts — e.g. "Email 3 subject line failing; here are 3 alternatives based on past performance"</li>
+            <li class="use-item"><div class="use-dot d-clara"></div>Interrogates the AI's logic and decides whether to act</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-krizia"></div>Loyalty tiers: suggestions on tier threshold calibration, message timing, rate-boost framing — driven by balance signals not just engagement</li>
+            <li class="use-item"><div class="use-dot d-krizia"></div>Wealth Agent: suggestions on journey entry criteria and re-engagement timing based on post-Wealth Agent interaction data</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-ben"></div>Defines handoff boundary: when Monitor's "act now" classification auto-triggers Suggest vs surfaces to a human first</li>
+            <li class="use-item"><div class="use-dot d-ben"></div>Builds and maintains the agent; owns the prompt library encoding performance context</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Brief Agent</div>
+          <div class="phase-tags"><span class="tag tag-b2">Build 2</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-clara"></div>Receives AI-generated change brief — what needs to change, why, what success looks like — to approve or amend before Draft Agent begins</li>
+            <li class="use-item"><div class="use-dot d-clara"></div>Owns sign-off on all Day 0–90 briefs</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-krizia"></div>Reviews and signs off briefs for Loyalty tiers and Wealth Agent — the human gate where strategy is directed, not just executed</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-ben"></div>Builds brief template structure and output format — must be machine-readable enough for Draft Agent to consume without ambiguity</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Draft Agent</div>
+          <div class="phase-tags"><span class="tag tag-b2">Build 2</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-clara"></div>Receives AI-written copy built into the approved Braze template — Milly QAs rather than builds from scratch</li>
+            <li class="use-item"><div class="use-dot d-clara"></div>Reviews draft output for brand and strategic fit before compliance</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-krizia"></div>Wealth Agent: must be configured with tone guardrails so content feels like financial guidance, not a marketing campaign — Krizia defines these</li>
+            <li class="use-item"><div class="use-dot d-krizia"></div>Loyalty tiers: ⚠ blocked on tier branding being confirmed — cannot be configured until visual identity is resolved</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-ben"></div>Builds and maintains agent — integrates with Braze REST API to populate approved templates</li>
+            <li class="use-item"><div class="use-dot d-ben"></div>Owns Braze MCP integration enabling direct Canvas write (Phase 2)</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">CRM QA Agent</div>
+          <div class="phase-tags"><span class="tag tag-b1">Build 1 spec</span><span class="tag tag-b2">Build 2 live</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-clara"></div>Day 0–90 drafts pass through before compliance — catches link errors, personalisation token failures, suppression list issues, brand keyword flags</li>
+            <li class="use-item"><div class="use-dot d-clara"></div>Target: 90% of changes reach compliance without a QA amendment</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-krizia"></div>Same pipeline for Loyalty tiers and Wealth Agent — catches financial promotion issues before they reach Compliance</li>
+            <li class="use-item"><div class="use-dot d-krizia"></div>Wealth Agent QA ruleset needs Krizia's input: what constitutes financial guidance vs financial promotion?</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-ben"></div>Owns end-to-end build — spec in Build 1, live in Build 2</li>
+            <li class="use-item"><div class="use-dot d-ben"></div>Codifies the compliance and brand ruleset with Tom Kingston / David Brookes / Ben Whitty</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="oq-section">
+    <div class="oq-header">Open questions — CRM</div>
+    <div class="oq-list">
+      <div class="oq-item"><div class="oq-num">1</div>Who confirms Loyalty tiers branding, and by when? This is the single most upstream blocker for Krizia's agent configuration.</div>
+      <div class="oq-item"><div class="oq-num">2</div>Has Krizia been formally included in Monitor Agent scoping alongside Ben and Clara? Her flows have fundamentally different signal types.</div>
+      <div class="oq-item"><div class="oq-num">3</div>Who defines the Wealth Agent tone guardrails for the content agents? Krizia is the logical owner — has this been scoped as a Build 1 deliverable?</div>
+      <div class="oq-item"><div class="oq-num">4</div>What is the Monitor → Suggest handoff boundary? Does "act now" auto-trigger Suggest, or does a human decide whether to invoke it?</div>
+      <div class="oq-item"><div class="oq-num">5</div>Is the Braze-to-Databricks Currents export live? Ben to confirm with Mike Kondrashyn — determines whether Phase 1 Monitor Agent runs on Braze-only data.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ GROWTH ═══════════════════════════════ -->
+<div id="growth" class="panel">
+  <div class="panel-header">
+    <div>
+      <div class="panel-title">Growth — narrowed to two channels</div>
+      <div class="panel-desc">Meta and referrals are the active channels. AI takes on creative production and offer optimisation. TV, rates, and other channels are paused or hold — no AI agent scoped for those.</div>
+    </div>
+    <div class="panel-count"><strong>4</strong>agents in scope</div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot d-justin"></div>Justin — Growth Lead / rates</div>
+    <div class="legend-item"><div class="legend-dot d-helena"></div>Helena Polomcic — Referrals &amp; Meta</div>
+    <div class="legend-item"><div class="legend-dot d-shared"></div>Craig — Meta creative</div>
+    <div class="legend-item"><div class="legend-dot d-tom"></div>SL / Jen — TV</div>
+  </div>
+
+  <table class="agent-table">
+    <thead>
+      <tr class="col-header">
+        <th style="width:170px">Agent</th>
+        <th>Owner &amp; scope</th>
+        <th>What the AI does</th>
+        <th>What the human does</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-header"><td colspan="4">Active AI agents</td></tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Meta Creative AI</div>
+          <div class="phase-tags"><span class="tag tag-b1">Build 1</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>Owners: Craig / Helena Polomcic</li>
+            <li class="use-item"><div class="use-dot d-shared"></div>Primary acquisition channel — AI takes on creative production for ad variants across formats</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>Generates ad copy variants and creative concepts trained on brand docs and past winners</li>
+            <li class="use-item"><div class="use-dot d-shared"></div>Produces multiple format and audience variants per brief</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>Reviews, selects, and approves creative set before Meta campaign manager</li>
+            <li class="use-item"><div class="use-dot d-shared"></div>Brand judgement and final creative sign-off stays human</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Growth QA AI</div>
+          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-justin"></div>Owner: Justin</li>
+            <li class="use-item"><div class="use-dot d-justin"></div>QA across all growth activity — ads, rate communications, referral offer copy</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-justin"></div>Checks growth content for compliance, brand accuracy, regulatory claims (rate claims are a specific risk), and product logic</li>
+            <li class="use-item"><div class="use-dot d-justin"></div>Generates QA report with severity weighting; drafts amends</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-justin"></div>Human compliance sign-off required before any rate claim goes live — non-negotiable</li>
+            <li class="use-item"><div class="use-dot d-justin"></div>Justin reviews QA report and decides on amends</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Referrals AI Agent</div>
+          <div class="phase-tags"><span class="tag tag-b2">Build 2</span><span class="tag tag-live">Live</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-helena"></div>Owner: Helena Polomcic</li>
+            <li class="use-item"><div class="use-dot d-helena"></div>Single offer via rewards hub in Build 1/2; full end-to-end new offers via AI agent at Live phase</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-helena"></div>Build 2: optimises a single referral offer — personalisation, timing, channel targeting</li>
+            <li class="use-item"><div class="use-dot d-helena"></div>Live: creates new referral offers end-to-end, including copy, mechanics, and channel selection</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-helena"></div>Human approval gate before each offer goes live — always</li>
+            <li class="use-item"><div class="use-dot d-helena"></div>Helena owns the referral strategy and sets the offer parameters the agent works within</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Website Optimisation AI</div>
+          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>Owner: Louis</li>
+            <li class="use-item"><div class="use-dot d-shared"></div>AI-first optimisations to the website — conversion, copy, and acquisition signal feedback</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>Generates copy variants and CTA recommendations based on acquisition signal data</li>
+            <li class="use-item"><div class="use-dot d-shared"></div>Surfaces A/B test hypotheses based on performance patterns</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>Human approves all changes — no autonomous website edits</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="section-header"><td colspan="4">No active AI agent — human-led or paused</td></tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">TV Ads</div>
+          <div class="phase-tags"><span class="tag tag-none">No agent</span></div>
+        </td>
+        <td colspan="3">
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-tom"></div>Owner: SL / Jen. Live September. Human-led production throughout. Ideas &amp; Copy AI (Jen) may contribute to copy direction but TV creative production remains fully human.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Rates</div>
+          <div class="phase-tags"><span class="tag tag-none">Hold — no agent</span></div>
+        </td>
+        <td colspan="3">
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-justin"></div>Owner: Justin. Acquisition rate and underlying loyalty rates held for H2 — no AI agent required. Growth QA AI covers rate claims in comms as a check function, but no AI is setting or recommending rates.</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="oq-section">
+    <div class="oq-header">Open questions — Growth</div>
+    <div class="oq-list">
+      <div class="oq-item"><div class="oq-num">1</div>Has the Growth QA AI scope been formally defined — what exactly does "ads, rate, etc" cover? Does it include TV scripts once that goes live in September?</div>
+      <div class="oq-item"><div class="oq-num">2</div>Who is accountable for ensuring Ideas &amp; Copy AI is correctly configured for Meta ad formats specifically? Jen owns the agent but the channel brief needs to come from Craig / Helena.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ BRAND ═══════════════════════════════ -->
+<div id="brand" class="panel">
+  <div class="panel-header">
+    <div>
+      <div class="panel-title">Brand &amp; Content — production rebuilt in Claude</div>
+      <div class="panel-desc">Three agents in sequence: Ideas &amp; Copy AI → Design AI → Content QA AI. Serves all three pillars. Compliance sign-off stays human throughout.</div>
+    </div>
+    <div class="panel-count"><strong>3</strong>agents in scope</div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot d-jen"></div>Jen Walker — Ideas &amp; Copy AI</div>
+    <div class="legend-item"><div class="legend-dot d-eathan"></div>Eathan Aktion — Design AI</div>
+    <div class="legend-item"><div class="legend-dot d-tom"></div>Tom / SL / Stephen — Content QA AI &amp; docs</div>
+    <div class="legend-item"><div class="legend-dot d-shared"></div>Tom / Adam / Stephen / SL — product comms &amp; social</div>
+  </div>
+
+  <table class="agent-table">
+    <thead>
+      <tr class="col-header">
+        <th style="width:170px">Agent</th>
+        <th>Owner &amp; scope</th>
+        <th>What the AI does</th>
+        <th>What the human does</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-header"><td colspan="4">Content production pipeline — ideas &amp; copy → design → QA</td></tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Ideas &amp; Copy AI</div>
+          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-jen"></div>Owner: Jen Walker</li>
+            <li class="use-item"><div class="use-dot d-jen"></div>Most load-bearing agent in the map — serves CRM flows (Clara / Krizia), Meta ads (Craig / Helena), newsletter (Tom), and all BAU content</li>
+            <li class="use-item"><div class="use-dot d-jen"></div>Trained per channel on brand docs, audience definitions, and past winners</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-jen"></div>Generates first-draft concepts and copy across all channels: subject lines, body copy, ad scripts, push notifications, IAM, content cards</li>
+            <li class="use-item"><div class="use-dot d-jen"></div>Produces multiple variants per brief for A/B hypothesis testing</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-jen"></div>Strategy lead per channel reviews, selects, refines, and approves the set before it enters Design AI or goes to compliance</li>
+            <li class="use-item"><div class="use-dot d-jen"></div>Jen owns the agent configuration and prompt library — each channel lead supplies the brief and audience definition</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Design AI</div>
+          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-eathan"></div>Owner: Eathan Aktion</li>
+            <li class="use-item"><div class="use-dot d-eathan"></div>Takes copy from Ideas &amp; Copy AI; populates approved templates — outputs Braze-ready email, IAM, and content card creative</li>
+            <li class="use-item"><div class="use-dot d-eathan"></div>⚠ Requires pre-approved Braze templates to exist per flow before agent can produce output</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-eathan"></div>Assembles fully-built creative in the correct template — drops copy into the right fields, applies brand tokens, produces render-ready output</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-eathan"></div>Eathan / build lead reviews for visual quality, brand judgement, and Inbox Vision render accuracy</li>
+            <li class="use-item"><div class="use-dot d-krizia"></div>⚠ Loyalty tiers blocked — Design AI cannot be configured until tier branding is confirmed</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Content QA AI</div>
+          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-tom"></div>Owner: Tom (with Jen / Stephen / SL)</li>
+            <li class="use-item"><div class="use-dot d-tom"></div>QA agent for all brand content and email production — broader scope than CRM QA Agent, which is scoped to the live loop only</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-tom"></div>Checks finished creative against compliance, grammar, product logic, and brand ruleset</li>
+            <li class="use-item"><div class="use-dot d-tom"></div>Generates QA report with amends drafted; hands off to human compliance for regulatory sign-off</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-tom"></div>David Brookes / Ben Whitty retain final compliance authority — AI never approves</li>
+            <li class="use-item"><div class="use-dot d-tom"></div>⚠ Interface between Content QA AI and CRM QA Agent needs clarification — shared ruleset or separate? Ben and Tom to resolve in Build 1</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="section-header"><td colspan="4">BAU content — no dedicated agent</td></tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Fortnightly newsletter</div>
+          <div class="phase-tags"><span class="tag tag-none">No dedicated agent</span></div>
+        </td>
+        <td colspan="3">
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-tom"></div>Owner: Tom (coordinated with Alex Latham). Two sends per month — the one remaining full-base cadence. Ideas &amp; Copy AI and Design AI contribute to production, but editorial decisions stay human. No autonomous newsletter agent in H2.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Social media</div>
+          <div class="phase-tags"><span class="tag tag-none">No agent — BAU</span></div>
+        </td>
+        <td colspan="3">
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>Owner: New hire. Three posts per week, brand-aligned. Ideas &amp; Copy AI may assist with copy drafting but social scheduling and editorial judgement stays human.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">PR</div>
+          <div class="phase-tags"><span class="tag tag-none">No agent — BAU</span></div>
+        </td>
+        <td colspan="3">
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>Owner: Mike. Strategy executed — focus on Wealth Agent launch. Claude used for drafting and thinking but no autonomous PR agent in H2. Human-led throughout.</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="oq-section">
+    <div class="oq-header">Open questions — Brand &amp; Content</div>
+    <div class="oq-list">
+      <div class="oq-item"><div class="oq-num">1</div>Who is accountable for Ideas &amp; Copy AI being correctly configured per channel before Build 2? Jen owns the agent but the channel briefs and audience definitions must come from each pillar lead.</div>
+      <div class="oq-item"><div class="oq-num">2</div>What is the relationship between Content QA AI and CRM QA Agent — shared ruleset or separate? Ben and Tom to resolve in Build 1 to avoid duplication and audit trail confusion.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ INFRA ═══════════════════════════════ -->
+<div id="infra" class="panel">
+  <div class="panel-header">
+    <div>
+      <div class="panel-title">Cross-cutting infrastructure</div>
+      <div class="panel-desc">Four agents and platforms that serve the whole marketing function. These are the foundations everything else runs on. Delays here have cascading effects across all three pillars.</div>
+    </div>
+    <div class="panel-count"><strong>4</strong>agents in scope</div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot d-tom"></div>Tom — PM Agent / documentation</div>
+    <div class="legend-item"><div class="legend-dot d-toby"></div>Toby Prior — CRM AI architecture</div>
+    <div class="legend-item"><div class="legend-dot d-ben"></div>Ben Poole — data &amp; ops layer</div>
+    <div class="legend-item"><div class="legend-dot d-shared"></div>Adrian Keeling-Look — ADP platform / Head of AI</div>
+  </div>
+
+  <table class="agent-table">
+    <thead>
+      <tr class="col-header">
+        <th style="width:170px">Agent</th>
+        <th>Owner &amp; scope</th>
+        <th>How CRM uses it</th>
+        <th>How Growth &amp; Brand use it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-header"><td colspan="4">Infrastructure agents — serve the whole marketing function</td></tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Project Manager Agent</div>
+          <div class="phase-tags"><span class="tag tag-b1">Build 1</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-tom"></div>Scaffold owner: Tom</li>
+            <li class="use-item"><div class="use-dot d-ben"></div>Monday board 9996268138 automation (Ben) feeds task and status data</li>
+            <li class="use-item"><div class="use-dot d-tom"></div>Rolls out to every initiative row in the H2 plan across all three pillars</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-clara"></div>Tracks Day 0–90 (Clara), Loyalty tiers &amp; Wealth Agent (Krizia), QA AI build (Ben) — feeds Monday delivery call prep automatically</li>
+            <li class="use-item"><div class="use-dot d-tom"></div>Each lighthouse owner receives structured initiative status without manual reporting</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>Growth: Justin and Helena receive Meta creative, referrals, and website initiative status via Slack</li>
+            <li class="use-item"><div class="use-dot d-shared"></div>Brand: Jen and Eathan receive Ideas &amp; Copy AI, Design AI, and Content QA AI build progress</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">Documentation AI</div>
+          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-tom"></div>Owner: Tom</li>
+            <li class="use-item"><div class="use-dot d-tom"></div>⚠ Critical path: libraries, brand docs, audience definitions, and compliance rulesets trained into the AI surface — feeds ALL other agents</li>
+            <li class="use-item"><div class="use-dot d-tom"></div>Delays here cascade across every agent in the map</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-ben"></div>Compliance ruleset for CRM QA Agent; creative guardrails for the three flows; audience definitions per product for Ideas &amp; Copy AI</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>Growth: brand docs and rate claim rules that feed Growth QA AI; past winner library for Meta Creative AI</li>
+            <li class="use-item"><div class="use-dot d-shared"></div>Brand: master brand library and style guide that Ideas &amp; Copy AI and Design AI are trained on — iterates as flows go live</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">CRM AI Architecture</div>
+          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-toby"></div>Owner: Toby Prior</li>
+            <li class="use-item"><div class="use-dot d-ben"></div>Data &amp; ops layer: Ben Poole — Build layer: Clara Rocha</li>
+            <li class="use-item"><div class="use-dot d-toby"></div>Braze, Databricks, Monday, Google Workspace connected into one AI surface</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-toby"></div>Directly enables the Monitor → Suggest → Brief → Draft → QA loop across all three CRM flows</li>
+            <li class="use-item"><div class="use-dot d-toby"></div>Braze MCP integration (in progress) unlocks Draft Agent and Ship step</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>Growth: Braze data and product signals feed acquisition performance analysis; Referrals AI Agent depends on rewards hub data connection</li>
+            <li class="use-item"><div class="use-dot d-shared"></div>Brand: Google Workspace connector gives Ideas &amp; Copy AI real-time access to briefs, planning docs, and brand libraries</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr class="agent-row">
+        <td class="agent-label-cell">
+          <div class="agent-name">ADP Platform</div>
+          <div class="phase-tags"><span class="tag tag-none">Company-wide</span></div>
+        </td>
+        <td>
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>Owner: Adrian Keeling-Look (Head of AI) / Iain Mullan (CTO sponsor)</li>
+            <li class="use-item"><div class="use-dot d-shared"></div>Company-wide platform — all marketing AI agents are built on and governed by ADP</li>
+          </ul>
+        </td>
+        <td colspan="2">
+          <ul class="use-list">
+            <li class="use-item"><div class="use-dot d-shared"></div>All three marketing pillars operate within ADP governance — AI Usage Framework, compliance controls, and vendor management apply to every agent in this map</li>
+            <li class="use-item"><div class="use-dot d-shared"></div>Marketing's ADP lighthouse cluster: Wealth Agent (L01), Loyalty tiers (L02), Investments UI/UX (L03) — three of the four ADP lighthouses touch marketing directly</li>
+            <li class="use-item"><div class="use-dot d-shared"></div>Email validation (L04) is operational — marketing is not driving it but benefits downstream</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="oq-section">
+    <div class="oq-header">Open questions — infrastructure</div>
+    <div class="oq-list">
+      <div class="oq-item"><div class="oq-num">1</div>Is Tom's documentation work formally tracked as a Build 1 critical path dependency, or is it currently treated as a soft parallel workstream? It should be the former.</div>
+      <div class="oq-item"><div class="oq-num">2</div>What is the exact interface between the PM Agent Tom is building and the Monday board Ben owns? Alignment needed before the PM Agent goes live across all lighthouse rows.</div>
+      <div class="oq-item"><div class="oq-num">3</div>Braze-to-Databricks Currents export status — live, in progress, or not started? Ben to confirm with Mike Kondrashyn as a Build 1 action.</div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div>Chip Financial · Marketing AI Agent Map · H2 2026 · <span>Internal</span></div>
+  <div>Owner: <span>Toby Prior</span> · Head of CRM &amp; Engagement · Generated 2 June 2026</div>
+</footer>
+
+<script>
+function show(id, el) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>
