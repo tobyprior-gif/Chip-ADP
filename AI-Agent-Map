@@ -1,1043 +1,1865 @@
 <!DOCTYPE html>
-<!-- saved from url=(0065)file:///Users/tobyprior/Downloads/chip_marketing_agent_map_2.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chip Marketing — AI Agent Map H2 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-<link href="./Chip Marketing — AI Agent Map H2 2026_files/css2" rel="stylesheet">
+<title>CRM Engagement &amp; Attribution — v8 Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-:root {
-  --chip-green: #1a3d2b;
-  --chip-green-mid: #2d6045;
-  --chip-green-light: #4a9068;
-  --chip-green-pale: #e8f2ec;
-  --chip-cream: #f7f4ee;
-  --chip-cream-dark: #ede9e0;
-  --ink: #1a1a18;
-  --ink-mid: #3d3d38;
-  --ink-light: #7a7a72;
-  --ink-faint: #b8b8ae;
-  --white: #ffffff;
+  :root {
+    --bg-0: #0E1116;
+    --bg-1: #161A22;
+    --bg-2: #1E232D;
+    --bg-3: #262C38;
+    --border: #2A3140;
+    --border-strong: #3A4358;
 
-  --col-clara: #2d6045;
-  --col-krizia: #8b4513;
-  --col-ben: #1a3a5c;
-  --col-justin: #5c1a4a;
-  --col-helena: #1a4a5c;
-  --col-jen: #3a5c1a;
-  --col-eathan: #1a5c4a;
-  --col-tom: #5c4a1a;
-  --col-toby: #3a1a5c;
-  --col-shared: #4a4a42;
+    --t-1: #F2EDE3;
+    --t-2: #ADB1BC;
+    --t-3: #6A6F7C;
+    --t-4: #454953;
 
-  --tag-b1: #fff3cd;
-  --tag-b1-text: #7a5c00;
-  --tag-b2: #d4e8f0;
-  --tag-b2-text: #0a4a6e;
-  --tag-none: #ede9e0;
-  --tag-none-text: #5a5a52;
-}
+    --acc-sage: #6FAE94;
+    --acc-sage-d: #4A8770;
+    --acc-burnt: #D87544;
+    --acc-burnt-d: #B05B33;
+    --acc-blue: #6B8FB5;
+    --acc-violet: #8B7BB8;
+    --acc-rust: #B8654D;
+    --acc-cream: #D8C9A8;
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    --p-ssisa: #6B8FB5;
+    --p-cia: #6FAE94;
+    --p-psa: #D8C9A8;
+    --p-eas: #D87544;
+    --p-cisa: #8B7BB8;
+    --p-gia: #B8654D;
+    --p-smisa: #C49B6C;
+    --p-multi: #5A6F87;
+    --p-sipp: #4A5266;
 
-body {
-  font-family: 'Instrument Sans', sans-serif;
-  background: var(--chip-cream);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
+    --grid: rgba(255,255,255,0.04);
+    --tick: #6A6F7C;
+  }
 
-/* ── HEADER ── */
-.site-header {
-  background: var(--chip-green);
-  color: var(--white);
-  padding: 40px 60px 36px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 40px;
-}
-.header-left {}
-.header-eyebrow {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--chip-green-light);
-  margin-bottom: 10px;
-}
-.header-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 38px;
-  line-height: 1.1;
-  color: var(--white);
-  margin-bottom: 6px;
-}
-.header-title em {
-  font-style: italic;
-  color: #7dd4a8;
-}
-.header-sub {
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  font-family: 'DM Mono', monospace;
-}
-.header-right {
-  text-align: right;
-}
-.header-meta {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: rgba(255,255,255,0.45);
-  line-height: 1.8;
-}
-.status-badge {
-  display: inline-block;
-  background: #7dd4a8;
-  color: var(--chip-green);
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin-bottom: 10px;
-}
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg-0); color: var(--t-1);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400; font-size: 14px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
 
-/* ── NAV TABS ── */
-.nav-container {
-  background: var(--chip-green);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 0 60px;
-  display: flex;
-  gap: 0;
-  overflow-x: auto;
-}
-.nav-tab {
-  padding: 14px 20px;
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.5);
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  white-space: nowrap;
-  transition: color .2s, border-color .2s;
-  letter-spacing: .01em;
-}
-.nav-tab:hover { color: rgba(255,255,255,0.85); }
-.nav-tab.active { color: #7dd4a8; border-bottom-color: #7dd4a8; }
+  .topbar {
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, #11151C 0%, #0E1116 100%);
+    padding: 20px 36px;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  }
+  .topbar h1 {
+    font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 22px;
+    margin: 0; letter-spacing: -0.01em;
+  }
+  .topbar h1 .em { color: var(--acc-cream); font-style: italic; font-weight: 300; }
+  .topbar .meta {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--t-3);
+    text-transform: uppercase; letter-spacing: 0.08em; text-align: right; line-height: 1.7;
+  }
+  .topbar .meta .live::before {
+    content: '●'; color: var(--acc-sage); margin-right: 6px; animation: pulse 2.4s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
 
-/* ── MAIN CONTENT ── */
-.main { padding: 40px 60px 80px; max-width: 1400px; }
+  .tabs {
+    display: flex; gap: 0; padding: 0 36px;
+    background: var(--bg-0); border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 10;
+  }
+  .tab {
+    padding: 16px 22px; cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--t-3); border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s; user-select: none;
+  }
+  .tab:hover { color: var(--t-1); }
+  .tab.active { color: var(--t-1); border-bottom-color: var(--acc-cream); }
+  .tab .idx { color: var(--t-4); margin-right: 8px; }
+  .tab.active .idx { color: var(--acc-cream); }
 
-.panel { display: none; }
-.panel.active { display: block; }
+  .month-filter {
+    padding: 18px 36px; background: var(--bg-1);
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 8px; align-items: center;
+  }
+  .month-filter .label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--t-3); margin-right: 12px;
+  }
+  .month-chip {
+    padding: 6px 14px; border: 1px solid var(--border); background: transparent;
+    color: var(--t-2); font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.15s;
+  }
+  .month-chip:hover { color: var(--t-1); border-color: var(--border-strong); }
+  .month-chip.active {
+    background: var(--acc-cream); color: var(--bg-0); border-color: var(--acc-cream);
+  }
+  .month-chip.partial::after { content: ' †'; color: var(--acc-burnt); }
+  .month-chip.active.partial::after { color: var(--bg-0); }
 
-/* ── PANEL HEADER ── */
-.panel-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 40px;
-  margin-bottom: 28px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--chip-cream-dark);
-}
-.panel-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 26px;
-  color: var(--chip-green);
-  margin-bottom: 4px;
-}
-.panel-desc {
-  font-size: 13px;
-  color: var(--ink-light);
-  max-width: 520px;
-  line-height: 1.6;
-}
-.panel-count {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--ink-faint);
-  text-align: right;
-  white-space: nowrap;
-}
-.panel-count strong {
-  display: block;
-  font-size: 28px;
-  color: var(--chip-green);
-  font-weight: 500;
-  line-height: 1;
-  margin-bottom: 2px;
-}
+  .panel {
+    display: none; padding: 32px 36px 80px;
+    animation: fadeIn 0.3s ease-out;
+  }
+  .panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-/* ── LEGEND ── */
-.legend {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
-}
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  color: var(--ink-mid);
-  font-family: 'DM Mono', monospace;
-}
-.legend-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+  .methodology-note {
+    background: linear-gradient(90deg, rgba(216,201,168,0.05) 0%, rgba(216,201,168,0.01) 100%);
+    border-left: 2px solid var(--acc-cream);
+    padding: 14px 22px;
+    margin-bottom: 28px;
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .methodology-note .tag {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--acc-cream); padding-top: 2px; flex-shrink: 0;
+  }
+  .methodology-note .body {
+    font-size: 13px; color: var(--t-2); line-height: 1.6;
+  }
+  .methodology-note .body strong { color: var(--t-1); font-weight: 500; }
 
-/* ── TABLE ── */
-.agent-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid var(--chip-cream-dark);
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--white);
-  margin-bottom: 32px;
-}
+  /* ── KPI CARDS ────────────────────────────────────── */
+  .kpi-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border); margin-bottom: 32px;
+  }
+  .kpi { background: var(--bg-1); padding: 24px 28px; position: relative; }
+  .kpi .eyebrow {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--t-3); margin-bottom: 14px;
+  }
+  .kpi .number {
+    font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 40px;
+    color: var(--t-1); letter-spacing: -0.02em; line-height: 1; margin-bottom: 10px;
+  }
+  .kpi .number.compact { font-size: 28px; }
+  .kpi .number .unit { font-size: 18px; color: var(--t-3); margin-left: 4px; }
+  .kpi .compare {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--t-2);
+    display: flex; align-items: baseline; gap: 8px;
+  }
+  .kpi .delta { font-weight: 500; }
+  .kpi .delta.up { color: var(--acc-sage); }
+  .kpi .delta.down { color: var(--acc-burnt); }
+  .kpi .delta.flat { color: var(--t-3); }
+  .kpi .sub {
+    font-size: 11px; color: var(--t-3); margin-top: 6px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
 
-.section-header td {
-  background: var(--chip-green);
-  color: var(--white);
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 8px 16px;
-  font-weight: 500;
-}
+  .section { margin-bottom: 40px; }
+  .section h2 {
+    font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 22px;
+    margin: 0 0 6px; color: var(--t-1); letter-spacing: -0.01em;
+  }
+  .section .subtitle {
+    font-family: 'IBM Plex Sans', sans-serif; font-size: 13px;
+    color: var(--t-3); margin-bottom: 22px; max-width: 720px;
+  }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
-.col-header th {
-  background: var(--chip-green-pale);
-  padding: 12px 16px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--chip-green);
-  text-align: left;
-  border-bottom: 1px solid var(--chip-cream-dark);
-  letter-spacing: .02em;
-}
-.col-header th small {
-  display: block;
-  font-weight: 400;
-  font-size: 11px;
-  color: var(--ink-light);
-  margin-top: 1px;
-}
+  .card {
+    background: var(--bg-1); border: 1px solid var(--border);
+    padding: 22px 26px;
+  }
+  .card h3 {
+    font-family: 'IBM Plex Sans', sans-serif; font-weight: 500; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--t-2); margin: 0 0 6px;
+  }
+  .card .h3-sub {
+    font-family: 'IBM Plex Sans', sans-serif; font-size: 12px;
+    color: var(--t-3); margin-bottom: 18px;
+  }
+  .chart-wrap { position: relative; height: 280px; }
+  .chart-wrap.tall { height: 340px; }
+  .chart-wrap.short { height: 220px; }
+  .chart-wrap.flex { height: 100%; min-height: 220px; }
 
-.agent-row td {
-  padding: 14px 16px;
-  vertical-align: top;
-  border-bottom: 1px solid var(--chip-cream-dark);
-  border-right: 1px solid var(--chip-cream-dark);
-}
-.agent-row td:last-child { border-right: none; }
-.agent-row:last-child td { border-bottom: none; }
-.agent-row:hover { background: #fafaf7; }
+  .empty-state {
+    height: 100%; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px;
+  }
+  .empty-state .icon {
+    font-family: 'IBM Plex Mono', monospace; font-size: 24px; color: var(--t-4);
+  }
+  .empty-state .msg {
+    font-family: 'IBM Plex Sans', sans-serif; font-size: 12.5px;
+    color: var(--t-3); text-align: center; max-width: 280px;
+  }
 
-.agent-label-cell {
-  background: #fafaf7;
-  min-width: 160px;
-  max-width: 180px;
-}
-.agent-name {
-  font-weight: 600;
-  font-size: 12.5px;
-  color: var(--ink);
-  margin-bottom: 5px;
-  line-height: 1.3;
-}
-.phase-tags { display: flex; flex-direction: column; gap: 3px; }
+  /* ── TABLES ───────────────────────────────────────── */
+  table.dt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  table.dt thead th {
+    text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--t-3);
+    padding: 10px 12px; border-bottom: 1px solid var(--border-strong);
+    background: var(--bg-1); position: sticky; top: 0;
+  }
+  table.dt thead th.r { text-align: right; }
+  table.dt tbody td {
+    padding: 11px 12px; border-bottom: 1px solid var(--border); color: var(--t-1);
+  }
+  table.dt tbody td.r { text-align: right; font-family: 'IBM Plex Mono', monospace; }
+  table.dt tbody td.dim { color: var(--t-2); }
+  table.dt tbody tr:hover { background: var(--bg-2); }
 
-/* ── TAGS ── */
-.tag {
-  display: inline-block;
-  font-family: 'DM Mono', monospace;
-  font-size: 9.5px;
-  padding: 2px 7px;
-  border-radius: 20px;
-  font-weight: 500;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  width: fit-content;
-}
-.tag-b1 { background: var(--tag-b1); color: var(--tag-b1-text); }
-.tag-b2 { background: var(--tag-b2); color: var(--tag-b2-text); }
-.tag-none { background: var(--tag-none); color: var(--tag-none-text); }
-.tag-live { background: #d4f0e8; color: #0a5c38; }
+  .cat-badge {
+    display: inline-block; padding: 2px 8px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    background: var(--bg-3); color: var(--t-2); border-radius: 2px;
+  }
+  .cat-badge.AC { background: rgba(111,174,148,0.15); color: var(--acc-sage); }
+  .cat-badge.PR { background: rgba(216,201,168,0.12); color: var(--acc-cream); }
+  .cat-badge.RT { background: rgba(107,143,181,0.15); color: var(--acc-blue); }
+  .cat-badge.GR { background: rgba(139,123,184,0.15); color: var(--acc-violet); }
+  .cat-badge.AB { background: rgba(184,101,77,0.15); color: var(--acc-rust); }
+  .cat-badge.SO { background: rgba(216,117,68,0.12); color: var(--acc-burnt); }
+  .cat-badge.OT { background: var(--bg-3); color: var(--t-2); }
 
-/* ── USE ITEMS ── */
-.use-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-.use-item {
-  display: flex;
-  gap: 7px;
-  align-items: flex-start;
-  font-size: 12.5px;
-  line-height: 1.5;
-  color: var(--ink-mid);
-}
-.use-dot {
-  flex-shrink: 0;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  margin-top: 5px;
-}
+  .type-badge {
+    display: inline-block; padding: 1px 6px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 9.5px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    border: 1px solid var(--border-strong); border-radius: 2px;
+    color: var(--t-2);
+  }
+  .type-badge.auto { border-color: var(--acc-sage); color: var(--acc-sage); }
+  .type-badge.solus { border-color: var(--acc-burnt); color: var(--acc-burnt); }
 
-/* owner dot colours */
-.d-toby   { background: #3a1a5c; }
-.d-clara  { background: var(--col-clara); }
-.d-krizia { background: var(--col-krizia); }
-.d-ben    { background: var(--col-ben); }
-.d-justin { background: var(--col-justin); }
-.d-helena { background: var(--col-helena); }
-.d-jen    { background: var(--col-jen); }
-.d-eathan { background: var(--col-eathan); }
-.d-tom    { background: var(--col-tom); }
-.d-shared { background: var(--col-shared); }
+  /* ── TOP PERFORMERS (Communications tab) ──────────── */
+  .top-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  .top-list { padding: 22px 0; }
+  .top-list .item {
+    display: grid; grid-template-columns: 30px 1fr auto;
+    align-items: center; gap: 12px;
+    padding: 10px 26px;
+    border-bottom: 1px solid var(--border);
+  }
+  .top-list .item:last-child { border-bottom: none; }
+  .top-list .rank {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+    color: var(--t-3); font-weight: 500;
+  }
+  .top-list .name {
+    font-size: 12.5px; color: var(--t-1);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .top-list .name .sub {
+    display: block; font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--t-3); margin-top: 3px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .top-list .value {
+    font-family: 'IBM Plex Serif', serif; font-size: 22px;
+    color: var(--acc-cream); white-space: nowrap;
+  }
+  .top-list .value .vsub {
+    display: block; font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; color: var(--t-3); margin-top: 2px;
+    text-transform: uppercase; letter-spacing: 0.06em; text-align: right;
+  }
 
-/* ── OPEN QUESTIONS ── */
-.oq-section {
-  margin-top: 36px;
-  border: 1px solid #f0c05a;
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--white);
-}
-.oq-header {
-  background: #fdf3d4;
-  padding: 12px 20px;
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: #7a5c00;
-  font-weight: 500;
-  border-bottom: 1px solid #f0c05a;
-}
-.oq-list { padding: 16px 20px; display: flex; flex-direction: column; gap: 10px; }
-.oq-item {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  font-size: 13px;
-  color: var(--ink-mid);
-  line-height: 1.5;
-}
-.oq-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: #f0c05a;
-  font-weight: 500;
-  background: var(--chip-green);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
+  /* ── KEY FINDINGS (EDITORIAL) ─────────────────────── */
+  .editorial { max-width: 920px; }
+  .editorial .lede {
+    font-family: 'IBM Plex Serif', serif; font-weight: 300; font-size: 19px;
+    line-height: 1.55; color: var(--t-1); margin: 0 0 32px;
+    padding-bottom: 24px; border-bottom: 1px solid var(--border);
+  }
+  .editorial .lede .em { font-style: italic; color: var(--acc-cream); }
+  .editorial article { margin-bottom: 40px; }
+  .editorial article h3 {
+    font-family: 'IBM Plex Serif', serif; font-weight: 400; font-size: 22px;
+    margin: 0 0 6px; letter-spacing: -0.01em;
+  }
+  .editorial article .kicker {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--acc-burnt); margin-bottom: 8px;
+  }
+  .editorial article .kicker.steady { color: var(--acc-sage); }
+  .editorial article .kicker.info { color: var(--acc-blue); }
+  .editorial article .kicker.struct { color: var(--acc-violet); }
+  .editorial .section-divider {
+    margin: 48px 0 28px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-strong);
+    display: flex; align-items: baseline; gap: 16px;
+  }
+  .editorial .section-divider .title {
+    font-family: 'IBM Plex Serif', serif;
+    font-weight: 400; font-size: 26px;
+    color: var(--t-1); letter-spacing: -0.01em;
+  }
+  .editorial .section-divider .descriptor {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--t-3);
+  }
+  .editorial .bl-note {
+    background: var(--bg-1); border: 1px solid var(--border);
+    padding: 12px 18px; margin: 0 0 18px;
+    font-size: 13px; color: var(--t-2); line-height: 1.6;
+    border-left: 2px solid var(--acc-cream);
+  }
+  .editorial .bl-note strong { color: var(--t-1); }
+  .editorial article p {
+    font-size: 14.5px; line-height: 1.7; color: var(--t-2); margin: 0 0 14px;
+  }
+  .editorial article p strong { color: var(--t-1); font-weight: 500; }
+  .pullquote {
+    margin: 20px 0; padding: 16px 22px; border-left: 2px solid var(--acc-cream);
+    background: var(--bg-1); font-family: 'IBM Plex Serif', serif;
+    font-style: italic; font-size: 15px; color: var(--t-1); line-height: 1.55;
+  }
+  .data-strip {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border); margin: 20px 0;
+  }
+  .data-strip .cell { background: var(--bg-1); padding: 12px 14px; }
+  .data-strip .cell .lbl {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--t-3); margin-bottom: 4px;
+  }
+  .data-strip .cell .val {
+    font-family: 'IBM Plex Mono', monospace; font-size: 14px;
+    color: var(--t-1); font-weight: 500;
+  }
+  .data-strip .cell .val.alert { color: var(--acc-burnt); }
+  .data-strip .cell .val.good { color: var(--acc-sage); }
 
-/* ── FOOTER ── */
-footer {
-  background: var(--chip-green);
-  color: rgba(255,255,255,0.4);
-  padding: 24px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-}
-footer span { color: #7dd4a8; }
+  .footnote {
+    margin-top: 60px; padding: 22px 26px;
+    background: var(--bg-1); border: 1px solid var(--border);
+    border-left: 2px solid var(--acc-cream);
+  }
+  .footnote h4 {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--acc-cream); margin: 0 0 10px;
+  }
+  .footnote p {
+    margin: 0 0 8px; font-size: 12.5px; color: var(--t-2); line-height: 1.6;
+  }
+  .footnote ul { padding-left: 18px; margin: 8px 0 0; }
+  .footnote li { font-size: 12.5px; color: var(--t-2); line-height: 1.6; margin-bottom: 4px; }
 
-@media (max-width: 900px) {
-  .site-header, .nav-container, .main, footer { padding-left: 20px; padding-right: 20px; }
-  .header-right { display: none; }
-  .site-header { flex-direction: column; align-items: flex-start; }
-}
+  .toolbar {
+    display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;
+  }
+  .pill-btn {
+    padding: 5px 12px; border: 1px solid var(--border); background: transparent;
+    color: var(--t-2); font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer;
+  }
+  .pill-btn:hover { color: var(--t-1); }
+  .pill-btn.active {
+    background: var(--bg-3); color: var(--t-1); border-color: var(--border-strong);
+  }
+  input.search-box {
+    background: var(--bg-2); border: 1px solid var(--border); color: var(--t-1);
+    padding: 7px 12px; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px;
+    min-width: 240px; outline: none;
+  }
+  input.search-box:focus { border-color: var(--border-strong); }
+
+  .table-scroll {
+    max-height: 600px; overflow-y: auto; border: 1px solid var(--border);
+  }
+  .table-scroll::-webkit-scrollbar { width: 10px; }
+  .table-scroll::-webkit-scrollbar-track { background: var(--bg-1); }
+  .table-scroll::-webkit-scrollbar-thumb { background: var(--bg-3); }
+
+  @media (max-width: 1100px) {
+    .grid-2, .grid-3, .top-grid { grid-template-columns: 1fr; }
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    .data-strip { grid-template-columns: repeat(2, 1fr); }
+  }
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-left">
-    <div class="header-eyebrow">Chip Financial · Internal</div>
-    <h1 class="header-title">Marketing AI<br><em>Agent Map</em></h1>
-    <div class="header-sub">H2 2026 · All three pillars · ADP lighthouse view</div>
-  </div>
-  <div class="header-right">
-    <div class="status-badge">Live document</div>
-    <div class="header-meta">
-      Owner: Toby Prior<br>
-      Head of CRM &amp; Engagement<br>
-      Build 1 from 2 June 2026
-    </div>
+<header class="topbar">
+  <h1>CRM Engagement &amp; Attribution<span class="em"> · </span><span class="em">prototype v8</span></h1>
+  <div class="meta">
+    <div class="live">Source: MKTG CRM Engagement Dashboard</div>
+    <div>Jan – Jun 2026 · Jun closed month</div>
   </div>
 </header>
 
-<nav class="nav-container">
-  <div class="nav-tab active" onclick="show(&#39;crm&#39;, this)">Pillar 01 · CRM</div>
-  <div class="nav-tab" onclick="show(&#39;growth&#39;, this)">Pillar 02 · Growth</div>
-  <div class="nav-tab" onclick="show(&#39;brand&#39;, this)">Pillar 03 · Brand &amp; Content</div>
-  <div class="nav-tab" onclick="show(&#39;infra&#39;, this)">Cross-cutting infrastructure</div>
+<nav class="tabs">
+  <div class="tab active" data-tab="summary"><span class="idx">01</span>Summary</div>
+  <div class="tab" data-tab="comms"><span class="idx">02</span>Communications</div>
+  <div class="tab" data-tab="stage"><span class="idx">03</span>Lifecycle &amp; Product</div>
+  <div class="tab" data-tab="findings"><span class="idx">04</span>Key Findings</div>
 </nav>
 
-<main class="main">
-
-<!-- ═══════════════════════════════ CRM ═══════════════════════════════ -->
-<div id="crm" class="panel active">
-  <div class="panel-header">
-    <div>
-      <div class="panel-title">CRM — rebuilt on AI</div>
-      <div class="panel-desc">The AI loop — monitor → suggest → brief → draft → comply → ship — runs across all three flows. Humans set strategy and sign off. AI does the production work.</div>
-    </div>
-    <div class="panel-count"><strong>5</strong>agents in scope</div>
-  </div>
-
-  <div class="legend">
-    <div class="legend-item"><div class="legend-dot d-toby"></div>Toby Prior</div>
-    <div class="legend-item"><div class="legend-dot d-clara"></div>Clara Rocha — Day 0–90</div>
-    <div class="legend-item"><div class="legend-dot d-krizia"></div>Krizia Cureg — Loyalty tiers &amp; Wealth Agent</div>
-    <div class="legend-item"><div class="legend-dot d-ben"></div>Ben Poole — CRM Ops &amp; architecture</div>
-  </div>
-
-  <table class="agent-table">
-    <thead>
-      <tr class="col-header">
-        <th style="width:170px">Agent</th>
-        <th>Clara Rocha<small>Day 0–90 activation flow</small></th>
-        <th>Krizia Cureg<small>Loyalty tiers &amp; Wealth Agent</small></th>
-        <th>Ben Poole<small>CRM Ops &amp; architecture</small></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="section-header"><td colspan="4">AI loop agents</td></tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Monitor Agent</div>
-          <div class="phase-tags"><span class="tag tag-b2">Build 2</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-clara"></div>Daily briefing on Day 0–90 Canvas step performance — opens, clicks, drop-offs at individual message level</li>
-            <li class="use-item"><div class="use-dot d-clara"></div>Flags which emails are working vs drifting before manual review is needed</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-krizia"></div>Loyalty tiers: monitors balance-threshold trigger accuracy and tier upgrade conversion rates — not just message engagement</li>
-            <li class="use-item"><div class="use-dot d-krizia"></div>Wealth Agent: tracks awareness journey in and re-engagement leg separately; monitors handoff signal between the two legs</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-ben"></div>Owns build — defines drift thresholds, signal classification logic, and baseline-setting approach for all three flows</li>
-            <li class="use-item"><div class="use-dot d-ben"></div>Manages Braze data feed; owns Databricks integration (Phase 2, dependency: Mike Kondrashyn)</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Suggest Agent</div>
-          <div class="phase-tags"><span class="tag tag-b2">Build 2</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-clara"></div>Receives specific recommendations when a message drifts — e.g. "Email 3 subject line failing; here are 3 alternatives based on past performance"</li>
-            <li class="use-item"><div class="use-dot d-clara"></div>Interrogates the AI's logic and decides whether to act</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-krizia"></div>Loyalty tiers: suggestions on tier threshold calibration, message timing, rate-boost framing — driven by balance signals not just engagement</li>
-            <li class="use-item"><div class="use-dot d-krizia"></div>Wealth Agent: suggestions on journey entry criteria and re-engagement timing based on post-Wealth Agent interaction data</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-ben"></div>Defines handoff boundary: when Monitor's "act now" classification auto-triggers Suggest vs surfaces to a human first</li>
-            <li class="use-item"><div class="use-dot d-ben"></div>Builds and maintains the agent; owns the prompt library encoding performance context</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Brief Agent</div>
-          <div class="phase-tags"><span class="tag tag-b2">Build 2</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-clara"></div>Receives AI-generated change brief — what needs to change, why, what success looks like — to approve or amend before Draft Agent begins</li>
-            <li class="use-item"><div class="use-dot d-clara"></div>Owns sign-off on all Day 0–90 briefs</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-krizia"></div>Reviews and signs off briefs for Loyalty tiers and Wealth Agent — the human gate where strategy is directed, not just executed</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-ben"></div>Builds brief template structure and output format — must be machine-readable enough for Draft Agent to consume without ambiguity</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Draft Agent</div>
-          <div class="phase-tags"><span class="tag tag-b2">Build 2</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-clara"></div>Receives AI-written copy built into the approved Braze template — Milly QAs rather than builds from scratch</li>
-            <li class="use-item"><div class="use-dot d-clara"></div>Reviews draft output for brand and strategic fit before compliance</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-krizia"></div>Wealth Agent: must be configured with tone guardrails so content feels like financial guidance, not a marketing campaign — Krizia defines these</li>
-            <li class="use-item"><div class="use-dot d-krizia"></div>Loyalty tiers: ⚠ blocked on tier branding being confirmed — cannot be configured until visual identity is resolved</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-ben"></div>Builds and maintains agent — integrates with Braze REST API to populate approved templates</li>
-            <li class="use-item"><div class="use-dot d-ben"></div>Owns Braze MCP integration enabling direct Canvas write (Phase 2)</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">CRM QA Agent</div>
-          <div class="phase-tags"><span class="tag tag-b1">Build 1 spec</span><span class="tag tag-b2">Build 2 live</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-clara"></div>Day 0–90 drafts pass through before compliance — catches link errors, personalisation token failures, suppression list issues, brand keyword flags</li>
-            <li class="use-item"><div class="use-dot d-clara"></div>Target: 90% of changes reach compliance without a QA amendment</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-krizia"></div>Same pipeline for Loyalty tiers and Wealth Agent — catches financial promotion issues before they reach Compliance</li>
-            <li class="use-item"><div class="use-dot d-krizia"></div>Wealth Agent QA ruleset needs Krizia's input: what constitutes financial guidance vs financial promotion?</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-ben"></div>Owns end-to-end build — spec in Build 1, live in Build 2</li>
-            <li class="use-item"><div class="use-dot d-ben"></div>Codifies the compliance and brand ruleset with Tom Kingston / David Brookes / Ben Whitty</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="oq-section">
-    <div class="oq-header">Open questions — CRM</div>
-    <div class="oq-list">
-      <div class="oq-item"><div class="oq-num">1</div>Who confirms Loyalty tiers branding, and by when? This is the single most upstream blocker for Krizia's agent configuration.</div>
-      <div class="oq-item"><div class="oq-num">2</div>Has Krizia been formally included in Monitor Agent scoping alongside Ben and Clara? Her flows have fundamentally different signal types.</div>
-      <div class="oq-item"><div class="oq-num">3</div>Who defines the Wealth Agent tone guardrails for the content agents? Krizia is the logical owner — has this been scoped as a Build 1 deliverable?</div>
-      <div class="oq-item"><div class="oq-num">4</div>What is the Monitor → Suggest handoff boundary? Does "act now" auto-trigger Suggest, or does a human decide whether to invoke it?</div>
-      <div class="oq-item"><div class="oq-num">5</div>Is the Braze-to-Databricks Currents export live? Ben to confirm with Mike Kondrashyn — determines whether Phase 1 Monitor Agent runs on Braze-only data.</div>
-    </div>
-  </div>
+<div class="month-filter" id="monthFilter">
+  <span class="label">Month</span>
+  <button class="month-chip" data-month="jan">Jan</button>
+  <button class="month-chip" data-month="feb">Feb</button>
+  <button class="month-chip" data-month="mar">Mar</button>
+  <button class="month-chip" data-month="apr">Apr</button>
+  <button class="month-chip" data-month="may">May</button>
+  <button class="month-chip active" data-month="jun">Jun</button>
 </div>
 
-<!-- ═══════════════════════════════ GROWTH ═══════════════════════════════ -->
-<div id="growth" class="panel">
-  <div class="panel-header">
-    <div>
-      <div class="panel-title">Growth — narrowed to two channels</div>
-      <div class="panel-desc">Meta and referrals are the active channels. AI takes on creative production and offer optimisation. TV, rates, and other channels are paused or hold — no AI agent scoped for those.</div>
-    </div>
-    <div class="panel-count"><strong>4</strong>agents in scope</div>
-  </div>
-
-  <div class="legend">
-    <div class="legend-item"><div class="legend-dot d-justin"></div>Justin — Growth Lead / rates</div>
-    <div class="legend-item"><div class="legend-dot d-helena"></div>Helena Polomcic — Referrals &amp; Meta</div>
-    <div class="legend-item"><div class="legend-dot d-shared"></div>Craig — Meta creative</div>
-    <div class="legend-item"><div class="legend-dot d-tom"></div>SL / Jen — TV</div>
-  </div>
-
-  <table class="agent-table">
-    <thead>
-      <tr class="col-header">
-        <th style="width:170px">Agent</th>
-        <th>Owner &amp; scope</th>
-        <th>What the AI does</th>
-        <th>What the human does</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="section-header"><td colspan="4">Active AI agents</td></tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Meta Creative AI</div>
-          <div class="phase-tags"><span class="tag tag-b1">Build 1</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>Owners: Craig / Helena Polomcic</li>
-            <li class="use-item"><div class="use-dot d-shared"></div>Primary acquisition channel — AI takes on creative production for ad variants across formats</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>Generates ad copy variants and creative concepts trained on brand docs and past winners</li>
-            <li class="use-item"><div class="use-dot d-shared"></div>Produces multiple format and audience variants per brief</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>Reviews, selects, and approves creative set before Meta campaign manager</li>
-            <li class="use-item"><div class="use-dot d-shared"></div>Brand judgement and final creative sign-off stays human</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Growth QA AI</div>
-          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-justin"></div>Owner: Justin</li>
-            <li class="use-item"><div class="use-dot d-justin"></div>QA across all growth activity — ads, rate communications, referral offer copy</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-justin"></div>Checks growth content for compliance, brand accuracy, regulatory claims (rate claims are a specific risk), and product logic</li>
-            <li class="use-item"><div class="use-dot d-justin"></div>Generates QA report with severity weighting; drafts amends</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-justin"></div>Human compliance sign-off required before any rate claim goes live — non-negotiable</li>
-            <li class="use-item"><div class="use-dot d-justin"></div>Justin reviews QA report and decides on amends</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Referrals AI Agent</div>
-          <div class="phase-tags"><span class="tag tag-b2">Build 2</span><span class="tag tag-live">Live</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-helena"></div>Owner: Helena Polomcic</li>
-            <li class="use-item"><div class="use-dot d-helena"></div>Single offer via rewards hub in Build 1/2; full end-to-end new offers via AI agent at Live phase</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-helena"></div>Build 2: optimises a single referral offer — personalisation, timing, channel targeting</li>
-            <li class="use-item"><div class="use-dot d-helena"></div>Live: creates new referral offers end-to-end, including copy, mechanics, and channel selection</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-helena"></div>Human approval gate before each offer goes live — always</li>
-            <li class="use-item"><div class="use-dot d-helena"></div>Helena owns the referral strategy and sets the offer parameters the agent works within</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Website Optimisation AI</div>
-          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>Owner: Louis</li>
-            <li class="use-item"><div class="use-dot d-shared"></div>AI-first optimisations to the website — conversion, copy, and acquisition signal feedback</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>Generates copy variants and CTA recommendations based on acquisition signal data</li>
-            <li class="use-item"><div class="use-dot d-shared"></div>Surfaces A/B test hypotheses based on performance patterns</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>Human approves all changes — no autonomous website edits</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="section-header"><td colspan="4">No active AI agent — human-led or paused</td></tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">TV Ads</div>
-          <div class="phase-tags"><span class="tag tag-none">No agent</span></div>
-        </td>
-        <td colspan="3">
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-tom"></div>Owner: SL / Jen. Live September. Human-led production throughout. Ideas &amp; Copy AI (Jen) may contribute to copy direction but TV creative production remains fully human.</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Rates</div>
-          <div class="phase-tags"><span class="tag tag-none">Hold — no agent</span></div>
-        </td>
-        <td colspan="3">
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-justin"></div>Owner: Justin. Acquisition rate and underlying loyalty rates held for H2 — no AI agent required. Growth QA AI covers rate claims in comms as a check function, but no AI is setting or recommending rates.</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="oq-section">
-    <div class="oq-header">Open questions — Growth</div>
-    <div class="oq-list">
-      <div class="oq-item"><div class="oq-num">1</div>Has the Growth QA AI scope been formally defined — what exactly does "ads, rate, etc" cover? Does it include TV scripts once that goes live in September?</div>
-      <div class="oq-item"><div class="oq-num">2</div>Who is accountable for ensuring Ideas &amp; Copy AI is correctly configured for Meta ad formats specifically? Jen owns the agent but the channel brief needs to come from Craig / Helena.</div>
+<!-- ────────────────────────────────────────────────── -->
+<!-- TAB 1: SUMMARY                                       -->
+<!-- ────────────────────────────────────────────────── -->
+<main class="panel active" id="panel-summary">
+  <div class="methodology-note">
+    <div class="tag">Methodology</div>
+    <div class="body">
+      This dashboard answers <strong>"how is CRM performing?"</strong> through engagement and conversion rates. For <strong>attributed deposit volumes</strong> — i.e. how many deposits CRM contributed in absolute terms — refer to the Growth Reporting sheet. The two sources answer different questions; both are correct. See Findings 07 &amp; 08 for the methodology and taxonomy context.
     </div>
   </div>
-</div>
 
-<!-- ═══════════════════════════════ BRAND ═══════════════════════════════ -->
-<div id="brand" class="panel">
-  <div class="panel-header">
-    <div>
-      <div class="panel-title">Brand &amp; Content — production rebuilt in Claude</div>
-      <div class="panel-desc">Three agents in sequence: Ideas &amp; Copy AI → Design AI → Content QA AI. Serves all three pillars. Compliance sign-off stays human throughout.</div>
-    </div>
-    <div class="panel-count"><strong>3</strong>agents in scope</div>
-  </div>
+  <div class="kpi-row" id="kpiRow"></div>
 
-  <div class="legend">
-    <div class="legend-item"><div class="legend-dot d-jen"></div>Jen Walker — Ideas &amp; Copy AI</div>
-    <div class="legend-item"><div class="legend-dot d-eathan"></div>Eathan Aktion — Design AI</div>
-    <div class="legend-item"><div class="legend-dot d-tom"></div>Tom / SL / Stephen — Content QA AI &amp; docs</div>
-    <div class="legend-item"><div class="legend-dot d-shared"></div>Tom / Adam / Stephen / SL — product comms &amp; social</div>
-  </div>
-
-  <table class="agent-table">
-    <thead>
-      <tr class="col-header">
-        <th style="width:170px">Agent</th>
-        <th>Owner &amp; scope</th>
-        <th>What the AI does</th>
-        <th>What the human does</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="section-header"><td colspan="4">Content production pipeline — ideas &amp; copy → design → QA</td></tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Ideas &amp; Copy AI</div>
-          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-jen"></div>Owner: Jen Walker</li>
-            <li class="use-item"><div class="use-dot d-jen"></div>Most load-bearing agent in the map — serves CRM flows (Clara / Krizia), Meta ads (Craig / Helena), newsletter (Tom), and all BAU content</li>
-            <li class="use-item"><div class="use-dot d-jen"></div>Trained per channel on brand docs, audience definitions, and past winners</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-jen"></div>Generates first-draft concepts and copy across all channels: subject lines, body copy, ad scripts, push notifications, IAM, content cards</li>
-            <li class="use-item"><div class="use-dot d-jen"></div>Produces multiple variants per brief for A/B hypothesis testing</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-jen"></div>Strategy lead per channel reviews, selects, refines, and approves the set before it enters Design AI or goes to compliance</li>
-            <li class="use-item"><div class="use-dot d-jen"></div>Jen owns the agent configuration and prompt library — each channel lead supplies the brief and audience definition</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Design AI</div>
-          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-eathan"></div>Owner: Eathan Aktion</li>
-            <li class="use-item"><div class="use-dot d-eathan"></div>Takes copy from Ideas &amp; Copy AI; populates approved templates — outputs Braze-ready email, IAM, and content card creative</li>
-            <li class="use-item"><div class="use-dot d-eathan"></div>⚠ Requires pre-approved Braze templates to exist per flow before agent can produce output</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-eathan"></div>Assembles fully-built creative in the correct template — drops copy into the right fields, applies brand tokens, produces render-ready output</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-eathan"></div>Eathan / build lead reviews for visual quality, brand judgement, and Inbox Vision render accuracy</li>
-            <li class="use-item"><div class="use-dot d-krizia"></div>⚠ Loyalty tiers blocked — Design AI cannot be configured until tier branding is confirmed</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Content QA AI</div>
-          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-tom"></div>Owner: Tom (with Jen / Stephen / SL)</li>
-            <li class="use-item"><div class="use-dot d-tom"></div>QA agent for all brand content and email production — broader scope than CRM QA Agent, which is scoped to the live loop only</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-tom"></div>Checks finished creative against compliance, grammar, product logic, and brand ruleset</li>
-            <li class="use-item"><div class="use-dot d-tom"></div>Generates QA report with amends drafted; hands off to human compliance for regulatory sign-off</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-tom"></div>David Brookes / Ben Whitty retain final compliance authority — AI never approves</li>
-            <li class="use-item"><div class="use-dot d-tom"></div>⚠ Interface between Content QA AI and CRM QA Agent needs clarification — shared ruleset or separate? Ben and Tom to resolve in Build 1</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="section-header"><td colspan="4">BAU content — no dedicated agent</td></tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Fortnightly newsletter</div>
-          <div class="phase-tags"><span class="tag tag-none">No dedicated agent</span></div>
-        </td>
-        <td colspan="3">
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-tom"></div>Owner: Tom (coordinated with Alex Latham). Two sends per month — the one remaining full-base cadence. Ideas &amp; Copy AI and Design AI contribute to production, but editorial decisions stay human. No autonomous newsletter agent in H2.</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Social media</div>
-          <div class="phase-tags"><span class="tag tag-none">No agent — BAU</span></div>
-        </td>
-        <td colspan="3">
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>Owner: New hire. Three posts per week, brand-aligned. Ideas &amp; Copy AI may assist with copy drafting but social scheduling and editorial judgement stays human.</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">PR</div>
-          <div class="phase-tags"><span class="tag tag-none">No agent — BAU</span></div>
-        </td>
-        <td colspan="3">
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>Owner: Mike. Strategy executed — focus on Wealth Agent launch. Claude used for drafting and thinking but no autonomous PR agent in H2. Human-led throughout.</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="oq-section">
-    <div class="oq-header">Open questions — Brand &amp; Content</div>
-    <div class="oq-list">
-      <div class="oq-item"><div class="oq-num">1</div>Who is accountable for Ideas &amp; Copy AI being correctly configured per channel before Build 2? Jen owns the agent but the channel briefs and audience definitions must come from each pillar lead.</div>
-      <div class="oq-item"><div class="oq-num">2</div>What is the relationship between Content QA AI and CRM QA Agent — shared ruleset or separate? Ben and Tom to resolve in Build 1 to avoid duplication and audit trail confusion.</div>
+  <div class="section">
+    <h2>Monthly trajectory</h2>
+    <div class="subtitle">Send volume across the period (clean count, no duplication) and weighted-average deposit rate (the share of post-open users who deposit within 7 days). The rate metric is the dashboard's closest analogue to "is CRM converting better or worse over time."</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Total sends</h3>
+        <div class="h3-sub">All permission-based marketing communications</div>
+        <div class="chart-wrap"><canvas id="chartSends"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Weighted-avg deposit rate</h3>
+        <div class="h3-sub">Volume-weighted across the portfolio. Includes all products.</div>
+        <div class="chart-wrap"><canvas id="chartDepRate"></canvas></div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- ═══════════════════════════════ INFRA ═══════════════════════════════ -->
-<div id="infra" class="panel">
-  <div class="panel-header">
-    <div>
-      <div class="panel-title">Cross-cutting infrastructure</div>
-      <div class="panel-desc">Four agents and platforms that serve the whole marketing function. These are the foundations everything else runs on. Delays here have cascading effects across all three pillars.</div>
-    </div>
-    <div class="panel-count"><strong>4</strong>agents in scope</div>
-  </div>
-
-  <div class="legend">
-    <div class="legend-item"><div class="legend-dot d-tom"></div>Tom — PM Agent / documentation</div>
-    <div class="legend-item"><div class="legend-dot d-toby"></div>Toby Prior — CRM AI architecture</div>
-    <div class="legend-item"><div class="legend-dot d-ben"></div>Ben Poole — data &amp; ops layer</div>
-    <div class="legend-item"><div class="legend-dot d-shared"></div>Adrian Keeling-Look — ADP platform / Head of AI</div>
-  </div>
-
-  <table class="agent-table">
-    <thead>
-      <tr class="col-header">
-        <th style="width:170px">Agent</th>
-        <th>Owner &amp; scope</th>
-        <th>How CRM uses it</th>
-        <th>How Growth &amp; Brand use it</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="section-header"><td colspan="4">Infrastructure agents — serve the whole marketing function</td></tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Project Manager Agent</div>
-          <div class="phase-tags"><span class="tag tag-b1">Build 1</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-tom"></div>Scaffold owner: Tom</li>
-            <li class="use-item"><div class="use-dot d-ben"></div>Monday board 9996268138 automation (Ben) feeds task and status data</li>
-            <li class="use-item"><div class="use-dot d-tom"></div>Rolls out to every initiative row in the H2 plan across all three pillars</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-clara"></div>Tracks Day 0–90 (Clara), Loyalty tiers &amp; Wealth Agent (Krizia), QA AI build (Ben) — feeds Monday delivery call prep automatically</li>
-            <li class="use-item"><div class="use-dot d-tom"></div>Each lighthouse owner receives structured initiative status without manual reporting</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>Growth: Justin and Helena receive Meta creative, referrals, and website initiative status via Slack</li>
-            <li class="use-item"><div class="use-dot d-shared"></div>Brand: Jen and Eathan receive Ideas &amp; Copy AI, Design AI, and Content QA AI build progress</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">Documentation AI</div>
-          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-tom"></div>Owner: Tom</li>
-            <li class="use-item"><div class="use-dot d-tom"></div>⚠ Critical path: libraries, brand docs, audience definitions, and compliance rulesets trained into the AI surface — feeds ALL other agents</li>
-            <li class="use-item"><div class="use-dot d-tom"></div>Delays here cascade across every agent in the map</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-ben"></div>Compliance ruleset for CRM QA Agent; creative guardrails for the three flows; audience definitions per product for Ideas &amp; Copy AI</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>Growth: brand docs and rate claim rules that feed Growth QA AI; past winner library for Meta Creative AI</li>
-            <li class="use-item"><div class="use-dot d-shared"></div>Brand: master brand library and style guide that Ideas &amp; Copy AI and Design AI are trained on — iterates as flows go live</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">CRM AI Architecture</div>
-          <div class="phase-tags"><span class="tag tag-b1">Build 1</span><span class="tag tag-b2">Build 2</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-toby"></div>Owner: Toby Prior</li>
-            <li class="use-item"><div class="use-dot d-ben"></div>Data &amp; ops layer: Ben Poole — Build layer: Clara Rocha</li>
-            <li class="use-item"><div class="use-dot d-toby"></div>Braze, Databricks, Monday, Google Workspace connected into one AI surface</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-toby"></div>Directly enables the Monitor → Suggest → Brief → Draft → QA loop across all three CRM flows</li>
-            <li class="use-item"><div class="use-dot d-toby"></div>Braze MCP integration (in progress) unlocks Draft Agent and Ship step</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>Growth: Braze data and product signals feed acquisition performance analysis; Referrals AI Agent depends on rewards hub data connection</li>
-            <li class="use-item"><div class="use-dot d-shared"></div>Brand: Google Workspace connector gives Ideas &amp; Copy AI real-time access to briefs, planning docs, and brand libraries</li>
-          </ul>
-        </td>
-      </tr>
-
-      <tr class="agent-row">
-        <td class="agent-label-cell">
-          <div class="agent-name">ADP Platform</div>
-          <div class="phase-tags"><span class="tag tag-none">Company-wide</span></div>
-        </td>
-        <td>
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>Owner: Adrian Keeling-Look (Head of AI) / Iain Mullan (CTO sponsor)</li>
-            <li class="use-item"><div class="use-dot d-shared"></div>Company-wide platform — all marketing AI agents are built on and governed by ADP</li>
-          </ul>
-        </td>
-        <td colspan="2">
-          <ul class="use-list">
-            <li class="use-item"><div class="use-dot d-shared"></div>All three marketing pillars operate within ADP governance — AI Usage Framework, compliance controls, and vendor management apply to every agent in this map</li>
-            <li class="use-item"><div class="use-dot d-shared"></div>Marketing's ADP lighthouse cluster: Wealth Agent (L01), Loyalty tiers (L02), Investments UI/UX (L03) — three of the four ADP lighthouses touch marketing directly</li>
-            <li class="use-item"><div class="use-dot d-shared"></div>Email validation (L04) is operational — marketing is not driving it but benefits downstream</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="oq-section">
-    <div class="oq-header">Open questions — infrastructure</div>
-    <div class="oq-list">
-      <div class="oq-item"><div class="oq-num">1</div>Is Tom's documentation work formally tracked as a Build 1 critical path dependency, or is it currently treated as a soft parallel workstream? It should be the former.</div>
-      <div class="oq-item"><div class="oq-num">2</div>What is the exact interface between the PM Agent Tom is building and the Monday board Ben owns? Alignment needed before the PM Agent goes live across all lighthouse rows.</div>
-      <div class="oq-item"><div class="oq-num">3</div>Braze-to-Databricks Currents export status — live, in progress, or not started? Ben to confirm with Mike Kondrashyn as a Build 1 action.</div>
+  <div class="section">
+    <h2>Top contributors this month</h2>
+    <div class="subtitle">Communications ranked by relative reach × conversion impact. Deposit rate shown prominently; send volume shown as scale context. Used for "which communications moved the most users."</div>
+    <div class="card">
+      <div class="table-scroll" style="max-height: 380px;">
+        <table class="dt" id="topContributorsTable">
+          <thead>
+            <tr>
+              <th>Communication</th>
+              <th>Type</th>
+              <th>Lifecycle</th>
+              <th class="r">Sends</th>
+              <th class="r">Top product</th>
+              <th class="r">Total deposit rate</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 
+  <div class="footnote">
+    <h4>Summary tab — what's measured</h4>
+    <p><strong>Total sends.</strong> Number of permission-based communications delivered to recipients. Clean count, no duplication.</p>
+    <p><strong>Weighted-avg app-open rate.</strong> Share of recipients who started an app session within the canvas's conversion window. Sourced from the <span class="em">% opened app</span> field in the Start_App_Session export, summed across all communications and divided by total sends. <span class="em">This is not an email/push open rate.</span> It measures whether the comm led the recipient back into the app, regardless of channel. Because push, email, IAM and content cards behave very differently against this denominator (push taps go straight to the app; email opens don't; IAM and CC only impress when the user is already in-app), this rate moves with channel mix as much as with engagement quality. Read as a portfolio-level diagnostic, not a channel-comparable engagement metric.</p>
+    <p><strong>Weighted-avg deposit rate.</strong> Sum across all communications of (sends × total deposit conversion rate), divided by sum of sends. "Total deposit rate" per communication is the sum of its per-product 7-day post-open deposit rates. Rates are per-communication and don't compound across communications.</p>
+    <p><strong>Top contribution rate.</strong> The highest weighted-impact communication in the period, displayed as its deposit rate. Underlying ranking metric (sends × rate) is used for ordering but not shown as a count.</p>
+  </div>
 </main>
 
-<footer>
-  <div>Chip Financial · Marketing AI Agent Map · H2 2026 · <span>Internal</span></div>
-  <div>Owner: <span>Toby Prior</span> · Head of CRM &amp; Engagement · Generated 2 June 2026</div>
-</footer>
+<!-- ────────────────────────────────────────────────── -->
+<!-- TAB 2: COMMUNICATIONS                               -->
+<!-- ────────────────────────────────────────────────── -->
+<main class="panel" id="panel-comms">
+  <div class="section">
+    <h2>Top performers — <span id="topPerformersMonth">April 2026</span></h2>
+    <div class="subtitle">Top 5 Solus and Top 5 Automations by weighted impact (volume-adjusted deposit rate) in the selected month. Rate is the headline; send volume is shown alongside for scale.</div>
+    <div class="top-grid">
+      <div class="card">
+        <h3>Top 5 Solus</h3>
+        <div class="h3-sub">One-off marketing campaigns</div>
+        <div class="top-list" id="topSolusList"></div>
+      </div>
+      <div class="card">
+        <h3>Top 5 Automations</h3>
+        <div class="h3-sub">Lifecycle-triggered ongoing canvases</div>
+        <div class="top-list" id="topAutomationsList"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Activity by Lifecycle</h2>
+    <div class="subtitle">Send volume composition across the six-month window, broken down by lifecycle. Always cross-month; not affected by the month filter above.</div>
+    <div class="card">
+      <div class="chart-wrap tall"><canvas id="chartLifecycleActivity"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>All communications — <span id="commsMonth">April 2026</span></h2>
+    <div class="subtitle">Every Automation and Solus active in the selected month, with engagement and conversion metrics.</div>
+
+    <div class="toolbar">
+      <button class="pill-btn active" data-filter="all">All</button>
+      <button class="pill-btn" data-filter="automation">Automations</button>
+      <button class="pill-btn" data-filter="solus">Solus</button>
+      <span style="flex:1;"></span>
+      <input class="search-box" id="commSearch" placeholder="Search communication name or lifecycle…">
+    </div>
+
+    <div class="card" style="padding: 0;">
+      <div class="table-scroll">
+        <table class="dt" id="commsTable">
+          <thead>
+            <tr>
+              <th>Communication</th>
+              <th>Type</th>
+              <th>Lifecycle</th>
+              <th class="r">Sends</th>
+              <th class="r">App open %</th>
+              <th class="r">Top product</th>
+              <th class="r">Top product dep %</th>
+              <th class="r">Total dep %</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <h4>Communications tab — classification &amp; methodology notes</h4>
+    <p><strong>Automations vs Solus.</strong> Classification is currently inferred from `comm_category` and naming convention. Once the underlying Superset dataset exposes a `comm_type` field cleanly, this filter becomes authoritative rather than inferred.</p>
+    <p><strong>Lifecycle.</strong> Maps `comm_category` to lifecycle codes per canonical Braze taxonomy: Activation (AC), Pre-activation (PR — new users targeted to open and fund their first product), Retention (RT), Growth (GR), Abandonment (AB), Solus (all Marketing-* categories). Some PR-tagged communications are research surveys rather than funnel comms, producing inflated conversion rates on small, intent-rich audiences — a read-with-care caveat, not a labelling error. Service/Retool/Transactional categories are excluded from CRM attribution per the methodology document.</p>
+    <p><strong>Total dep %.</strong> Sum of per-product 7-day deposit rates for the communication. Rates are per-communication and don't compound; this column is comparable between rows. "Weighted impact" used for top-5 ranking is sends × total dep %, kept internal because the resulting count is not a unique conversion figure.</p>
+  </div>
+</main>
+
+<!-- ────────────────────────────────────────────────── -->
+<!-- TAB 3: LIFECYCLE & PRODUCT                          -->
+<!-- ────────────────────────────────────────────────── -->
+<main class="panel" id="panel-stage">
+  <div class="section">
+    <h2>Deposit rate by product, over time</h2>
+    <div class="subtitle">Volume-weighted deposit rate per product across the portfolio each month. Calculated as Σ(sends × product deposit rate) ÷ Σ(sends) across all communications. Reads as "of every recipient who opened a CRM communication, what share deposited into product X within 7 days."</div>
+    <div class="card">
+      <div class="chart-wrap tall"><canvas id="chartProductTrend"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Deposit rate by lifecycle, over time</h2>
+    <div class="subtitle">Same view, sliced by lifecycle area. Shows which parts of the CRM portfolio are converting most efficiently at the open-to-deposit step. Surveys (PR) are excluded — they're not a lifecycle and their self-selected audiences distort the comparison.</div>
+    <div class="card">
+      <div class="chart-wrap tall"><canvas id="chartLifecycleTrend"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Send volume by primary product target</h2>
+    <div class="subtitle">Stacked monthly view of where CRM is concentrating recipient reach, classified by each communication's primary product (inferred from category and name). Multi-product communications are grouped as "Multi/All." Shows portfolio attention over time without conversion-volume duplication.</div>
+    <div class="card">
+      <div class="chart-wrap tall"><canvas id="chartSendTarget"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 id="depPacingTitle">Weighted deposit-driving impact — pacing vs prior month</h2>
+    <div class="subtitle">Cumulative weighted deposit-driving impact (sends × total deposit rate, summed) by day-of-month, selected month vs prior. Like Send Pacing was, this is smoothed from monthly totals — daily granularity is the unlock. The Y-axis is an aggregate "rate × reach" measure, not a unique deposit count (see Findings · M3).</div>
+    <div class="card">
+      <div class="chart-wrap tall" id="depPacingChartWrap">
+        <canvas id="chartDepPacing"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <h4>Lifecycle &amp; Product tab — caveats</h4>
+    <p>Lifecycle allocation comes from `comm_category`. The canonical Braze taxonomy uses lifecycle codes anchored on communication name prefix (AC-/PR-/RT-/GR-/AB-/MK-). PR correctly denotes Pre-activation — new users targeted to open and fund their first product. A subset of PR-tagged communications are research surveys with small, intent-rich, self-selected audiences, which is why they show unusually high conversion rates (15–23% on some) — a read-with-care caveat on those specific comms, not a fault in the PR label itself.</p>
+    <p>Deposit rates are weighted averages and are inherently per-communication — they don't compound across communications. The same user converting after opening two communications contributes to two rates independently, but each rate remains a clean within-communication measure.</p>
+    <p>Primary product target inferred from category for marketing communications (e.g. Marketing-PSA → PSA) and from communication name for automations (AC-CISA → CISA). Communications spanning multiple products (Marketing-Multi, Marketing-All, RT-Payday_Reminder, etc.) bucket into "Multi/All." Note: SISA is the canonical product code for Smart Cash ISA; the Superset export uses "smISA" as the column header, but both refer to the same product.</p>
+  </div>
+</main>
+
+<!-- ────────────────────────────────────────────────── -->
+<!-- TAB 4: KEY FINDINGS                                 -->
+<!-- ────────────────────────────────────────────────── -->
+<main class="panel" id="panel-findings">
+  <div class="editorial">
+    <p class="lede">
+      Six months of conversion data — January through June 2026 (June a closed month) — framed against the business line structure of the weekly delivery reporting. The dashboard's performance picture lands differently for each line: Cash sees most of CRM's volume contribution; Investments shows clean activation flows; Smart Cash ISA cross-sell activity ramped up materially in June. Methodology and cross-cutting findings sit below. <span class="em">All are recoverable.</span>
+    </p>
+
+    <div class="section-divider">
+      <div class="title">By Business Line</div>
+      <div class="descriptor">CRM through the lens of weekly delivery reporting</div>
+    </div>
+
+    <div class="bl-note">
+      <strong>Cash</strong> — balance build and retention on rate-led Cash products (CIA, CISA, EAS, PSA, SISA). The largest single block of CRM volume contribution sits here, and the rate-led nature of the business line means CRM activity — boost expiries, payday reminders, balance build, prize draws — couples directly to deposit and retention outcomes.
+    </div>
+
+    <article>
+      <div class="kicker info">Cash · Methodology correction</div>
+      <h3>Payday Reminder is running — but the April export was snapshotted before it fired</h3>
+      <p>Rename from <strong>RT-Payday_Reminder</strong> to <strong>MK-MULTI-DD-MM-YYYY-Payday_[Month]</strong> seen in March 2026 has held: April's canvas fired on the last working day of the month as <strong>MK-MULTI-30-04-2026-Payday_April</strong>. It does not appear in the April Superset export because the export's latest <span class="em">last_sent_at</span> is 28/04/2026 — the snapshot pre-dates the send (and its conversion window). Re-pull the April export with a window that captures 30/04 onwards and the canvas should populate.</p>
+      <p>The canvas was then deliberately paused from April/May 2026 onward, replaced by Spring Draw comms and reduced calendar availability — its absence from the closed May and June exports is expected and not a contribution issue.</p>
+      <div class="data-strip">
+        <div class="cell"><div class="lbl">Jan canvas</div><div class="val">RT-Payday_Reminder_January</div></div>
+        <div class="cell"><div class="lbl">Feb canvas</div><div class="val">RT-Payday_Reminder_February</div></div>
+        <div class="cell"><div class="lbl">Mar canvas</div><div class="val">MK-MULTI-26-03-2026-Payday_Reminder</div></div>
+        <div class="cell"><div class="lbl">Apr–Jun</div><div class="val good">Paused — Spring Draw prioritised instead</div></div>
+      </div>
+      <div class="pullquote">
+        The methodology lesson generalises. A canvas missing from a monthly export isn't evidence the canvas didn't run — always reconcile the export's latest <span class="em">last_sent_at</span> against the canvas's expected send date before reading absence as inaction. Last-working-day and other month-end cadences are the most exposed.
+      </div>
+    </article>
+
+    <article>
+      <div class="kicker steady">Cash · Product</div>
+      <h3>Smart Cash ISA (SISA) launched cleanly and is performing</h3>
+      <p>The SISA column first appeared with non-zero values in March (a handful of communications showing 0.1–0.8% — almost certainly pre-launch instrumentation or pilot sends). The actual launch ran April 8, 2026 via <strong>MK-SISA-08-04-2026-Smart_Cash_ISA_Launch</strong> (43.6k) and its resend at scale (445k).</p>
+      <div class="data-strip">
+        <div class="cell"><div class="lbl">SISA welcome — April</div><div class="val good">17.8% deposit</div></div>
+        <div class="cell"><div class="lbl">SISA welcome — May</div><div class="val good">16.8% deposit</div></div>
+        <div class="cell"><div class="lbl">PR survey — drop-off (Apr)</div><div class="val good">3.7% SISA deposit</div></div>
+        <div class="cell"><div class="lbl">Allowance reset push</div><div class="val">4.1% app-open</div></div>
+        <div class="cell"><div class="lbl">Internal transfer nudge</div><div class="val">3.4% SISA</div></div>
+      </div>
+      <p>The Welcome canvas (`MK-SISA-07-04-2026-Smart_Cash_ISA_Welcome`) remained a strong performer through the spring — 17.8% deposit rate in April, 16.8% in May — before June's Nimex in-app journey (see below) overtook it by a wide margin.</p>
+      <p>The March SISA numbers should be flagged as pre-launch and excluded from MoM trending. <strong>Naming note:</strong> the canonical product code is SISA; the Superset export labels this product "smISA" — same product, two labels.</p>
+    </article>
+
+    <article>
+      <div class="kicker steady">Cash · Product</div>
+      <h3>June's "Nimex" comms suite drove Smart Cash ISA's strongest month yet</h3>
+      <p>June introduced a five-comm Nimex suite around Smart Cash ISA — a service email, an in-app journey (two revisions), a nudge, a post-launch cross-sell, and a 5k promo launch — the largest single send of the month at 400.1k (MK-SISA-10-06-2026-Nimex_service_email).</p>
+      <div class="data-strip">
+        <div class="cell"><div class="lbl">Nimex service email</div><div class="val good">7.8% SISA deposit</div></div>
+        <div class="cell"><div class="lbl">Nimex in-app journey v2</div><div class="val good">49.2% SISA deposit</div></div>
+        <div class="cell"><div class="lbl">Nimex in-app journey v3</div><div class="val good">37.5% SISA deposit</div></div>
+        <div class="cell"><div class="lbl">5k promo launch</div><div class="val good">9.0% SISA deposit</div></div>
+        <div class="cell"><div class="lbl">Post-Nimex cross-sell</div><div class="val">1.5% SISA deposit</div></div>
+      </div>
+      <p>The in-app journey variants convert at multiples of every other SISA comm in the dataset, including April's previous best performer (the Welcome canvas, 16.5% in April). The gap between the in-app journey (37–49%) and the broadcast service email (7.8%) on the same underlying product is the largest channel spread seen in this dataset — worth a closer look at what the in-app format is doing differently before generalising the approach elsewhere.</p>
+    </article>
+
+    <div class="bl-note">
+      <strong>Investments</strong> — new Invest activation (aligned with Growth) or cross-sell from Cash users into S&amp;S ISA, GIA, SIPP. Two distinct motions; the dashboard surfaces activation cleanly but cross-sell signal is harder to read from this view alone.
+    </div>
+
+    <article>
+      <div class="kicker steady">Investments · Activation</div>
+      <h3>Investment activation flows are converting steadily</h3>
+      <p>AC-SSISA_v3 and AC-GIA — the two main Invest activation canvases — show stable performance across the six-month window. Deposit rates into the relevant Invest product:</p>
+      <div class="data-strip">
+        <div class="cell"><div class="lbl">AC-SSISA_v3 — S&amp;S ISA</div><div class="val good">5.6–9.3% range</div></div>
+        <div class="cell"><div class="lbl">AC-GIA — GIA</div><div class="val good">2.9–7.6% range</div></div>
+        <div class="cell"><div class="lbl">AB-Investing_V2 — recovery</div><div class="val">2.6–4.9% S&amp;S ISA</div></div>
+        <div class="cell"><div class="lbl">PR Investments Survey</div><div class="val good">11–15% S&amp;S ISA</div></div>
+        <div class="cell"><div class="lbl">GR-Maxed_Out_ISA</div><div class="val">0.5–1.2% S&amp;S ISA</div></div>
+      </div>
+      <p>The activation flows (AC-) are the cleanest signal for the Investments BL. The survey audience (PR-) converts at high rates but reflects intent-rich self-selection rather than funnel performance — see Methodology · M4.</p>
+      <p><strong>Cross-sell caveat:</strong> the 7-day post-open window in this dashboard is calibrated for cash-deposit decisions. Investing decisions involve more deliberation; users who open a Cash → Invest cross-sell email and decide to open an S&amp;S ISA three weeks later won't show up in this attribution view. The dashboard likely understates the Investments BL's cross-sell impact.</p>
+    </article>
+
+    <div class="bl-note">
+      <strong>Growth</strong> — activating new customers and cross-selling existing ones. The CRM home for Growth is AC- (Activation, post-signup) and GR- (Growth / cross-sell).
+    </div>
+
+    <article>
+      <div class="kicker steady">Growth · Activation</div>
+      <h3>Post-signup activation performs steadily; cross-sell (GR-) is the smaller, more variable lever</h3>
+      <p>AC- (post-signup activation) is visible and performs steadily across the six-month window — AC-CIA-New at 4.5–12.7% CIA deposit, AC-CISA-New at 5.6–9.3% CISA. The GR- cross-sell canvases (Maxed_Out_ISA_Allowance, Investments_Beginners/Intermediate/Experienced) run at lower volume and lower, more variable conversion — typically 0.5–2.8% into the relevant Invest product — consistent with cross-sell being a harder ask than first-product activation.</p>
+    </article>
+
+    <div class="bl-note">
+      <strong>Pension</strong> — SIPP. Per the canonical naming sheet, SIPP-specific CRM activity is predominantly Transactional (TR-) — beneficiary nudges, tax relief status, account opened confirmations. These categories are excluded from CRM attribution per the methodology document. No marketing-attributable Pension activity surfaces in this dashboard.
+    </div>
+
+    <div class="bl-note">
+      <strong>Wealth ME</strong> — getting the Wealth Planner tooling functional; no CRM campaigns yet per current team direction. The only tangentially related communication in the dataset is <strong>PR-ALL-07-03-2026-Wealth_Plan_Survey</strong> (5.2k sends, 16.9% app-open rate) — a research survey rather than tooling activation. Wealth Planner activation flows would appear here once the product is in market.
+    </div>
+
+    <div class="bl-note">
+      <strong>Scale Safe</strong> — operational guardrail projects. The CRM dimension manifests in Service (SV), Transactional (TR), and Incident (INC) categories — all explicitly excluded from CRM marketing attribution per the methodology document. No findings visible in this dashboard.
+    </div>
+
+    <div class="section-divider">
+      <div class="title">Methodology</div>
+      <div class="descriptor">Dashboard-level concerns to resolve before production</div>
+    </div>
+
+    <article>
+      <div class="kicker">Methodology · M1</div>
+      <h3>The "-93% CVR collapse" narrative isn't visible in the dashboard's deposit rate</h3>
+      <p>The CRM Attribution Methodology document attributes a <strong>-93% CVR drop to the February 2026 Payday Reminder restructure</strong>. The deposit rate shown in this dashboard (whatever its precise denominator — see M2) tells a different story:</p>
+      <div class="data-strip">
+        <div class="cell"><div class="lbl">Jan</div><div class="val">1.6% CIA dep</div></div>
+        <div class="cell"><div class="lbl">Feb</div><div class="val good">2.3% CIA dep</div></div>
+        <div class="cell"><div class="lbl">Mar</div><div class="val good">2.3% CIA dep</div></div>
+        <div class="cell"><div class="lbl">Apr</div><div class="val">fired 30/04 — not in export</div></div>
+        <div class="cell"><div class="lbl">May</div><div class="val">fires 29/05</div></div>
+      </div>
+      <p>The -93% claim must measure something different — most likely canvas-entry CVR using the canvas's primary conversion event. Two different denominators, two different stories. The dashboard's denominator (per M2) is closer to "did the message actually drive the action" than to Braze's native canvas CVR, but isn't directly comparable to it.</p>
+    </article>
+
+    <article>
+      <div class="kicker">Methodology · M2</div>
+      <h3>Three dashboard quirks to fix before production</h3>
+      <p><strong>Duplicate rows.</strong> Every month's export shows some communications repeated 3–4 times with different `last_sent_at` values but identical metrics. This prototype dedupes by `comm_name` + month and takes the first occurrence; the underlying SQL should be tightened to do the same.</p>
+      <p><strong>Low-volume stragglers.</strong> A handful of rows with 1–3 sends keep appearing for communications that have effectively ended (e.g. MK-PSA-27-03-2026-PSA500_LastChance with 1 send in April). Likely test sends or late triggers. The production dashboard should filter sub-50 by default, with a toggle to include them.</p>
+      <p><strong>"Send count" naming.</strong> Worth confirming what the column actually represents. If it's "people who opened the email" — which the table description suggests — then the dashboard is showing post-open conversion rates calculated against opens, not against recipients.</p>
+    </article>
+
+    <article>
+      <div class="kicker struct">Methodology · M3</div>
+      <h3>Why this dashboard shows rates, and Growth Reporting shows volumes</h3>
+      <p>The underlying Superset data records conversion percentages per communication. Each row is one communication; each user can appear in multiple rows. Aggregating these rates into estimated deposit volumes (sends × rate, summed) double-counts users who open multiple communications within a window. The resulting estimates sit orders of magnitude above Growth Reporting's attribution figures (4,737 attributed deposits in January) and would create internal confusion about which number is "real."</p>
+      <div class="pullquote">
+        The two numbers measure different things. This dashboard measures CRM <em>performance</em> through rates. Growth Reporting measures CRM <em>contribution</em> through attributed deposit counts.
+      </div>
+      <p>The structural fix for attributed volumes is last-touch attribution in Databricks. Each conversion in the product database gets assigned to the most recent communication exposure within the relevant window — counted once, attributed to one communication. Until that exists, the canonical "deposits driven" number lives in Growth Reporting and this dashboard supplements it.</p>
+    </article>
+
+    <article>
+      <div class="kicker">Methodology · M4</div>
+      <h3>"Pre-activation" (PR) is the correct label — but some PR-tagged comms are surveys, and their rates need a read-with-care flag</h3>
+      <p>PR correctly denotes Pre-activation in this dashboard's taxonomy. Within that category, however, a subset of PR-prefixed communications are research surveys rather than funnel comms. Concrete examples:</p>
+      <div class="data-strip">
+        <div class="cell"><div class="lbl">investments_survey<br>PR-ALL</div><div class="val good">14.5% S&amp;S ISA</div></div>
+        <div class="cell"><div class="lbl">onboarding_drop_off<br>PR-SISA</div><div class="val good">23.7% CISA</div></div>
+        <div class="cell"><div class="lbl">transfer_out_survey<br>PR-MULTI</div><div class="val">0.9% CIA</div></div>
+        <div class="cell"><div class="lbl">Wealth_Plan_Survey<br>PR-ALL</div><div class="val good">9.5% CIA</div></div>
+        <div class="cell"><div class="lbl">Typical audience</div><div class="val">2–17k sends</div></div>
+      </div>
+      <p>The high conversion rates aren't evidence that the pre-activation funnel is unusually effective. They're evidence that survey audiences are small, intent-rich, and self-selected. Reading these specific comms' rates as representative funnel performance would overstate PR's typical conversion. The fix is annotation, not relabelling: flag survey-type PR comms individually so production doesn't blend survey performance into funnel performance.</p>
+    </article>
+
+    <article>
+      <div class="kicker steady">Methodology · M4a</div>
+      <h3>June PR activity: two live product research threads</h3>
+      <p>June introduced two new PR survey threads — <strong>PR-SIPP-09-06-2026-Silent_Launch_Survey</strong> (55.1k sends) and the <strong>PR-Wealth-*</strong> series (Beta Invitation, Reminder, Advice Research — 10.1k / 670 / 174 sends respectively) — both consistent with the read-with-care pattern above: research instruments, not funnel comms, and excluded from the Pre-activation deposit-rate trend for that reason.</p>
+    </article>
+
+    <article>
+      <div class="kicker struct">Methodology · M5</div>
+      <h3>June set: dedup and CRM-category filtering account for the row-count jump</h3>
+      <p>The June and May Superset exports contain far more raw rows (242 and 229 respectively) than Jan–Apr (77–82) because the export now also carries Service, Transactional, Retool and Fincrime rows, plus repeated snapshot rows for the same canvas at different <span class="em">last_sent_at</span> timestamps. This dashboard dedupes by keeping the max Send count per <span class="em">comm_name</span>, then restricts to CRM-attributable categories (Activation, Pre-activation, Retention, Growth, Abandonment, Marketing-*) with a 20-send floor to exclude test/stray sends. June resolves to 59 CRM communications and 1.26M CRM sends on this basis.</p>
+    </article>
+
+    <article>
+      <div class="kicker struct">Methodology · M6</div>
+      <h3>Late-month sends were leaking into the following month's view — now bucketed by send date</h3>
+      <p>The Superset export includes any canvas whose 7-day conversion window touches the queried month, not just canvases that actually sent in that month. Concrete example: <strong>MK-MULTI-29-04-2026-SpringDraw_Week5</strong>, sent once on 30 April with 36.2k recipients, appeared in both the April export (36.2k sends, 12.4% CIA dep) and the May export (36.2k sends, 12.3% CIA dep) — same send, reported twice. <strong>MK-MULTI-22-04-2026-SpringDraw_Week4</strong> showed the same pattern with different cardinality, surfacing 3.29k engagement-bearing users in May for a comm sent only on 24 April.</p>
+      <p>This dashboard now buckets each communication into the month its <span class="em">first_sent_at</span> falls in, regardless of which Superset export window it surfaces in. The two April comms above are excluded from the May view in this version. The rule generalises: any late-month send (Payday Reminders, month-end Marketing campaigns) is exposed to this leakage, and the bucketing rule eliminates the cross-month double-count.</p>
+      <div class="pullquote">
+        Ongoing automations are unaffected — their monthly figures are already partitioned because Superset tracks them by send activity per window. The leakage only applies to one-off Solus with <span class="em">first_sent_at == last_sent_at</span> near a month boundary.
+      </div>
+    </article>
+
+    <div class="section-divider">
+      <div class="title">Cross-cutting</div>
+      <div class="descriptor">Observations that span multiple business lines</div>
+    </div>
+
+    <article>
+      <div class="kicker info">Cross-cutting · Activity</div>
+      <h3>RT-Reactivation_V2 volume has been volatile, not steadily growing</h3>
+      <p>Send volume on the reactivation automation:</p>
+      <div class="data-strip">
+        <div class="cell"><div class="lbl">Jan</div><div class="val">4.48k</div></div>
+        <div class="cell"><div class="lbl">Feb</div><div class="val">3.98k</div></div>
+        <div class="cell"><div class="lbl">Mar</div><div class="val">13.0k</div></div>
+        <div class="cell"><div class="lbl">Apr</div><div class="val">36.8k</div></div>
+        <div class="cell"><div class="lbl">May</div><div class="val">22.0k</div></div>
+        <div class="cell"><div class="lbl">Jun</div><div class="val">37.6k</div></div>
+      </div>
+      <p>Volume peaked in April, eased in May, then returned to April's level in June — either deliberate audience expansion (a campaign decision) or eligibility broadened (an ops change). Deposit conversion has stayed muted throughout: 0.38% CIA deposit in April, 0.58% in May, 0.33% in June. The volume isn't translating into proportionate conversion. AB-Onboarding_Product_Abandonment shows a similar volatile pattern: 66 → 288 → 607 → 6.83k → 1.18k → 6.34k. Both warrant context from the CRM team before the dashboard codes them as "growing communications."</p>
+    </article>
+
+    <article>
+      <div class="kicker info">Cross-cutting · Channel</div>
+      <h3>IAM (in-app messages) outperform email by an order of magnitude</h3>
+      <p>April's MK-IAM-01-04-2026-SpringDraw_Week1 (145k sends, in-app message channel) delivered:</p>
+      <div class="data-strip">
+        <div class="cell"><div class="lbl">CISA deposit</div><div class="val good">11.7%</div></div>
+        <div class="cell"><div class="lbl">CIA deposit</div><div class="val good">9.1%</div></div>
+        <div class="cell"><div class="lbl">App open rate</div><div class="val good">46.6%</div></div>
+        <div class="cell"><div class="lbl">vs Email Week1</div><div class="val">~10× higher</div></div>
+        <div class="cell"><div class="lbl">Cost</div><div class="val">~zero marginal</div></div>
+      </div>
+      <p>Channel comparison should be a first-class dimension in the production dashboard. The SpringDraw_Week6 A/B test in May is another example (Week6_Experiment outperforms Week6 on every metric, sub-test only sent to 50.9k of 312k total). Without channel/variant as a dimension, these wins stay invisible.</p>
+    </article>
+  </div>
+
+  <div class="footnote">
+    <h4>What this prototype isn't</h4>
+    <p>This is a design artefact, not a production dashboard. It demonstrates intent, layout, and analytical framing so the Data &amp; Insights team has something concrete to react to.</p>
+    <ul>
+      <li>It does not refresh live — figures reflect the snapshot you exported.</li>
+      <li>It does not show holdout/control group comparison — separate data dependency.</li>
+      <li>It does not implement product-specific conversion windows — current view uses the dashboard's flat 7-day window.</li>
+      <li>It does not display daily pacing — the underlying export is monthly. Daily granularity is the largest single unlock.</li>
+      <li>It does not show absolute attributed deposit volumes — that's Growth Reporting's job.</li>
+    </ul>
+  </div>
+</main>
 
 <script>
-function show(id, el) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  el.classList.add('active');
+// ───────────────────────────────────────────────────────────
+// DATA — five months of deduplicated conversion data
+// ───────────────────────────────────────────────────────────
+
+const CAT_TO_LIFECYCLE = {
+  'Activation': 'AC',
+  'Pre-activation': 'PR',
+  'Retention': 'RT',
+  'Growth': 'GR',
+  'Abandonment': 'AB',
+  'Marketing - All': 'SO',
+  'Marketing - Multi': 'SO',
+  'Marketing - PSA': 'SO',
+  'Marketing - EAS': 'SO',
+  'Marketing - GIA': 'SO',
+  'Marketing - CB ISA': 'SO',
+  'Marketing - Investments': 'SO',
+  'Marketing - Smart ISA': 'SO',
+  'Marketing - Other': 'SO',
+};
+
+const isSolus = (name) => /\d{1,2}[-_]\d{1,2}[-_]\d{4}|\d{8}/.test(name);
+const typeOf = (name) => isSolus(name) ? 'Solus' : 'Automation';
+
+const DATA = {
+  jan: {
+    label: 'January 2026',
+    days: 31, elapsed: 31, partial: false,
+    comms: [
+      { n: 'MK-PSA-16-1-2026-PSA500_Q1_Week3_Winner_Video', c: 'Marketing - PSA', s: 520880, app: 15.6, dep: { ssisa: 0.76, psa: 1.56, gia: 0.28, eas: 0.54, cisa: 2.13, cia: 2.81 } },
+      { n: 'MK-MULTI-14-1-2026-Savings_challenges_2026', c: 'Marketing - Multi', s: 433959, app: 3.7, dep: { ssisa: 0.25, psa: 0.47, gia: 0.09, eas: 0.22, cisa: 0.69, cia: 0.95 } },
+      { n: 'MK-MULTI-24-01-2026-3_Problems_Solved_CASH', c: 'Marketing - Multi', s: 399955, app: 4.7, dep: { ssisa: 0.47, psa: 0.71, gia: 0.17, eas: 0.36, cisa: 1.37, cia: 1.9 } },
+      { n: 'MK-ALL-1-1-2026-2026_New_Year_New_You', c: 'Marketing - All', s: 385628, app: 11.1, dep: { ssisa: 0.87, psa: 1.59, gia: 0.38, eas: 0.61, cisa: 2.18, cia: 3.34 } },
+      { n: 'MK-INVS-06-01-2026-0%_Fees_Last_Chance', c: 'Marketing - Investments', s: 384115, app: 11.6, dep: { ssisa: 0.11, psa: 0.96, gia: 0.05, eas: 0.38, cisa: 1.52, cia: 2.11 } },
+      { n: 'MK-PSA-1-1-2026-PSA500_Q1_Week1', c: 'Marketing - PSA', s: 363802, app: 24.5, dep: { ssisa: 0.97, psa: 1.88, gia: 0.36, eas: 0.73, cisa: 2.81, cia: 3.51 } },
+      { n: 'RT-Payday_Reminder_January_30012026', c: 'Retention', s: 257326, app: 5.5, dep: { ssisa: 0.31, psa: 0.69, gia: 0.13, eas: 0.31, cisa: 1.32, cia: 1.57 } },
+      { n: 'MK-PSA-09-01-2026-PSA500_Q1_Week2_Winner_Teaser', c: 'Marketing - PSA', s: 233810, app: 6.8, dep: { ssisa: 0.58, psa: 1.35, gia: 0.22, eas: 0.39, cisa: 1.2, cia: 2.25 } },
+      { n: 'MK-PSA-5-1-2026-Final_entries_December', c: 'Marketing - PSA', s: 96352, app: 40.1, dep: { ssisa: 2.53, psa: 9.11, gia: 1.13, eas: 1.54, cisa: 4.12, cia: 7.74 } },
+      { n: 'PR-ALL-23-01-2025-commercial_test_Pie_tax_2', c: 'Pre-activation', s: 70430, app: 7.3, dep: { ssisa: 0.23, psa: 0.44, gia: 0.14, eas: 0.58, cisa: 1.51, cia: 0.88 } },
+      { n: 'MK-CISA-20-1-2026-VRPs_Available', c: 'Marketing - CB ISA', s: 60107, app: 12.1, dep: { ssisa: 1.22, psa: 1.78, gia: 0.36, eas: 0.57, cisa: 5.24, cia: 3.88 } },
+      { n: 'MK-INVS-13-01-2026-News_W18', c: 'Marketing - Investments', s: 54612, app: 2.6, dep: { ssisa: 0.37, psa: 0.21, gia: 0.13, eas: 0.07, cisa: 0.21, cia: 0.35 } },
+      { n: 'RT-PSA_December_Winners_Announcement', c: 'Retention', s: 19321, app: 42.3, dep: { ssisa: 2.23, psa: 9.16, gia: 0.99, eas: 0.98, cisa: 2.38, cia: 5.14 } },
+      { n: 'PR-ALL-30-07-2025-CUR_survey', c: 'Pre-activation', s: 11174, app: 26.4, dep: { ssisa: 0.95, psa: 2.36, gia: 0.63, eas: 2.04, cisa: 0.39, cia: 8.04 } },
+      { n: 'MK-EAS-21-1-2026-Winback_3.45%_Loyalty_rate', c: 'Marketing - EAS', s: 11065, app: 9.4, dep: { ssisa: 0.34, psa: 0.6, gia: 0.33, eas: 1.68, cisa: 0.83, cia: 1.27 } },
+      { n: 'MK-EAS-22-1-2026-Winback_3.45%_Loyalty_rate_Push', c: 'Marketing - EAS', s: 8367, app: 3.9, dep: { ssisa: 0.07, psa: 0.1, gia: 0.04, eas: 0.41, cisa: 0.17, cia: 0.16 } },
+      { n: 'RT-SSISA_Balance_Build', c: 'Retention', s: 6391, app: 27.2, dep: { ssisa: 8.9, psa: 3.82, gia: 0.7, eas: 0.86, cisa: 6.37, cia: 5.55 } },
+      { n: 'AB-Investing_V2', c: 'Abandonment', s: 5361, app: 32.5, dep: { ssisa: 4.91, psa: 3.38, gia: 1.4, eas: 1.32, cisa: 5.84, cia: 6.47 } },
+      { n: 'RT-Reactivation_V2', c: 'Retention', s: 4477, app: 5.7, dep: { ssisa: 0.47, psa: 1.07, gia: 0.2, eas: 0.42, cisa: 1.07, cia: 1.99 } },
+      { n: 'RT-EAS_Loyalty_offer_IAM', c: 'Retention', s: 2877, app: 78.9, dep: { ssisa: 1.53, psa: 2.57, gia: 0.76, eas: 7.99, cisa: 4.45, cia: 6.19 } },
+      { n: 'MK-ALL-Goal_Created', c: 'Marketing - All', s: 2523, app: 18.2, dep: { ssisa: 3.29, psa: 3.53, gia: 1.31, eas: 1.78, cisa: 4.04, cia: 6.54 } },
+      { n: 'GR-Investments_Experienced', c: 'Growth', s: 1809, app: 9.5, dep: { ssisa: 0, psa: 0.72, gia: 0, eas: 0.39, cisa: 0.94, cia: 1.05 } },
+      { n: 'RT-EAS_14Day_BoostedRate_Expiry', c: 'Retention', s: 1638, app: 15.3, dep: { ssisa: 0.61, psa: 0.73, gia: 0.43, eas: 1.95, cisa: 1.1, cia: 2.08 } },
+      { n: 'RT-celebratory_6k_manual_saved', c: 'Retention', s: 1457, app: 14.4, dep: { ssisa: 0.89, psa: 1.58, gia: 0.69, eas: 0.55, cisa: 1.51, cia: 1.3 } },
+      { n: 'AC-CISA-Existing', c: 'Activation', s: 1440, app: 16.2, dep: { ssisa: 2.85, psa: 2.5, gia: 0.83, eas: 1.74, cisa: 2.92, cia: 3.96 } },
+      { n: 'AC-SSISA_v3', c: 'Activation', s: 1432, app: 30.5, dep: { ssisa: 6.15, psa: 2.72, gia: 1.12, eas: 1.33, cisa: 7.61, cia: 6.77 } },
+      { n: 'RT-CIA_4.76%_14Day_BoostedRate_Expiry', c: 'Retention', s: 1406, app: 21.9, dep: { ssisa: 1.07, psa: 1.64, gia: 0.71, eas: 1.07, cisa: 3.27, cia: 4.48 } },
+      { n: 'AC-EAS-Existing', c: 'Activation', s: 1385, app: 22.6, dep: { ssisa: 1.44, psa: 3.25, gia: 0.14, eas: 7.08, cisa: 3.9, cia: 4.48 } },
+      { n: 'MK-CISA-20-1-2026-VRPs_Available_Microsoft', c: 'Marketing - CB ISA', s: 1362, app: 12.8, dep: { ssisa: 0.81, psa: 1.91, gia: 0.44, eas: 0.44, cisa: 4.41, cia: 3.67 } },
+      { n: 'GR-Maxed_Out_ISA_Allowance_v2', c: 'Growth', s: 1131, app: 28.6, dep: { ssisa: 1.24, psa: 1.5, gia: 0.53, eas: 1.06, cisa: 1.59, cia: 4.07 } },
+      { n: 'PR-ALL-24-10-2024-WealthScore_Feedback_Resend', c: 'Pre-activation', s: 1110, app: 35.6, dep: { ssisa: 3.78, psa: 6.58, gia: 1.35, eas: 3.15, cisa: 8.11, cia: 10.18 } },
+      { n: 'RT-Investments_Survey_1M', c: 'Retention', s: 1086, app: 29.1, dep: { ssisa: 7.64, psa: 4.7, gia: 2.67, eas: 1.38, cisa: 5.06, cia: 6.63 } },
+      { n: 'AB-SSISA_Transfers_V2', c: 'Abandonment', s: 1029, app: 40.8, dep: { ssisa: 9.91, psa: 5.44, gia: 4.28, eas: 1.46, cisa: 6.12, cia: 7.68 } },
+      { n: 'RT-5.25%_14Day_BoostedRate_Expiry', c: 'Retention', s: 1026, app: 17.3, dep: { ssisa: 1.66, psa: 2.83, gia: 0.39, eas: 1.27, cisa: 4.58, cia: 5.65 } },
+      { n: 'PR-Onboarding', c: 'Pre-activation', s: 991, app: 3.5, dep: { ssisa: 1.31, psa: 1.01, gia: 0.4, eas: 0, cisa: 1.21, cia: 0.71 } },
+      { n: 'GR-Investments_Beginners', c: 'Growth', s: 979, app: 11.1, dep: { ssisa: 0.1, psa: 2.15, gia: 0, eas: 1.84, cisa: 2.15, cia: 7.25 } },
+      { n: 'AC-CIA-Existing', c: 'Activation', s: 812, app: 12.6, dep: { ssisa: 0.99, psa: 1.97, gia: 0.86, eas: 1.11, cisa: 1.23, cia: 4.8 } },
+      { n: 'AC-CIA-New', c: 'Activation', s: 754, app: 8.8, dep: { ssisa: 0.4, psa: 1.06, gia: 0.13, eas: 0.66, cisa: 0.4, cia: 4.51 } },
+      { n: 'GR-Investments_Intermediate', c: 'Growth', s: 722, app: 15.1, dep: { ssisa: 0, psa: 1.25, gia: 0.14, eas: 0, cisa: 1.66, cia: 9 } },
+      { n: 'AC-GIA', c: 'Activation', s: 709, app: 31.9, dep: { ssisa: 1.69, psa: 3.1, gia: 7.62, eas: 0.99, cisa: 4.23, cia: 5.5 } },
+      { n: 'AC-CISA-New', c: 'Activation', s: 690, app: 11.3, dep: { ssisa: 0.72, psa: 1.74, gia: 0, eas: 0.58, cisa: 9.28, cia: 0.87 } },
+      { n: 'PR-Onboarding-PSA500', c: 'Pre-activation', s: 658, app: 3.3, dep: { ssisa: 0.15, psa: 0.3, gia: 0.3, eas: 0.15, cisa: 0.3, cia: 0 } },
+      { n: 'RT-Referrer_Journey', c: 'Retention', s: 512, app: 26.2, dep: { ssisa: 3.12, psa: 5.08, gia: 0.39, eas: 0.2, cisa: 2.73, cia: 2.93 } },
+      { n: 'MK-ALL-Goal_Deleted', c: 'Marketing - All', s: 383, app: 17, dep: { ssisa: 2.35, psa: 3.92, gia: 1.57, eas: 2.09, cisa: 3.92, cia: 5.74 } },
+      { n: 'AC-EAS-New', c: 'Activation', s: 367, app: 11.7, dep: { ssisa: 0.27, psa: 1.09, gia: 0, eas: 4.63, cisa: 0.82, cia: 0.82 } },
+      { n: 'GR-Investments_New_Actives', c: 'Growth', s: 366, app: 11.5, dep: { ssisa: 0, psa: 3.55, gia: 0, eas: 0, cisa: 0, cia: 3.01 } },
+      { n: 'RT-celebratory_500_autosaved', c: 'Retention', s: 300, app: 16.3, dep: { ssisa: 2.67, psa: 4.67, gia: 1, eas: 2.33, cisa: 1.67, cia: 7 } },
+      { n: 'MK-ALL-25%_GoalReached', c: 'Marketing - All', s: 242, app: 29.3, dep: { ssisa: 7.44, psa: 8.68, gia: 3.72, eas: 5.37, cisa: 5.79, cia: 7.44 } },
+      { n: 'MK-ALL-50%_GoalReached', c: 'Marketing - All', s: 212, app: 33.5, dep: { ssisa: 6.13, psa: 4.72, gia: 0.47, eas: 2.83, cisa: 8.02, cia: 11.79 } },
+      { n: 'MK-ALL-75%_GoalReached', c: 'Marketing - All', s: 176, app: 36.9, dep: { ssisa: 3.41, psa: 7.39, gia: 2.27, eas: 3.98, cisa: 10.23, cia: 12.5 } },
+      { n: 'MK-EAS-Goal_Unopened_LinkedAccount', c: 'Marketing - EAS', s: 139, app: 12.9, dep: { ssisa: 2.88, psa: 2.16, gia: 0, eas: 2.16, cisa: 7.19, cia: 11.51 } },
+      { n: 'AC-Referee_Journey', c: 'Activation', s: 127, app: 20.5, dep: { ssisa: 0.79, psa: 7.09, gia: 0, eas: 3.94, cisa: 3.15, cia: 0 } },
+      { n: 'MK-CISA-Goal_Unopened_LinkedAccount', c: 'Marketing - CB ISA', s: 119, app: 19.3, dep: { ssisa: 0, psa: 6.72, gia: 0, eas: 2.52, cisa: 3.36, cia: 7.56 } },
+      { n: 'PR-SSISA_v2', c: 'Pre-activation', s: 103, app: 31.1, dep: { ssisa: 8.74, psa: 2.91, gia: 0.97, eas: 0.97, cisa: 6.8, cia: 0 } },
+      { n: 'MK-SSISA-Goal_Unopened_LinkedAccount', c: 'Marketing - Other', s: 103, app: 17.5, dep: { ssisa: 2.91, psa: 1.94, gia: 0.97, eas: 0.97, cisa: 0.97, cia: 2.91 } },
+      { n: 'MK-GIA-Goal_Unopened_LinkedAccount', c: 'Marketing - GIA', s: 77, app: 26, dep: { ssisa: 2.6, psa: 6.49, gia: 3.9, eas: 1.3, cisa: 1.3, cia: 6.49 } },
+      { n: 'AB-Onboarding_Product_Abandonment', c: 'Abandonment', s: 66, app: 10.6, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 0, cia: 0 } },
+      { n: 'MK-PSA-23-12-2025-PSA500_EOM', c: 'Marketing - PSA', s: 51, app: 70.6, dep: { ssisa: 0, psa: 7.84, gia: 1.96, eas: 0, cisa: 11.76, cia: 13.73 } },
+      { n: 'PR-GIA_v2', c: 'Pre-activation', s: 47, app: 27.7, dep: { ssisa: 0, psa: 4.26, gia: 2.13, eas: 0, cisa: 0, cia: 0 } },
+      { n: 'AB-CISA_Transfer_v2', c: 'Abandonment', s: 41, app: 29.3, dep: { ssisa: 0, psa: 0, gia: 0, eas: 4.88, cisa: 9.76, cia: 0 } },
+      { n: 'MK-CIAS-Goal_Unopened_LinkedAccount', c: 'Marketing - Other', s: 36, app: 11.1, dep: { ssisa: 0, psa: 2.78, gia: 2.78, eas: 0, cisa: 2.78, cia: 2.78 } },
+      { n: 'RT-EAS_in-app_loyalty_offer_promo_applied', c: 'Retention', s: 30, app: 30, dep: { ssisa: 6.67, psa: 0, gia: 0, eas: 3.33, cisa: 3.33, cia: 3.33 } },
+      { n: 'RT-Referee_Deposit_Success', c: 'Retention', s: 24, app: 20.8, dep: { ssisa: 0, psa: 4.17, gia: 0, eas: 0, cisa: 0, cia: 4.17 } },
+      { n: 'PR-INVS-ISA_Transfer_Request_Survey', c: 'Pre-activation', s: 22, app: 68.2, dep: { ssisa: 36.36, psa: 4.55, gia: 9.09, eas: 0, cisa: 13.64, cia: 9.09 } },
+      { n: 'MK-PSA-23-01-2026-PSA500_MarketingPreference', c: 'Marketing - PSA', s: 20, app: 60, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 20, cia: 0 } }
+    ]
+  },
+  feb: {
+    label: 'February 2026',
+    days: 28, elapsed: 28, partial: false,
+    comms: [
+      { n: 'MK-PSA-11-02-2026-PSA500_Reannouncement', c: 'Marketing - PSA', s: 406108, app: 16.2, dep: { ssisa: 0.68, psa: 2.13, gia: 0.27, eas: 0.55, cisa: 2.03, cia: 2.62 } },
+      { n: 'RT-Payday_Reminder_February_27022026', c: 'Retention', s: 263691, app: 5.2, dep: { ssisa: 0.76, psa: 1.21, gia: 0.28, eas: 0.47, cisa: 1.66, cia: 2.35 } },
+      { n: 'MK-CIAS-03-02-2026-Give20_1K_Referral_Incentive', c: 'Marketing - Other', s: 96798, app: 36.3, dep: { ssisa: 1.99, psa: 2.73, gia: 0.87, eas: 1.68, cisa: 4.68, cia: 11.42 } },
+      { n: 'MK-ALL-11-02-2026-BBA_Nudge_2026', c: 'Marketing - All', s: 73725, app: 6.3, dep: { ssisa: 0.66, psa: 1.82, gia: 0.25, eas: 0.46, cisa: 1.2, cia: 3.18 } },
+      { n: 'MK-EAS-03-02-2026-0.31%_Boost_TOPUP25k', c: 'Marketing - EAS', s: 52388, app: 7.3, dep: { ssisa: 0.48, psa: 0.67, gia: 0.31, eas: 0.16, cisa: 1.47, cia: 2.03 } },
+      { n: 'MK-INVS-07-02-2026-News_W19', c: 'Marketing - Investments', s: 45724, app: 2.3, dep: { ssisa: 0.42, psa: 0.32, gia: 0.18, eas: 0.09, cisa: 0.23, cia: 0.47 } },
+      { n: 'MK-INVS-20-02-2026-ii-14-launch', c: 'Marketing - Investments', s: 34910, app: 13, dep: { ssisa: 0.67, psa: 2.31, gia: 0.59, eas: 0.8, cisa: 2.67, cia: 5 } },
+      { n: 'MK-INVS-06-02-2026-ii-13-invest30', c: 'Marketing - Investments', s: 29944, app: 21.4, dep: { ssisa: 2.54, psa: 1.84, gia: 1.9, eas: 0.99, cisa: 2.62, cia: 3.34 } },
+      { n: 'MK-ALL-27-02-2026-Referral_£50_Incentive', c: 'Marketing - All', s: 26597, app: 8.1, dep: { ssisa: 0.75, psa: 0.51, gia: 0.43, eas: 0.52, cisa: 1.6, cia: 1.59, smisa: 0.02 } },
+      { n: 'MK-INVS-10-02-2026-ii-13-invest30-reminder', c: 'Marketing - Investments', s: 26494, app: 18.8, dep: { ssisa: 1.74, psa: 1.68, gia: 1.37, eas: 0.79, cisa: 2.17, cia: 2.89 } },
+      { n: 'MK-EAS-20-02-2026-0.31%_Boost_TOPUP25k', c: 'Marketing - EAS', s: 26112, app: 2.3, dep: { ssisa: 0.28, psa: 0.24, gia: 0.12, eas: 0.04, cisa: 0.76, cia: 0.84 } },
+      { n: 'MK-EAS-10-02-2026-Winback_3.50%_Loyalty_rate', c: 'Marketing - EAS', s: 20500, app: 5.2, dep: { ssisa: 0.19, psa: 0.5, gia: 0.17, eas: 0.61, cisa: 0.36, cia: 0.59 } },
+      { n: 'MK-PSA-26-02-2026-PSA_Referral_500Entries', c: 'Marketing - PSA', s: 13900, app: 16.2, dep: { ssisa: 2.71, psa: 9.95, gia: 1.19, eas: 1.45, cisa: 3.65, cia: 6.94, smisa: 0.01 } },
+      { n: 'PR-ALL-30-07-2025-CUR_survey', c: 'Pre-activation', s: 5766, app: 24.1, dep: { ssisa: 0.97, psa: 2.29, gia: 0.66, eas: 2.57, cisa: 0.14, cia: 8.74 } },
+      { n: 'RT-SSISA_Balance_Build', c: 'Retention', s: 5526, app: 23.1, dep: { ssisa: 5.85, psa: 3.26, gia: 0.38, eas: 0.78, cisa: 5.88, cia: 3.6 } },
+      { n: 'GR-PSA500_£150_Incentive', c: 'Growth', s: 5272, app: 32.5, dep: { ssisa: 0.83, psa: 1.65, gia: 0.87, eas: 0.93, cisa: 0.4, cia: 2.09 } },
+      { n: 'RT-Reactivation_V2', c: 'Retention', s: 3970, app: 4.3, dep: { ssisa: 0.43, psa: 0.71, gia: 0.28, eas: 0.33, cisa: 1.18, cia: 1.94 } },
+      { n: 'AB-Investing_V2', c: 'Abandonment', s: 2797, app: 29.5, dep: { ssisa: 4.4, psa: 3.32, gia: 1.89, eas: 1.61, cisa: 6.11, cia: 6.04 } },
+      { n: 'RT-CIA_Withdrawal_Cross-sell_EAS_v2', c: 'Retention', s: 2262, app: 28.5, dep: { ssisa: 1.11, psa: 1.9, gia: 0.75, eas: 0.31, cisa: 2.12, cia: 30.46 } },
+      { n: 'AC-SSISA_v3', c: 'Activation', s: 2149, app: 33.6, dep: { ssisa: 9.26, psa: 2.56, gia: 0.56, eas: 1.21, cisa: 6.75, cia: 4.75 } },
+      { n: 'AC-EAS-Existing', c: 'Activation', s: 1630, app: 22, dep: { ssisa: 1.35, psa: 2.45, gia: 1.41, eas: 7.85, cisa: 3.13, cia: 5.03 } },
+      { n: 'AC-GIA', c: 'Activation', s: 1514, app: 34.2, dep: { ssisa: 1.85, psa: 3.57, gia: 6.21, eas: 1.45, cisa: 3.1, cia: 4.76 } },
+      { n: 'MK-ALL-10-02-2026-Feb_deposit_incentive', c: 'Marketing - All', s: 1480, app: 39.5, dep: { ssisa: 3.24, psa: 10.61, gia: 0.95, eas: 3.51, cisa: 3.38, cia: 5.81 } },
+      { n: 'MK-ALL-Goal_Created', c: 'Marketing - All', s: 1440, app: 16.4, dep: { ssisa: 3.4, psa: 3.96, gia: 1.18, eas: 2.22, cisa: 4.1, cia: 5.35 } },
+      { n: 'PR-Onboarding', c: 'Pre-activation', s: 1325, app: 3.1, dep: { ssisa: 0.38, psa: 0.08, gia: 0.15, eas: 0.38, cisa: 0.53, cia: 0.68 } },
+      { n: 'GR-Investments_Experienced', c: 'Growth', s: 1256, app: 10.2, dep: { ssisa: 0, psa: 0.24, gia: 0, eas: 0.48, cisa: 0.4, cia: 1.91 } },
+      { n: 'RT-celebratory_6k_manual_saved', c: 'Retention', s: 1227, app: 12.7, dep: { ssisa: 0.33, psa: 1.3, gia: 0.41, eas: 0.9, cisa: 1.06, cia: 1.14 } },
+      { n: 'AC-CISA-Existing', c: 'Activation', s: 1174, app: 16.4, dep: { ssisa: 2.3, psa: 1.96, gia: 0.34, eas: 1.19, cisa: 3.58, cia: 4.17 } },
+      { n: 'RT-Investments_Survey_1M', c: 'Retention', s: 1138, app: 25.3, dep: { ssisa: 4.22, psa: 3.34, gia: 2.2, eas: 1.32, cisa: 4.75, cia: 3.78 } },
+      { n: 'RT-EAS_14Day_BoostedRate_Expiry', c: 'Retention', s: 1071, app: 17.1, dep: { ssisa: 1.12, psa: 2.71, gia: 0.56, eas: 4.95, cisa: 2.15, cia: 5.51, smisa: 0.09 } },
+      { n: 'GR-Maxed_Out_ISA_Allowance_v2', c: 'Growth', s: 1065, app: 25.3, dep: { ssisa: 0.66, psa: 1.22, gia: 0.75, eas: 1.41, cisa: 1.5, cia: 3.57 } },
+      { n: 'RT-5.25%_14Day_BoostedRate_Expiry', c: 'Retention', s: 944, app: 16.6, dep: { ssisa: 1.8, psa: 2.01, gia: 0.74, eas: 0.64, cisa: 6.25, cia: 5.51 } },
+      { n: 'AC-CIA-New', c: 'Activation', s: 936, app: 16.7, dep: { ssisa: 0.64, psa: 2.78, gia: 0.64, eas: 0.53, cisa: 0.75, cia: 12.71 } },
+      { n: 'AC-CIA-Existing', c: 'Activation', s: 816, app: 11.6, dep: { ssisa: 1.47, psa: 1.35, gia: 0.74, eas: 1.1, cisa: 1.96, cia: 2.94 } },
+      { n: 'AB-SSISA_Transfers_V2', c: 'Abandonment', s: 763, app: 41, dep: { ssisa: 9.83, psa: 5.5, gia: 3.93, eas: 1.57, cisa: 5.77, cia: 6.42 } },
+      { n: 'RT-CIA_Withdrawal_Cross-sell_EAS', c: 'Retention', s: 728, app: 32.8, dep: { ssisa: 0.69, psa: 1.92, gia: 0.41, eas: 0.41, cisa: 1.37, cia: 25.27 } },
+      { n: 'PR-ALL-24-10-2024-WealthScore_Feedback_Resend', c: 'Pre-activation', s: 560, app: 40, dep: { ssisa: 7.14, psa: 7.14, gia: 2.14, eas: 3.04, cisa: 7.86, cia: 10 } },
+      { n: 'AC-CISA-New', c: 'Activation', s: 522, app: 11.5, dep: { ssisa: 0.96, psa: 1.34, gia: 0.57, eas: 1.34, cisa: 5.56, cia: 1.72 } },
+      { n: 'RT-EAS_Loyalty_offer_IAM', c: 'Retention', s: 478, app: 83.7, dep: { ssisa: 4.6, psa: 6.07, gia: 1.46, eas: 14.44, cisa: 7.11, cia: 12.34 } },
+      { n: 'GR-Investments_Beginners', c: 'Growth', s: 454, app: 13.2, dep: { ssisa: 0.66, psa: 3.52, gia: 0, eas: 2.86, cisa: 2.42, cia: 3.08 } },
+      { n: 'RT-celebratory_500_autosaved', c: 'Retention', s: 439, app: 16.4, dep: { ssisa: 1.59, psa: 3.19, gia: 1.59, eas: 1.59, cisa: 1.82, cia: 8.88 } },
+      { n: 'RT-PSA_January_Winners_Announcement', c: 'Retention', s: 428, app: 37.6, dep: { ssisa: 2.8, psa: 10.28, gia: 1.17, eas: 0.93, cisa: 0.7, cia: 5.37 } },
+      { n: 'AC-EAS-New', c: 'Activation', s: 391, app: 13, dep: { ssisa: 0.51, psa: 2.05, gia: 1.02, eas: 5.88, cisa: 1.28, cia: 0.51 } },
+      { n: 'RT-Referrer_Journey', c: 'Retention', s: 366, app: 21.9, dep: { ssisa: 1.91, psa: 4.1, gia: 1.37, eas: 1.09, cisa: 1.37, cia: 1.91 } },
+      { n: 'GR-Investments_Intermediate', c: 'Growth', s: 293, app: 14.3, dep: { ssisa: 0, psa: 3.75, gia: 0, eas: 0, cisa: 3.07, cia: 11.26 } },
+      { n: 'AB-Onboarding_Product_Abandonment', c: 'Abandonment', s: 288, app: 13.5, dep: { ssisa: 0, psa: 0.35, gia: 0, eas: 0, cisa: 1.04, cia: 0.35 } },
+      { n: 'PR-SSISA_v2', c: 'Pre-activation', s: 264, app: 50.8, dep: { ssisa: 12.12, psa: 5.3, gia: 1.14, eas: 0, cisa: 1.52, cia: 4.55 } },
+      { n: 'PR-GIA_v2', c: 'Pre-activation', s: 219, app: 62.1, dep: { ssisa: 0.46, psa: 8.68, gia: 8.68, eas: 0, cisa: 0.46, cia: 1.83 } },
+      { n: 'MK-ALL-25%_GoalReached', c: 'Marketing - All', s: 212, app: 29.2, dep: { ssisa: 7.08, psa: 9.43, gia: 2.36, eas: 4.25, cisa: 8.02, cia: 16.98 } },
+      { n: 'MK-ALL-Goal_Deleted', c: 'Marketing - All', s: 205, app: 15.6, dep: { ssisa: 2.44, psa: 4.88, gia: 0.98, eas: 1.95, cisa: 4.39, cia: 6.34 } },
+      { n: 'MK-ALL-50%_GoalReached', c: 'Marketing - All', s: 202, app: 32.2, dep: { ssisa: 3.47, psa: 5.94, gia: 0.99, eas: 3.96, cisa: 8.91, cia: 10.89 } },
+      { n: 'GR-Investments_New_Actives', c: 'Growth', s: 188, app: 14.4, dep: { ssisa: 0.53, psa: 5.85, gia: 0.53, eas: 1.6, cisa: 1.06, cia: 2.13 } },
+      { n: 'MK-ALL-75%_GoalReached', c: 'Marketing - All', s: 130, app: 28.5, dep: { ssisa: 7.69, psa: 8.46, gia: 0, eas: 3.08, cisa: 13.85, cia: 11.54 } },
+      { n: 'AC-Referee_Journey', c: 'Activation', s: 124, app: 21, dep: { ssisa: 1.61, psa: 8.87, gia: 0, eas: 0, cisa: 0.81, cia: 8.87 } },
+      { n: 'RT-CIA_4.76%_14Day_BoostedRate_Expiry', c: 'Retention', s: 119, app: 23.5, dep: { ssisa: 0.84, psa: 3.36, gia: 2.52, eas: 0.84, cisa: 3.36, cia: 1.68 } },
+      { n: 'MK-EAS-Goal_Unopened_LinkedAccount', c: 'Marketing - EAS', s: 77, app: 18.2, dep: { ssisa: 1.3, psa: 5.19, gia: 1.3, eas: 1.3, cisa: 5.19, cia: 2.6 } },
+      { n: 'MK-CISA-Goal_Unopened_LinkedAccount', c: 'Marketing - CB ISA', s: 69, app: 5.8, dep: { ssisa: 1.45, psa: 1.45, gia: 1.45, eas: 5.8, cisa: 0, cia: 4.35 } },
+      { n: 'MK-SSISA-Goal_Unopened_LinkedAccount', c: 'Marketing - Other', s: 58, app: 12.1, dep: { ssisa: 1.72, psa: 0, gia: 0, eas: 1.72, cisa: 5.17, cia: 6.9 } },
+      { n: 'MK-GIA-Goal_Unopened_LinkedAccount', c: 'Marketing - GIA', s: 33, app: 15.2, dep: { ssisa: 9.09, psa: 21.21, gia: 6.06, eas: 6.06, cisa: 3.03, cia: 12.12 } },
+      { n: 'MK-CIAS-Goal_Unopened_LinkedAccount', c: 'Marketing - Other', s: 21, app: 23.8, dep: { ssisa: 0, psa: 0, gia: 0, eas: 4.76, cisa: 4.76, cia: 4.76 } }
+    ]
+  },
+  mar: {
+    label: 'March 2026',
+    days: 31, elapsed: 31, partial: false,
+    comms: [
+      { n: 'MK-PSA-18-03-2026-PSA500_Week3', c: 'Marketing - PSA', s: 439366, app: 15.1, dep: { ssisa: 0.79, psa: 2.43, gia: 0.26, eas: 0.63, cisa: 3.15, cia: 3.1, smisa: 0.02 } },
+      { n: 'MK-ALL-10-03-2026-One_month_to_go_ISA_Season', c: 'Marketing - All', s: 413306, app: 12.9, dep: { ssisa: 0.59, psa: 1.77, gia: 0.19, eas: 0.48, cisa: 2.25, cia: 2.67, smisa: 0.02 } },
+      { n: 'MK-ALL-24-03-2026-One_week_to_go_ISA_Season', c: 'Marketing - All', s: 408945, app: 18.6, dep: { ssisa: 1.26, psa: 2.71, gia: 0.36, eas: 0.96, cisa: 5.19, cia: 4.63, smisa: 0.03 } },
+      { n: 'MK-PSA-27-03-2026-PSA500_LastChance', c: 'Marketing - PSA', s: 269227, app: 13.9, dep: { ssisa: 1.13, psa: 2.13, gia: 0.34, eas: 0.7, cisa: 3.75, cia: 3.06, smisa: 0.01 } },
+      { n: 'MK-MULTI-26-03-2026-Payday_Reminder', c: 'Marketing - Multi', s: 268247, app: 6, dep: { ssisa: 0.72, psa: 1.25, gia: 0.24, eas: 0.51, cisa: 2.3, cia: 2.34, smisa: 0.05 } },
+      { n: 'MK-CISA-20-03-2026-Allowance_reminder', c: 'Marketing - CB ISA', s: 131276, app: 7.7, dep: { ssisa: 0.99, psa: 1.42, gia: 0.2, eas: 0.49, cisa: 5.56, cia: 2.36, smisa: 0.09 } },
+      { n: 'MK-INVS-19-03-2026-ii-15-launch', c: 'Marketing - Investments', s: 108557, app: 11.4, dep: { ssisa: 0.28, psa: 1.71, gia: 0.14, eas: 0.64, cisa: 2.22, cia: 3.65, smisa: 0.02 } },
+      { n: 'MK-ALL-PSA500_IAM_13032026', c: 'Marketing - All', s: 98578, app: 53.1, dep: { ssisa: 2.89, psa: 7.64, gia: 0.9, eas: 2.36, cisa: 12.53, cia: 10.82, smisa: 0.01 } },
+      { n: 'MK-INVS-13-03-2026-News_W20', c: 'Marketing - Investments', s: 54696, app: 0.7, dep: { ssisa: 0.09, psa: 0.09, gia: 0.04, eas: 0.02, cisa: 0.09, cia: 0.12, smisa: 0 } },
+      { n: 'MK-MULTI-28-03-2026-Founder_Letter_MaxedOut', c: 'Marketing - Multi', s: 28342, app: 12.1, dep: { ssisa: 0.25, psa: 1.27, gia: 0.52, eas: 0.98, cisa: 1.25, cia: 2.48, smisa: 0.37 } },
+      { n: 'PR-ALL-22-01-2026-investments_survey_ongoing', c: 'Pre-activation', s: 17280, app: 64.7, dep: { ssisa: 14.61, psa: 7.78, gia: 4.14, eas: 2.58, cisa: 12.19, cia: 11.19, smisa: 0.04 } },
+      { n: 'RT-Reactivation_V2', c: 'Retention', s: 12976, app: 3.1, dep: { ssisa: 0.15, psa: 0.62, gia: 0, eas: 0.11, cisa: 0.44, cia: 0.85, smisa: 0.01 } },
+      { n: 'AC-SSISA_v3', c: 'Activation', s: 5730, app: 27.1, dep: { ssisa: 6.63, psa: 3.12, gia: 0.72, eas: 0.77, cisa: 5.48, cia: 4.85, smisa: 0.16 } },
+      { n: 'PR-ALL-30-07-2025-CUR_survey', c: 'Pre-activation', s: 5412, app: 25.4, dep: { ssisa: 0.78, psa: 2.44, gia: 0.44, eas: 2.22, cisa: 0.37, cia: 11.16, smisa: 0 } },
+      { n: 'PR-ALL-07-03-2026-Wealth_Plan_Survey', c: 'Pre-activation', s: 5226, app: 16.9, dep: { ssisa: 4.75, psa: 6.24, gia: 1.42, eas: 2.41, cisa: 4.78, cia: 9.49, smisa: 0.11 } },
+      { n: 'MK-PSA-26-02-2026-PSA_Referral_500Entries', c: 'Marketing - PSA', s: 5083, app: 86.8, dep: { ssisa: 4.86, psa: 19.56, gia: 2.14, eas: 2.97, cisa: 8.5, cia: 13.34, smisa: 0 } },
+      { n: 'RT-SSISA_Balance_Build', c: 'Retention', s: 4909, app: 19, dep: { ssisa: 4.14, psa: 3.01, gia: 0.2, eas: 0.53, cisa: 3.34, cia: 3.81, smisa: 0.12 } },
+      { n: 'AC-GIA', c: 'Activation', s: 2410, app: 23.8, dep: { ssisa: 2.57, psa: 4.23, gia: 4.07, eas: 1.2, cisa: 4.11, cia: 5.19, smisa: 0.04 } },
+      { n: 'RT-CIA_Withdrawal_Cross-sell_EAS_v2', c: 'Retention', s: 2399, app: 21.8, dep: { ssisa: 0.63, psa: 1.58, gia: 0.29, eas: 0.71, cisa: 1.79, cia: 17.59, smisa: 0 } },
+      { n: 'MK-ALL-27-02-2026-Referral_£50_Incentive', c: 'Marketing - All', s: 2236, app: 56.1, dep: { ssisa: 1.88, psa: 1.52, gia: 1.25, eas: 2.28, cisa: 9.66, cia: 7.69, smisa: 0 } },
+      { n: 'GR-Maxed_Out_ISA_Allowance_v2', c: 'Growth', s: 2125, app: 23.1, dep: { ssisa: 0.85, psa: 1.55, gia: 0.33, eas: 0.85, cisa: 1.22, cia: 2.64, smisa: 0.05 } },
+      { n: 'AB-SignUp_Abandonment', c: 'Abandonment', s: 1784, app: 0.5, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 0, cia: 0.17, smisa: 0 } },
+      { n: 'AC-CIA-New', c: 'Activation', s: 1676, app: 9.5, dep: { ssisa: 0.48, psa: 1.13, gia: 0, eas: 0.06, cisa: 0.54, cia: 8.89, smisa: 0 } },
+      { n: 'PR-Onboarding_Mar26-PSA500', c: 'Pre-activation', s: 1666, app: 3.9, dep: { ssisa: 0.36, psa: 0.66, gia: 0.06, eas: 0.48, cisa: 1.02, cia: 0.66, smisa: 0.12 } },
+      { n: 'AC-EAS-Existing', c: 'Activation', s: 1551, app: 18.8, dep: { ssisa: 0.97, psa: 2.58, gia: 0.84, eas: 6.58, cisa: 2.71, cia: 5.09, smisa: 0.19 } },
+      { n: 'MK-ALL-Goal_Created', c: 'Marketing - All', s: 1390, app: 16.2, dep: { ssisa: 3.81, psa: 4.53, gia: 1.58, eas: 2.81, cisa: 3.96, cia: 6.04, smisa: 0.29 } },
+      { n: 'AC-CISA-Existing', c: 'Activation', s: 1363, app: 12.3, dep: { ssisa: 1.39, psa: 2.49, gia: 0.37, eas: 0.81, cisa: 4.04, cia: 3.37, smisa: 0 } },
+      { n: 'RT-Issue_4_EAS_auto_application', c: 'Retention', s: 1314, app: 14.5, dep: { ssisa: 1.9, psa: 3.2, gia: 0.68, eas: 5.1, cisa: 2.82, cia: 5.18, smisa: 0.3 } },
+      { n: 'AB-Investing_V2', c: 'Abandonment', s: 1303, app: 23.3, dep: { ssisa: 2.61, psa: 3.3, gia: 0.61, eas: 1.61, cisa: 6.91, cia: 5.37, smisa: 0.15 } },
+      { n: 'RT-celebratory_6k_manual_saved', c: 'Retention', s: 1041, app: 9.4, dep: { ssisa: 0.38, psa: 0.86, gia: 0.29, eas: 0.29, cisa: 1.06, cia: 0.77, smisa: 0 } },
+      { n: 'RT-5.25%_14Day_BoostedRate_Expiry', c: 'Retention', s: 983, app: 16.3, dep: { ssisa: 2.24, psa: 2.34, gia: 0.51, eas: 0.92, cisa: 6.21, cia: 6.21, smisa: 0.1 } },
+      { n: 'AC-CIA-Existing', c: 'Activation', s: 931, app: 8.7, dep: { ssisa: 0.64, psa: 1.72, gia: 0.43, eas: 0.86, cisa: 1.4, cia: 2.47, smisa: 0 } },
+      { n: 'RT-CIA_4.76%_14Day_BoostedRate_Expiry', c: 'Retention', s: 795, app: 21, dep: { ssisa: 1.38, psa: 2.26, gia: 0.38, eas: 1.64, cisa: 4.15, cia: 3.77, smisa: 0.38 } },
+      { n: 'AB-SSISA_Transfers_V2', c: 'Abandonment', s: 759, app: 45.3, dep: { ssisa: 10.41, psa: 7.51, gia: 3.95, eas: 2.64, cisa: 8.7, cia: 8.83, smisa: 0.4 } },
+      { n: 'RT-Investments_Survey_1M', c: 'Retention', s: 712, app: 19.2, dep: { ssisa: 3.37, psa: 3.37, gia: 0.84, eas: 0.84, cisa: 3.93, cia: 3.65, smisa: 0.14 } },
+      { n: 'GR-Investments_Experienced', c: 'Growth', s: 706, app: 8.6, dep: { ssisa: 0, psa: 1.13, gia: 0, eas: 0.42, cisa: 0, cia: 4.82, smisa: 0 } },
+      { n: 'RT-Referrer_Journey', c: 'Retention', s: 680, app: 27.2, dep: { ssisa: 1.62, psa: 6.03, gia: 0.44, eas: 0.59, cisa: 2.21, cia: 3.82, smisa: 0 } },
+      { n: 'AC-CISA-New', c: 'Activation', s: 671, app: 11.6, dep: { ssisa: 0.45, psa: 1.04, gia: 0.3, eas: 0.3, cisa: 8.2, cia: 0.15, smisa: 0 } },
+      { n: 'AB-Onboarding_Product_Abandonment', c: 'Abandonment', s: 607, app: 3, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 0, cia: 0, smisa: 0 } },
+      { n: 'GR-Investments_Beginners', c: 'Growth', s: 550, app: 13.5, dep: { ssisa: 0.55, psa: 5.64, gia: 0, eas: 0.73, cisa: 4, cia: 5.09, smisa: 0 } },
+      { n: 'PR-SSISA_v2', c: 'Pre-activation', s: 535, app: 42.8, dep: { ssisa: 14.77, psa: 7.66, gia: 1.5, eas: 0.75, cisa: 7.29, cia: 4.86, smisa: 0 } },
+      { n: 'RT-celebratory_500_autosaved', c: 'Retention', s: 519, app: 18.7, dep: { ssisa: 3.47, psa: 6.17, gia: 0.96, eas: 1.73, cisa: 1.54, cia: 11.75, smisa: 0 } },
+      { n: 'PR-ALL-24-10-2024-WealthScore_Feedback_Resend', c: 'Pre-activation', s: 460, app: 40.2, dep: { ssisa: 5.87, psa: 6.3, gia: 1.74, eas: 4.57, cisa: 8.91, cia: 15.87, smisa: 0 } },
+      { n: 'RT-PSA_February_Winners_Announcement_2026', c: 'Retention', s: 429, app: 31, dep: { ssisa: 1.4, psa: 8.86, gia: 1.17, eas: 0.23, cisa: 0.7, cia: 2.8, smisa: 0 } },
+      { n: 'AC-EAS-New', c: 'Activation', s: 322, app: 14.3, dep: { ssisa: 0, psa: 1.55, gia: 0.93, eas: 7.14, cisa: 0.62, cia: 0.93, smisa: 0 } },
+      { n: 'PR-GIA_v2', c: 'Pre-activation', s: 294, app: 23.8, dep: { ssisa: 3.06, psa: 3.06, gia: 8.5, eas: 1.7, cisa: 1.36, cia: 1.36, smisa: 0 } },
+      { n: 'MK-ALL-25%_GoalReached', c: 'Marketing - All', s: 292, app: 31.2, dep: { ssisa: 7.88, psa: 9.25, gia: 0.34, eas: 4.45, cisa: 8.22, cia: 13.01, smisa: 0.34 } },
+      { n: 'MK-ALL-Goal_Deleted', c: 'Marketing - All', s: 258, app: 19.8, dep: { ssisa: 3.1, psa: 4.26, gia: 1.94, eas: 4.65, cisa: 6.98, cia: 7.75, smisa: 0.39 } },
+      { n: 'MK-ALL-50%_GoalReached', c: 'Marketing - All', s: 245, app: 28.6, dep: { ssisa: 4.49, psa: 6.94, gia: 1.22, eas: 3.67, cisa: 8.57, cia: 12.65, smisa: 0 } },
+      { n: 'AC-Referee_Journey', c: 'Activation', s: 226, app: 15.5, dep: { ssisa: 0.44, psa: 4.42, gia: 0.44, eas: 0.44, cisa: 2.21, cia: 3.1, smisa: 0 } },
+      { n: 'RT-EAS_14Day_BoostedRate_Expiry', c: 'Retention', s: 223, app: 13.9, dep: { ssisa: 0.9, psa: 0.9, gia: 0.9, eas: 5.38, cisa: 2.24, cia: 1.79, smisa: 0.45 } },
+      { n: 'GR-Investments_Intermediate', c: 'Growth', s: 204, app: 10.8, dep: { ssisa: 0, psa: 4.41, gia: 0, eas: 0.49, cisa: 3.43, cia: 2.45, smisa: 0 } },
+      { n: 'MK-ALL-75%_GoalReached', c: 'Marketing - All', s: 194, app: 29.9, dep: { ssisa: 6.19, psa: 3.61, gia: 1.03, eas: 4.64, cisa: 8.25, cia: 11.86, smisa: 0 } },
+      { n: 'RT-EAS_Loyalty_offer_IAM', c: 'Retention', s: 168, app: 89.9, dep: { ssisa: 1.79, psa: 2.98, gia: 1.19, eas: 11.9, cisa: 5.95, cia: 11.31, smisa: 0 } },
+      { n: 'MK-EAS-Goal_Unopened_LinkedAccount', c: 'Marketing - EAS', s: 92, app: 12, dep: { ssisa: 1.09, psa: 2.17, gia: 1.09, eas: 1.09, cisa: 4.35, cia: 2.17, smisa: 0 } },
+      { n: 'PR-Onboarding', c: 'Pre-activation', s: 88, app: 3.4, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 0, cia: 0, smisa: 0 } },
+      { n: 'GR-Investments_New_Actives', c: 'Growth', s: 64, app: 9.4, dep: { ssisa: 0, psa: 7.81, gia: 1.56, eas: 0, cisa: 0, cia: 6.25, smisa: 0 } },
+      { n: 'MK-CISA-Goal_Unopened_LinkedAccount', c: 'Marketing - CB ISA', s: 61, app: 14.8, dep: { ssisa: 1.64, psa: 6.56, gia: 0, eas: 3.28, cisa: 0, cia: 9.84, smisa: 0 } },
+      { n: 'MK-SSISA-Goal_Unopened_LinkedAccount', c: 'Marketing - Other', s: 43, app: 9.3, dep: { ssisa: 0, psa: 0, gia: 2.33, eas: 0, cisa: 0, cia: 4.65, smisa: 0 } },
+      { n: 'MK-CIAS-Goal_Unopened_LinkedAccount', c: 'Marketing - Other', s: 27, app: 18.5, dep: { ssisa: 3.7, psa: 0, gia: 0, eas: 0, cisa: 7.41, cia: 0, smisa: 0 } },
+      { n: 'RT-Referee_Deposit_Success', c: 'Retention', s: 26, app: 23.1, dep: { ssisa: 0, psa: 11.54, gia: 0, eas: 0, cisa: 0, cia: 11.54, smisa: 0 } },
+      { n: 'MK-GIA-Goal_Unopened_LinkedAccount', c: 'Marketing - GIA', s: 26, app: 26.9, dep: { ssisa: 0, psa: 3.85, gia: 0, eas: 0, cisa: 3.85, cia: 0, smisa: 0 } }
+    ]
+  },
+  apr: {
+    label: 'April 2026',
+    days: 30, elapsed: 30, partial: false,
+    comms: [
+      { n: 'MK-MULTI-02-04-2026-SpringDraw_Week1', c: 'Marketing - Multi', s: 743525, app: 3.5, dep: { ssisa: 0.23, psa: 0.47, gia: 0.07, eas: 0.15, cisa: 0.7, cia: 0.79, smisa: 0.27 } },
+      { n: 'MK-ALL-06-04-2026-ISA_Allowance_Reset_Push', c: 'Marketing - All', s: 498254, app: 2.7, dep: { ssisa: 0.09, psa: 0.1, gia: 0.02, eas: 0.06, cisa: 0.3, cia: 0.21, smisa: 0.15 } },
+      { n: 'MK-MULTI-17-04-2026-SpringDraw_Week3', c: 'Marketing - Multi', s: 489303, app: 16.7, dep: { ssisa: 0.97, psa: 1.71, gia: 0.28, eas: 0.64, cisa: 2.81, cia: 3.51, smisa: 0.65 } },
+      { n: 'MK-MULTI-13-04-2026-SpringDraw_Week2', c: 'Marketing - Multi', s: 450829, app: 14.8, dep: { ssisa: 0.88, psa: 1.54, gia: 0.27, eas: 0.53, cisa: 2.12, cia: 3.01, smisa: 0.81 } },
+      { n: 'MK-SISA-08-04-2026-Smart_Cash_ISA_Launch_(Resend)', c: 'Marketing - Smart ISA', s: 444986, app: 18.7, dep: { ssisa: 0.81, psa: 1.34, gia: 0.22, eas: 0.56, cisa: 2.49, cia: 2.97, smisa: 1.05 } },
+      { n: 'MK-MULTI-22-04-2026-SpringDraw_Week4', c: 'Marketing - Multi', s: 439015, app: 15.2, dep: { ssisa: 1.5, psa: 2.17, gia: 0.43, eas: 0.88, cisa: 3.65, cia: 4.45, smisa: 1 } },
+      { n: 'MK-MULTI-15-04-2026-Tax_Year_26/27_promo', c: 'Marketing - Multi', s: 313071, app: 19.2, dep: { ssisa: 1.24, psa: 0.96, gia: 0.24, eas: 0.68, cisa: 2.95, cia: 1.91, smisa: 1.11 } },
+      { n: 'MK-ALL-07-04-2026-New_Tax_Year', c: 'Marketing - All', s: 266737, app: 28.8, dep: { ssisa: 1.63, psa: 2.51, gia: 0.43, eas: 1.1, cisa: 4.8, cia: 5.34, smisa: 1.94 } },
+      { n: 'MK-SISA-27-04-2026-Internal_transfer_nudge', c: 'Marketing - Smart ISA', s: 159538, app: 15.2, dep: { ssisa: 1.29, psa: 1.03, gia: 0.31, eas: 0.48, cisa: 5.6, cia: 2.04, smisa: 1.27 } },
+      { n: 'MK-IAM-01-04-2026-SpringDraw_Week1', c: 'Marketing - Other', s: 144880, app: 46.7, dep: { ssisa: 2.45, psa: 4.22, gia: 0.64, eas: 1.84, cisa: 11.68, cia: 9.06, smisa: 1.93 } },
+      { n: 'MK-MULTI-28-04-2026-Tax_Year_26/27_promo_last_chance_v2', c: 'Marketing - Multi', s: 128481, app: 7.9, dep: { ssisa: 0.76, psa: 0.96, gia: 0.24, eas: 0.57, cisa: 2.27, cia: 2, smisa: 1.07 } },
+      { n: 'MK-MULTI-22-04-2026-Tax_Year_26/27_promo_expansion', c: 'Marketing - Multi', s: 116153, app: 8.8, dep: { ssisa: 0.04, psa: 1.55, gia: 0.22, eas: 0.09, cisa: 0.06, cia: 4.45, smisa: 0.15 } },
+      { n: 'MK-MULTI-20-04-2026-PSA_Winner_SpringDraw', c: 'Marketing - Multi', s: 67068, app: 11.2, dep: { ssisa: 1.36, psa: 4.01, gia: 0.42, eas: 0.86, cisa: 2.27, cia: 4.44, smisa: 1.12 } },
+      { n: 'MK-SISA-08-04-2026-Smart_Cash_ISA_Launch', c: 'Marketing - Smart ISA', s: 43620, app: 10.6, dep: { ssisa: 0.93, psa: 1.28, gia: 0.28, eas: 0.49, cisa: 1.91, cia: 2.72, smisa: 1 } },
+      { n: 'RT-Reactivation_V2', c: 'Retention', s: 36758, app: 2.1, dep: { ssisa: 0.07, psa: 0.22, gia: 0.02, eas: 0.04, cisa: 0.26, cia: 0.38, smisa: 0.05 } },
+      { n: 'PR-ALL-22-01-2026-investments_survey_ongoing', c: 'Pre-activation', s: 11113, app: 61.7, dep: { ssisa: 14.51, psa: 6.06, gia: 3.51, eas: 2.65, cisa: 10.47, cia: 10.29, smisa: 5.09 } },
+      { n: 'RT-PSA_March_Winners_Announcement_2026', c: 'Retention', s: 10909, app: 52.3, dep: { ssisa: 2.55, psa: 10.61, gia: 0.95, eas: 1.49, cisa: 5.35, cia: 6.39, smisa: 2.48 } },
+      { n: 'MK-SISA-07-04-2026-Smart_Cash_ISA_Welcome', c: 'Marketing - Smart ISA', s: 8349, app: 37.1, dep: { ssisa: 3.27, psa: 2.97, gia: 0.8, eas: 2.04, cisa: 2.5, cia: 7.16, smisa: 17.75 } },
+      { n: 'AB-Onboarding_Product_Abandonment', c: 'Abandonment', s: 6829, app: 11.7, dep: { ssisa: 0, psa: 0.01, gia: 0, eas: 0, cisa: 1.32, cia: 0, smisa: 0 } },
+      { n: 'PR-ALL-30-07-2025-CUR_survey', c: 'Pre-activation', s: 6188, app: 25, dep: { ssisa: 0.94, psa: 1.84, gia: 0.55, eas: 2.23, cisa: 0.16, cia: 9.6, smisa: 2.13 } },
+      { n: 'AC-SSISA_v3', c: 'Activation', s: 5723, app: 29.8, dep: { ssisa: 7.62, psa: 2.34, gia: 0.52, eas: 0.87, cisa: 4.96, cia: 3.98, smisa: 2.85 } },
+      { n: 'PR-MULTI-21-04-2026-Transfer_out_survey', c: 'Pre-activation', s: 5206, app: 5.5, dep: { ssisa: 0.31, psa: 0.46, gia: 0.46, eas: 0.19, cisa: 0, cia: 0.88, smisa: 0.15 } },
+      { n: 'RT-SSISA_Balance_Build', c: 'Retention', s: 4922, app: 25.3, dep: { ssisa: 6.93, psa: 2.54, gia: 1.04, eas: 1.04, cisa: 3.39, cia: 4.79, smisa: 1.5 } },
+      { n: 'GR-Maxed_Out_ISA_Allowance_v2', c: 'Growth', s: 4440, app: 25, dep: { ssisa: 0.63, psa: 0.68, gia: 0.2, eas: 1.24, cisa: 2.77, cia: 1.78, smisa: 1.73 } },
+      { n: 'PR-SISA-22-04-2026-Onboarding_drop_off_survey', c: 'Pre-activation', s: 4320, app: 79.2, dep: { ssisa: 9.44, psa: 5.95, gia: 1.71, eas: 3.61, cisa: 23.68, cia: 10.37, smisa: 3.84 } },
+      { n: 'RT-celebratory_6k_manual_saved', c: 'Retention', s: 2120, app: 11.6, dep: { ssisa: 0.57, psa: 1.13, gia: 0.28, eas: 0.33, cisa: 1.7, cia: 1.27, smisa: 0.47 } },
+      { n: 'AC-GIA', c: 'Activation', s: 1911, app: 24.1, dep: { ssisa: 2.51, psa: 1.67, gia: 2.88, eas: 1.52, cisa: 4.29, cia: 4.66, smisa: 1.62 } },
+      { n: 'RT-CIA_Withdrawal_Cross-sell_EAS_v2', c: 'Retention', s: 1878, app: 20.8, dep: { ssisa: 1.12, psa: 1.12, gia: 0.27, eas: 1.33, cisa: 2.02, cia: 10.86, smisa: 1.38 } },
+      { n: 'MK-ALL-Goal_Created', c: 'Marketing - All', s: 1742, app: 16.6, dep: { ssisa: 2.93, psa: 2.7, gia: 0.46, eas: 2.24, cisa: 2.76, cia: 4.99, smisa: 2.12 } },
+      { n: 'RT-CIA_4.76%_14Day_BoostedRate_Expiry', c: 'Retention', s: 1723, app: 19.9, dep: { ssisa: 1.1, psa: 1.33, gia: 0.64, eas: 0.99, cisa: 2.73, cia: 4.24, smisa: 1.39 } },
+      { n: 'AB-Investing_V2', c: 'Abandonment', s: 1652, app: 27.6, dep: { ssisa: 2.91, psa: 2.85, gia: 0.61, eas: 1.21, cisa: 5.75, cia: 5.51, smisa: 2.6 } },
+      { n: 'PR-Onboarding', c: 'Pre-activation', s: 1348, app: 2.2, dep: { ssisa: 0.15, psa: 0.82, gia: 0.07, eas: 0.15, cisa: 0.37, cia: 0.59, smisa: 0.45 } },
+      { n: 'AB-SSISA_Transfers_V2', c: 'Abandonment', s: 1315, app: 42, dep: { ssisa: 10.8, psa: 4.94, gia: 2.66, eas: 3.12, cisa: 6.39, cia: 6.54, smisa: 4.49 } },
+      { n: 'AC-CISA-Existing', c: 'Activation', s: 1212, app: 15.8, dep: { ssisa: 1.9, psa: 2.56, gia: 0.5, eas: 0.5, cisa: 3.14, cia: 3.8, smisa: 1.07 } },
+      { n: 'RT-Investments_Survey_1M', c: 'Retention', s: 1108, app: 21.8, dep: { ssisa: 5.14, psa: 2.62, gia: 1.44, eas: 1.35, cisa: 2.53, cia: 4.96, smisa: 1.71 } },
+      { n: 'AC-CIA-New', c: 'Activation', s: 1068, app: 8.1, dep: { ssisa: 0.19, psa: 0.47, gia: 0, eas: 0.37, cisa: 0.28, cia: 4.87, smisa: 0 } },
+      { n: 'GR-Investments_Beginners', c: 'Growth', s: 1025, app: 11.7, dep: { ssisa: 0.1, psa: 2.44, gia: 0, eas: 0.49, cisa: 1.17, cia: 7.41, smisa: 0 } },
+      { n: 'RT-5.25%_14Day_BoostedRate_Expiry', c: 'Retention', s: 806, app: 15.5, dep: { ssisa: 2.61, psa: 1.86, gia: 0.87, eas: 1.36, cisa: 4.47, cia: 5.83, smisa: 2.98 } },
+      { n: 'PR-SSISA_v2', c: 'Pre-activation', s: 788, app: 32.1, dep: { ssisa: 10.41, psa: 2.66, gia: 0.25, eas: 1.02, cisa: 2.92, cia: 1.02, smisa: 1.9 } },
+      { n: 'AC-CISA-New', c: 'Activation', s: 719, app: 12.1, dep: { ssisa: 0.7, psa: 0.42, gia: 0, eas: 0.83, cisa: 7.37, cia: 0.56, smisa: 0 } },
+      { n: 'RT-celebratory_500_autosaved', c: 'Retention', s: 628, app: 16.9, dep: { ssisa: 3.5, psa: 4.46, gia: 2.07, eas: 1.75, cisa: 1.43, cia: 11.62, smisa: 0.8 } },
+      { n: 'GR-Investments_Intermediate', c: 'Growth', s: 552, app: 12.1, dep: { ssisa: 0, psa: 0.54, gia: 0, eas: 0.18, cisa: 0.54, cia: 6.52, smisa: 0 } },
+      { n: 'RT-Referrer_Journey', c: 'Retention', s: 543, app: 27.1, dep: { ssisa: 1.66, psa: 3.5, gia: 0, eas: 1.1, cisa: 2.95, cia: 2.21, smisa: 1.47 } },
+      { n: 'PR-ALL-24-10-2024-WealthScore_Feedback_Resend', c: 'Pre-activation', s: 470, app: 44.9, dep: { ssisa: 5.74, psa: 7.45, gia: 1.28, eas: 3.4, cisa: 7.87, cia: 9.15, smisa: 1.91 } },
+      { n: 'AC-CIA-Existing', c: 'Activation', s: 421, app: 9.7, dep: { ssisa: 0.24, psa: 1.66, gia: 0.48, eas: 1.19, cisa: 2.14, cia: 1.66, smisa: 0 } },
+      { n: 'PR-GIA_v2', c: 'Pre-activation', s: 343, app: 27.1, dep: { ssisa: 2.33, psa: 2.92, gia: 4.96, eas: 2.33, cisa: 1.17, cia: 0.87, smisa: 1.75 } },
+      { n: 'MK-ALL-25%_GoalReached', c: 'Marketing - All', s: 341, app: 31.1, dep: { ssisa: 4.99, psa: 4.69, gia: 2.35, eas: 4.4, cisa: 6.16, cia: 13.49, smisa: 1.76 } },
+      { n: 'MK-ALL-50%_GoalReached', c: 'Marketing - All', s: 306, app: 38.2, dep: { ssisa: 6.86, psa: 6.54, gia: 2.61, eas: 3.92, cisa: 6.21, cia: 13.73, smisa: 3.27 } },
+      { n: 'MK-ALL-Goal_Deleted', c: 'Marketing - All', s: 279, app: 12.9, dep: { ssisa: 2.51, psa: 3.23, gia: 0, eas: 1.79, cisa: 3.58, cia: 5.73, smisa: 1.43 } },
+      { n: 'RT-Issue_4_EAS_auto_application', c: 'Retention', s: 233, app: 19.7, dep: { ssisa: 1.29, psa: 2.58, gia: 0.86, eas: 4.72, cisa: 4.72, cia: 4.72, smisa: 0.86 } },
+      { n: 'GR-Investments_Experienced', c: 'Growth', s: 226, app: 9.7, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0.88, cisa: 3.98, cia: 0.88, smisa: 0.88 } },
+      { n: 'AB-SignUp_Abandonment', c: 'Abandonment', s: 221, app: 1.4, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 0, cia: 0.45, smisa: 0.9 } },
+      { n: 'MK-ALL-75%_GoalReached', c: 'Marketing - All', s: 217, app: 30.4, dep: { ssisa: 6.45, psa: 7.37, gia: 1.84, eas: 4.15, cisa: 9.22, cia: 12.9, smisa: 2.3 } },
+      { n: 'AC-Referee_Journey', c: 'Activation', s: 215, app: 22.8, dep: { ssisa: 0.47, psa: 5.58, gia: 0, eas: 0, cisa: 0.93, cia: 0.47, smisa: 1.86 } },
+      { n: 'MK-EAS-Goal_Unopened_LinkedAccount', c: 'Marketing - EAS', s: 101, app: 11.9, dep: { ssisa: 0.99, psa: 0.99, gia: 0, eas: 1.98, cisa: 2.97, cia: 2.97, smisa: 0 } },
+      { n: 'MK-SSISA-Goal_Unopened_LinkedAccount', c: 'Marketing - Other', s: 66, app: 7.6, dep: { ssisa: 1.52, psa: 0, gia: 0, eas: 0, cisa: 0, cia: 3.03, smisa: 1.52 } },
+      { n: 'AB-CISA_Transfer_v2', c: 'Abandonment', s: 52, app: 26.9, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 9.62, cia: 3.85, smisa: 11.54 } },
+      { n: 'MK-CISA-Goal_Unopened_LinkedAccount', c: 'Marketing - CB ISA', s: 44, app: 15.9, dep: { ssisa: 2.27, psa: 0, gia: 0, eas: 2.27, cisa: 4.55, cia: 4.55, smisa: 2.27 } },
+      { n: 'MK-GIA-Goal_Unopened_LinkedAccount', c: 'Marketing - GIA', s: 38, app: 18.4, dep: { ssisa: 10.53, psa: 2.63, gia: 0, eas: 2.63, cisa: 0, cia: 5.26, smisa: 5.26 } },
+      { n: 'MK-CIAS-Goal_Unopened_LinkedAccount', c: 'Marketing - Other', s: 29, app: 0, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 0, cia: 0, smisa: 0 } },
+      { n: 'RT-Referee_Deposit_Success', c: 'Retention', s: 25, app: 36, dep: { ssisa: 0, psa: 12, gia: 0, eas: 4, cisa: 4, cia: 0, smisa: 4 } },
+      { n: 'RT-EAS_in-app_loyalty_offer_promo_applied', c: 'Retention', s: 20, app: 15, dep: { ssisa: 5, psa: 0, gia: 0, eas: 10, cisa: 5, cia: 5, smisa: 0 } }
+    ]
+  },
+  may: {
+    label: 'May 2026',
+    days: 31, elapsed: 31, partial: false,
+    comms: [
+      { n: 'MK-MULTI-21-05-2026-SpringDraw_Week8', c: 'Marketing - Multi', s: 719081, app: 6.3, dep: { ssisa: 0.58, psa: 0.81, gia: 0.17, eas: 0.29, cisa: 1.15, cia: 1.59, smisa: 0.31 } },
+      { n: 'MK-MULTI-27-05-2026-SpringDraw_Week9', c: 'Marketing - Multi', s: 700117, app: 5.6, dep: { ssisa: 0.7, psa: 0.82, gia: 0.22, eas: 0.32, cisa: 1.07, cia: 1.58, smisa: 0.3 } },
+      { n: 'MK-MULTI-07-05-2026-SpringDraw_Week6', c: 'Marketing - Multi', s: 261001, app: 12.1, dep: { ssisa: 0.8, psa: 1.28, gia: 0.25, eas: 0.46, cisa: 1.48, cia: 2.46, smisa: 0.61 } },
+      { n: 'MK-MULTI-13-05-2026-Monthly_Interest_update', c: 'Marketing - Multi', s: 168747, app: 10.9, dep: { ssisa: 0.99, psa: 1.56, gia: 0.3, eas: 0.58, cisa: 1.68, cia: 3.2, smisa: 1.11 } },
+      { n: 'MK-MULTI-15-05-2026-SpringDraw_Week7', c: 'Marketing - Multi', s: 132231, app: 14.3, dep: { ssisa: 1.18, psa: 1.79, gia: 0.33, eas: 0.6, cisa: 2.09, cia: 3.38, smisa: 0.69 } },
+      { n: 'MK-MULTI-15-05-2026-SpringDraw_Week7_Experiment', c: 'Marketing - Multi', s: 76984, app: 15.8, dep: { ssisa: 1.1, psa: 1.6, gia: 0.35, eas: 0.63, cisa: 2.27, cia: 3.5, smisa: 0.74 } },
+      { n: 'MK-MULTI-07-05-2026-SpringDraw_Week6_Experiment', c: 'Marketing - Multi', s: 50988, app: 17.1, dep: { ssisa: 1.24, psa: 1.63, gia: 0.38, eas: 0.62, cisa: 2.16, cia: 3.18, smisa: 0.76 } },
+      { n: 'MK-MULTI-29-04-2026-SpringDraw_Week5', c: 'Marketing - Multi', s: 36236, app: 61.7, dep: { ssisa: 3.49, psa: 5.06, gia: 1.09, eas: 2.57, cisa: 10.63, cia: 12.34, smisa: 1.98 } },
+      { n: 'RT-Reactivation_V2', c: 'Retention', s: 21955, app: 2.5, dep: { ssisa: 0.08, psa: 0.35, gia: 0.05, eas: 0.04, cisa: 0.2, cia: 0.58, smisa: 0.06 } },
+      { n: 'RT-5.25%_14Day_BoostedRate_Expiry', c: 'Retention', s: 16976, app: 16.8, dep: { ssisa: 0.65, psa: 0.39, gia: 0.13, eas: 0.14, cisa: 4.23, cia: 0.48, smisa: 0.61 } },
+      { n: 'RT-PSA_April_Winners_Announcement_2026', c: 'Retention', s: 7514, app: 46.8, dep: { ssisa: 1.77, psa: 11.49, gia: 0.97, eas: 1.04, cisa: 1.86, cia: 5.36, smisa: 0.57 } },
+      { n: 'PR-ALL-22-01-2026-investments_survey_ongoing', c: 'Pre-activation', s: 6238, app: 60.5, dep: { ssisa: 14.51, psa: 4.23, gia: 3.74, eas: 2.26, cisa: 7.98, cia: 9.33, smisa: 3.62 } },
+      { n: 'PR-ALL-30-07-2025-CUR_survey', c: 'Pre-activation', s: 5920, app: 26.7, dep: { ssisa: 2.7, psa: 2.09, gia: 0.81, eas: 3.38, cisa: 0.1, cia: 10.61, smisa: 4.43 } },
+      { n: 'RT-CIA_4.76%_14Day_BoostedRate_Expiry', c: 'Retention', s: 4185, app: 15.4, dep: { ssisa: 0.48, psa: 0.43, gia: 0.17, eas: 0.55, cisa: 0.65, cia: 4.73, smisa: 0.31 } },
+      { n: 'AC-SSISA_v3', c: 'Activation', s: 3567, app: 33.4, dep: { ssisa: 8.92, psa: 1.63, gia: 0.81, eas: 1.21, cisa: 3.59, cia: 3.84, smisa: 2.07 } },
+      { n: 'MK-SISA-07-04-2026-Smart_Cash_ISA_Welcome', c: 'Marketing - Smart ISA', s: 3517, app: 36.3, dep: { ssisa: 3.36, psa: 2.56, gia: 0.77, eas: 1.65, cisa: 1.65, cia: 5.2, smisa: 16.83 } },
+      { n: 'MK-MULTI-22-04-2026-SpringDraw_Week4', c: 'Marketing - Multi', s: 3299, app: 42.3, dep: { ssisa: 3.15, psa: 4.82, gia: 0.79, eas: 2.94, cisa: 13.16, cia: 11.03, smisa: 2.18 } },
+      { n: 'RT-SSISA_Balance_Build', c: 'Retention', s: 3262, app: 25.2, dep: { ssisa: 8.8, psa: 2.21, gia: 0.98, eas: 1.29, cisa: 2.61, cia: 3.31, smisa: 1.47 } },
+      { n: 'MK-INVS-20-05-2026-0%_Fees_Promotion', c: 'Marketing - Investments', s: 2806, app: 9.8, dep: { ssisa: 0.25, psa: 0.71, gia: 0.18, eas: 0.43, cisa: 2.32, cia: 1.28, smisa: 0.82 } },
+      { n: 'RT-celebratory_6k_manual_saved', c: 'Retention', s: 2707, app: 12.9, dep: { ssisa: 0.55, psa: 1.15, gia: 0.3, eas: 0.33, cisa: 1.22, cia: 1.33, smisa: 0.22 } },
+      { n: 'RT-EAS_14Day_BoostedRate_Expiry', c: 'Retention', s: 1795, app: 15.6, dep: { ssisa: 0.11, psa: 0.5, gia: 0.39, eas: 1.06, cisa: 0.06, cia: 0.33, smisa: 0 } },
+      { n: 'PR-Onboarding', c: 'Pre-activation', s: 1628, app: 2.1, dep: { ssisa: 0.31, psa: 0.55, gia: 0.12, eas: 0, cisa: 0.37, cia: 0.25, smisa: 0.18 } },
+      { n: 'GR-Maxed_Out_ISA_Allowance_v2', c: 'Growth', s: 1423, app: 24.3, dep: { ssisa: 0.91, psa: 0.98, gia: 0.49, eas: 1.62, cisa: 0.7, cia: 2.18, smisa: 0.91 } },
+      { n: 'MK-ALL-Goal_Created', c: 'Marketing - All', s: 1365, app: 16.8, dep: { ssisa: 3.44, psa: 3.52, gia: 1.03, eas: 2.2, cisa: 2.56, cia: 5.49, smisa: 2.56 } },
+      { n: 'AC-GIA', c: 'Activation', s: 1319, app: 28.7, dep: { ssisa: 4.09, psa: 2.65, gia: 3.79, eas: 1.9, cisa: 2.58, cia: 5.23, smisa: 1.59 } },
+      { n: 'RT-CIA_Withdrawal_Cross-sell_EAS_v2', c: 'Retention', s: 1217, app: 16.8, dep: { ssisa: 0.41, psa: 1.07, gia: 0.16, eas: 0.74, cisa: 0.99, cia: 10.02, smisa: 0.74 } },
+      { n: 'AB-Onboarding_Product_Abandonment', c: 'Abandonment', s: 1177, app: 2.8, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 0, cia: 0, smisa: 0 } },
+      { n: 'GR-Investments_Beginners', c: 'Growth', s: 1139, app: 8.2, dep: { ssisa: 0, psa: 3.25, gia: 0, eas: 0.7, cisa: 0.97, cia: 1.67, smisa: 0.61 } },
+      { n: 'AB-Investing_V2', c: 'Abandonment', s: 1138, app: 27.4, dep: { ssisa: 3.69, psa: 2.55, gia: 0.79, eas: 2.37, cisa: 5.27, cia: 5.1, smisa: 2.2 } },
+      { n: 'AB-SSISA_Transfers_V2', c: 'Abandonment', s: 1072, app: 44.8, dep: { ssisa: 10.82, psa: 4.2, gia: 3.36, eas: 1.77, cisa: 3.92, cia: 6.06, smisa: 2.99 } },
+      { n: 'RT-Investments_Survey_1M', c: 'Retention', s: 1016, app: 21.3, dep: { ssisa: 6.5, psa: 1.97, gia: 1.28, eas: 0.69, cisa: 1.48, cia: 3.05, smisa: 0.89 } },
+      { n: 'PR-SSISA_v2', c: 'Pre-activation', s: 882, app: 32.5, dep: { ssisa: 9.64, psa: 1.7, gia: 1.25, eas: 1.25, cisa: 1.47, cia: 1.47, smisa: 4.31 } },
+      { n: 'AC-CIA-New', c: 'Activation', s: 840, app: 7.3, dep: { ssisa: 0.36, psa: 0.6, gia: 0, eas: 0.24, cisa: 0, cia: 4.64, smisa: 0.24 } },
+      { n: 'GR-Investments_Experienced', c: 'Growth', s: 813, app: 11.3, dep: { ssisa: 0, psa: 0.98, gia: 0.12, eas: 0.12, cisa: 0.25, cia: 5.04, smisa: 0.37 } },
+      { n: 'AC-CISA-Existing', c: 'Activation', s: 734, app: 20.6, dep: { ssisa: 1.23, psa: 2.72, gia: 0.68, eas: 1.23, cisa: 0.95, cia: 3.54, smisa: 2.04 } },
+      { n: 'RT-celebratory_500_autosaved', c: 'Retention', s: 678, app: 18.6, dep: { ssisa: 3.39, psa: 3.98, gia: 1.33, eas: 1.92, cisa: 2.36, cia: 14.31, smisa: 0.29 } },
+      { n: 'GR-Investments_Intermediate', c: 'Growth', s: 521, app: 7.3, dep: { ssisa: 0, psa: 2.11, gia: 0, eas: 0.38, cisa: 1.34, cia: 2.69, smisa: 0.58 } },
+      { n: 'AC-CISA-New', c: 'Activation', s: 469, app: 10.9, dep: { ssisa: 0.43, psa: 0.85, gia: 0, eas: 0.43, cisa: 6.18, cia: 0.21, smisa: 1.71 } },
+      { n: 'PR-ALL-24-10-2024-WealthScore_Feedback_Resend', c: 'Pre-activation', s: 453, app: 38.4, dep: { ssisa: 7.06, psa: 5.96, gia: 2.43, eas: 2.87, cisa: 3.97, cia: 9.93, smisa: 3.09 } },
+      { n: 'MK-ALL-25%_GoalReached', c: 'Marketing - All', s: 343, app: 28.6, dep: { ssisa: 6.41, psa: 7, gia: 0.58, eas: 2.92, cisa: 5.25, cia: 12.54, smisa: 2.92 } },
+      { n: 'AC-CIA-Existing', c: 'Activation', s: 323, app: 12.1, dep: { ssisa: 0.93, psa: 1.86, gia: 0.62, eas: 1.86, cisa: 0.93, cia: 4.02, smisa: 0.31 } },
+      { n: 'PR-GIA_v2', c: 'Pre-activation', s: 288, app: 28.1, dep: { ssisa: 5.56, psa: 4.51, gia: 9.38, eas: 2.08, cisa: 0.35, cia: 1.74, smisa: 2.43 } },
+      { n: 'MK-ALL-50%_GoalReached', c: 'Marketing - All', s: 243, app: 31.3, dep: { ssisa: 7, psa: 4.94, gia: 1.65, eas: 3.29, cisa: 8.23, cia: 12.35, smisa: 2.06 } },
+      { n: 'MK-ALL-Goal_Deleted', c: 'Marketing - All', s: 235, app: 17.9, dep: { ssisa: 4.26, psa: 4.26, gia: 1.28, eas: 3.4, cisa: 2.55, cia: 8.09, smisa: 2.55 } },
+      { n: 'RT-Referrer_Journey', c: 'Retention', s: 226, app: 23, dep: { ssisa: 1.33, psa: 3.1, gia: 0, eas: 0.44, cisa: 3.1, cia: 4.87, smisa: 0.44 } },
+      { n: 'MK-ALL-75%_GoalReached', c: 'Marketing - All', s: 199, app: 34.2, dep: { ssisa: 5.53, psa: 5.03, gia: 3.02, eas: 2.51, cisa: 5.53, cia: 9.55, smisa: 1.01 } },
+      { n: 'AC-Referee_Journey', c: 'Activation', s: 182, app: 14.3, dep: { ssisa: 0, psa: 4.95, gia: 0, eas: 0.55, cisa: 0.55, cia: 1.65, smisa: 6.59 } },
+      { n: 'AB-SignUp_Abandonment', c: 'Abandonment', s: 160, app: 0.6, dep: { ssisa: 1.25, psa: 0, gia: 0, eas: 0, cisa: 0, cia: 0, smisa: 1.25 } },
+      { n: 'MK-EAS-Goal_Unopened_LinkedAccount', c: 'Marketing - EAS', s: 51, app: 15.7, dep: { ssisa: 3.92, psa: 3.92, gia: 0, eas: 0, cisa: 0, cia: 5.88, smisa: 3.92 } },
+      { n: 'MK-MULTI-13-05-2026-Monthly_Interest_update_(missing users)', c: 'Marketing - Multi', s: 48, app: 29.2, dep: { ssisa: 8.33, psa: 0, gia: 4.17, eas: 0, cisa: 0, cia: 2.08, smisa: 12.5 } },
+      { n: 'MK-SSISA-Goal_Unopened_LinkedAccount', c: 'Marketing - Other', s: 45, app: 11.1, dep: { ssisa: 2.22, psa: 2.22, gia: 2.22, eas: 0, cisa: 2.22, cia: 4.44, smisa: 2.22 } },
+      { n: 'MK-INVS-18-05-2026-0%_Fees_Promotion_FINALTEST', c: 'Marketing - Investments', s: 43, app: 27.9, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 0, cia: 0, smisa: 0 } },
+      { n: 'MK-INVS-22-05-2026-Deposit_Nudge', c: 'Marketing - Investments', s: 33, app: 6.1, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 3.03, cia: 0, smisa: 0 } },
+      { n: 'MK-CIAS-Goal_Unopened_LinkedAccount', c: 'Marketing - Other', s: 32, app: 15.6, dep: { ssisa: 3.12, psa: 0, gia: 0, eas: 0, cisa: 0, cia: 0, smisa: 0 } },
+      { n: 'MK-GIA-Goal_Unopened_LinkedAccount', c: 'Marketing - GIA', s: 25, app: 8, dep: { ssisa: 12, psa: 8, gia: 0, eas: 0, cisa: 0, cia: 0, smisa: 4 } }
+    ]
+  },
+  jun: {
+    label: 'June 2026',
+    days: 30, elapsed: 30, partial: false,
+    comms: [
+      { n: 'MK-SISA-10-06-2026-Nimex_service_email', c: 'Marketing - Smart ISA', s: 400089, app: 14.5, dep: { ssisa: 0.69, psa: 0.6, gia: 0.15, eas: 0.36, cisa: 1.49, cia: 1.54, smisa: 7.82 } },
+      { n: 'MK-MULTI-02-06-2026-SpringDraw_Closed', c: 'Marketing - Multi', s: 355135, app: 14.5, dep: { ssisa: 1.05, psa: 1.34, gia: 0.32, eas: 0.57, cisa: 1.69, cia: 2.95, smisa: 1.36 } },
+      { n: 'MK-SISA-25-06-2026-Post_Nimex_Cross-sell', c: 'Marketing - Smart ISA', s: 146386, app: 0, dep: { ssisa: 0.54, psa: 1.44, gia: 0.18, eas: 0.6, cisa: 1.05, cia: 2.76, smisa: 1.54 } },
+      { n: 'MK-SISA-04-06-2026-Smart_Cash_ISA_Nudge', c: 'Marketing - Smart ISA', s: 114680, app: 4.7, dep: { ssisa: 0.36, psa: 0.31, gia: 0.09, eas: 0.16, cisa: 1.05, cia: 0.85, smisa: 3.63 } },
+      { n: 'PR-SIPP-09-06-2026-Silent Launch Survey', c: 'Pre-activation', s: 55087, app: 12.4, dep: { ssisa: 1.82, psa: 0.9, gia: 0.42, eas: 0.34, cisa: 0.83, cia: 1.83, smisa: 3.67 } },
+      { n: 'MK-SISA-10-06-2026-Nimex_in-app_journey_v2', c: 'Marketing - Smart ISA', s: 38509, app: 45.5, dep: { ssisa: 1.96, psa: 1.71, gia: 0.42, eas: 1.15, cisa: 4.5, cia: 4.47, smisa: 49.19 } },
+      { n: 'RT-Reactivation_V2', c: 'Retention', s: 37637, app: 1.5, dep: { ssisa: 0.04, psa: 0.19, gia: 0.02, eas: 0.01, cisa: 0.13, cia: 0.33, smisa: 0.05 } },
+      { n: 'MK-SISA-07-04-2026-Smart_Cash_ISA_Welcome', c: 'Marketing - Smart ISA', s: 17802, app: 24, dep: { ssisa: 1.95, psa: 1.62, gia: 0.37, eas: 0.84, cisa: 0.38, cia: 3.81, smisa: 16.48 } },
+      { n: 'MK-SISA-26-06-2026-Nimex_in-app_journey_v3', c: 'Marketing - Smart ISA', s: 13280, app: 0, dep: { ssisa: 3.65, psa: 3.06, gia: 0.72, eas: 1.81, cisa: 12.76, cia: 7.39, smisa: 37.49 } },
+      { n: 'PR-Wealth-15-06-2026-Wealth_Beta_Invitation', c: 'Pre-activation', s: 10090, app: 13, dep: { ssisa: 1.92, psa: 1.96, gia: 0.67, eas: 1.13, cisa: 0.14, cia: 5.13, smisa: 2.18 } },
+      { n: 'RT-PSA_May_Winners_Announcement_2026', c: 'Retention', s: 7350, app: 39.9, dep: { ssisa: 1.8, psa: 10.35, gia: 0.76, eas: 1.12, cisa: 1.02, cia: 5.47, smisa: 5.39 } },
+      { n: 'AB-Onboarding_Product_Abandonment', c: 'Abandonment', s: 6340, app: 6.5, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 0.36, cia: 0, smisa: 0.05 } },
+      { n: 'PR-ALL-30-07-2025-CUR_survey', c: 'Pre-activation', s: 6300, app: 21.5, dep: { ssisa: 2.29, psa: 1.84, gia: 0.89, eas: 2.98, cisa: 0, cia: 10.25, smisa: 4.54 } },
+      { n: 'PR-ALL-22-01-2026-investments_survey_ongoing', c: 'Pre-activation', s: 5239, app: 49.6, dep: { ssisa: 13.13, psa: 3.8, gia: 3.34, eas: 2.77, cisa: 3.72, cia: 8.36, smisa: 11.28 } },
+      { n: 'MK-SISA-25-06-2026-Nimex_5k_promo_launch_comms(re-send)', c: 'Marketing - Smart ISA', s: 5019, app: 0, dep: { ssisa: 9.4, psa: 2.65, gia: 3.45, eas: 1.1, cisa: 1.06, cia: 4.62, smisa: 2.57 } },
+      { n: 'RT-CIA_4.76%_14Day_BoostedRate_Expiry', c: 'Retention', s: 3770, app: 4.5, dep: { ssisa: 0.53, psa: 0.56, gia: 0.11, eas: 0.45, cisa: 0.34, cia: 3.1, smisa: 0.69 } },
+      { n: 'AC-SSISA_v3', c: 'Activation', s: 3359, app: 23.3, dep: { ssisa: 7.32, psa: 1.4, gia: 0.33, eas: 1.07, cisa: 2.08, cia: 3.27, smisa: 6.37 } },
+      { n: 'MK-INVS-20-05-2026-0%_Fees_Promotion', c: 'Marketing - Investments', s: 3272, app: 7.3, dep: { ssisa: 0.09, psa: 0.58, gia: 0.21, eas: 0.24, cisa: 1.04, cia: 1.28, smisa: 3.24 } },
+      { n: 'RT-SSISA_Balance_Build', c: 'Retention', s: 3215, app: 17.5, dep: { ssisa: 6.44, psa: 1.31, gia: 0.75, eas: 0.62, cisa: 1.37, cia: 2.61, smisa: 4.04 } },
+      { n: 'RT-5.25%_14Day_BoostedRate_Expiry', c: 'Retention', s: 2211, app: 9.5, dep: { ssisa: 1.36, psa: 1.45, gia: 0.23, eas: 0.5, cisa: 3.08, cia: 2.89, smisa: 3.89 } },
+      { n: 'MK-SISA-24-06-2026-Nimex_5k_promo_launch_comms', c: 'Marketing - Smart ISA', s: 1919, app: 0, dep: { ssisa: 17.51, psa: 4.17, gia: 3.28, eas: 1.98, cisa: 0.73, cia: 9.22, smisa: 8.96 } },
+      { n: 'MK-ALL-Goal_Created', c: 'Marketing - All', s: 1401, app: 11.4, dep: { ssisa: 2.57, psa: 2.86, gia: 0.79, eas: 1.93, cisa: 1.21, cia: 3.14, smisa: 3.21 } },
+      { n: 'RT-celebratory_6k_manual_saved', c: 'Retention', s: 1373, app: 14.6, dep: { ssisa: 0.44, psa: 1.09, gia: 0.22, eas: 0.95, cisa: 1.02, cia: 1.89, smisa: 0.87 } },
+      { n: 'AC-GIA', c: 'Activation', s: 1292, app: 22.8, dep: { ssisa: 3.1, psa: 1.16, gia: 3.87, eas: 1.01, cisa: 1.93, cia: 3.87, smisa: 3.41 } },
+      { n: 'PR-Onboarding', c: 'Pre-activation', s: 1277, app: 2.2, dep: { ssisa: 0.23, psa: 0.23, gia: 0.16, eas: 0.55, cisa: 0, cia: 0.23, smisa: 1.1 } },
+      { n: 'RT-CIA_Withdrawal_Cross-sell_EAS_v2', c: 'Retention', s: 1117, app: 12.4, dep: { ssisa: 0.9, psa: 1.16, gia: 0.09, eas: 1.07, cisa: 0.81, cia: 8.42, smisa: 2.86 } },
+      { n: 'AB-SSISA_Transfers_V2', c: 'Abandonment', s: 966, app: 30.8, dep: { ssisa: 9.01, psa: 2.8, gia: 3.21, eas: 1.86, cisa: 2.48, cia: 5.9, smisa: 6.83 } },
+      { n: 'GR-Investments_Beginners', c: 'Growth', s: 919, app: 7.3, dep: { ssisa: 0, psa: 2.94, gia: 0, eas: 1.31, cisa: 0.76, cia: 2.18, smisa: 1.31 } },
+      { n: 'GR-Maxed_Out_ISA_Allowance_v2', c: 'Growth', s: 912, app: 19.7, dep: { ssisa: 0.77, psa: 0.88, gia: 0.44, eas: 1.21, cisa: 0.22, cia: 2.96, smisa: 4.5 } },
+      { n: 'RT-Investments_Survey_1M', c: 'Retention', s: 857, app: 16.2, dep: { ssisa: 3.85, psa: 0.93, gia: 1.4, eas: 0.7, cisa: 1.28, cia: 2.92, smisa: 3.85 } },
+      { n: 'RT-celebratory_500_autosaved', c: 'Retention', s: 842, app: 18.9, dep: { ssisa: 2.61, psa: 5.7, gia: 1.78, eas: 1.66, cisa: 1.43, cia: 13.66, smisa: 0.24 } },
+      { n: 'PR-SSISA_v2', c: 'Pre-activation', s: 832, app: 25, dep: { ssisa: 9.98, psa: 1.56, gia: 0.72, eas: 1.08, cisa: 0.12, cia: 0.12, smisa: 7.69 } },
+      { n: 'AB-Investing_V2', c: 'Abandonment', s: 804, app: 23.1, dep: { ssisa: 1.99, psa: 1.74, gia: 1.12, eas: 1.12, cisa: 2.36, cia: 6.72, smisa: 6.09 } },
+      { n: 'GR-Investments_Experienced', c: 'Growth', s: 785, app: 6.1, dep: { ssisa: 0, psa: 0.13, gia: 0, eas: 0, cisa: 0.25, cia: 1.27, smisa: 1.4 } },
+      { n: 'RT-EAS_14Day_BoostedRate_Expiry', c: 'Retention', s: 701, app: 9.4, dep: { ssisa: 1, psa: 2.14, gia: 0.29, eas: 2.71, cisa: 1.57, cia: 4.71, smisa: 3 } },
+      { n: 'PR-Wealth-24-06-2026-Wealth_Beta_Reminder', c: 'Pre-activation', s: 670, app: 0, dep: { ssisa: 12.54, psa: 8.96, gia: 5.37, eas: 3.88, cisa: 1.19, cia: 17.61, smisa: 10.15 } },
+      { n: 'AC-CIA-New', c: 'Activation', s: 626, app: 6.9, dep: { ssisa: 0.32, psa: 0.96, gia: 0, eas: 0.8, cisa: 0.32, cia: 4.15, smisa: 0.64 } },
+      { n: 'PR-Pre-Product_Onboarding', c: 'Pre-activation', s: 536, app: 6.5, dep: { ssisa: 0.37, psa: 1.31, gia: 0.56, eas: 0.93, cisa: 0, cia: 0, smisa: 9.7 } },
+      { n: 'PR-ALL-24-10-2024-WealthScore_Feedback_Resend', c: 'Pre-activation', s: 436, app: 29.8, dep: { ssisa: 2.75, psa: 3.44, gia: 1.83, eas: 4.36, cisa: 3.9, cia: 10.32, smisa: 11.47 } },
+      { n: 'GR-Investments_Intermediate', c: 'Growth', s: 424, app: 3.8, dep: { ssisa: 0, psa: 2.59, gia: 0, eas: 1.18, cisa: 1.42, cia: 1.65, smisa: 1.42 } },
+      { n: 'AC-CIA-Existing', c: 'Activation', s: 404, app: 9.2, dep: { ssisa: 1.73, psa: 2.48, gia: 0.5, eas: 1.73, cisa: 1.73, cia: 3.71, smisa: 2.97 } },
+      { n: 'PR-GIA_v2', c: 'Pre-activation', s: 348, app: 21, dep: { ssisa: 1.44, psa: 3.45, gia: 6.32, eas: 3.16, cisa: 0, cia: 0, smisa: 2.01 } },
+      { n: 'MK-ALL-Goal_Deleted', c: 'Marketing - All', s: 288, app: 18.8, dep: { ssisa: 3.82, psa: 2.78, gia: 0.69, eas: 3.47, cisa: 1.39, cia: 6.94, smisa: 4.86 } },
+      { n: 'AC-Referee_Journey', c: 'Activation', s: 286, app: 15.4, dep: { ssisa: 0.7, psa: 5.24, gia: 0.35, eas: 5.59, cisa: 0, cia: 1.4, smisa: 3.85 } },
+      { n: 'MK-ALL-25%_GoalReached', c: 'Marketing - All', s: 275, app: 18.9, dep: { ssisa: 5.82, psa: 7.64, gia: 0.73, eas: 2.91, cisa: 2.18, cia: 13.09, smisa: 3.27 } },
+      { n: 'RT-Referrer_Journey', c: 'Retention', s: 269, app: 17.5, dep: { ssisa: 2.6, psa: 2.23, gia: 0.74, eas: 1.86, cisa: 1.49, cia: 2.6, smisa: 4.09 } },
+      { n: 'MK-ALL-50%_GoalReached', c: 'Marketing - All', s: 235, app: 23, dep: { ssisa: 6.81, psa: 6.81, gia: 3.4, eas: 3.83, cisa: 3.4, cia: 14.89, smisa: 4.26 } },
+      { n: 'PR-Wealth-26-06-2026-Advice_Research', c: 'Pre-activation', s: 174, app: 0, dep: { ssisa: 3.45, psa: 3.45, gia: 0, eas: 0, cisa: 1.15, cia: 4.6, smisa: 6.9 } },
+      { n: 'AC-CISA-Existing', c: 'Activation', s: 160, app: 17.5, dep: { ssisa: 1.88, psa: 1.25, gia: 1.25, eas: 0.62, cisa: 1.88, cia: 1.88, smisa: 1.25 } },
+      { n: 'MK-ALL-75%_GoalReached', c: 'Marketing - All', s: 146, app: 24, dep: { ssisa: 6.85, psa: 8.22, gia: 2.74, eas: 3.42, cisa: 2.05, cia: 15.07, smisa: 6.85 } },
+      { n: 'AB-CISA_Transfer_v2', c: 'Abandonment', s: 139, app: 25.2, dep: { ssisa: 1.44, psa: 1.44, gia: 0, eas: 2.16, cisa: 0, cia: 2.88, smisa: 22.3 } },
+      { n: 'AC-CISA-New', c: 'Activation', s: 133, app: 9.8, dep: { ssisa: 1.5, psa: 2.26, gia: 0, eas: 1.5, cisa: 3.76, cia: 1.5, smisa: 1.5 } },
+      { n: 'MK-INVS-22-05-2026-Deposit_Nudge', c: 'Marketing - Investments', s: 120, app: 3.3, dep: { ssisa: 0, psa: 1.67, gia: 0.83, eas: 0, cisa: 1.67, cia: 1.67, smisa: 3.33 } },
+      { n: 'AB-SignUp_Abandonment', c: 'Abandonment', s: 64, app: 1.6, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 0, cia: 0, smisa: 0 } },
+      { n: 'MK-SSISA-Goal_Unopened_LinkedAccount', c: 'Marketing - Other', s: 52, app: 5.8, dep: { ssisa: 0, psa: 9.62, gia: 0, eas: 3.85, cisa: 0, cia: 0, smisa: 1.92 } },
+      { n: 'MK-EAS-Goal_Unopened_LinkedAccount', c: 'Marketing - EAS', s: 47, app: 10.6, dep: { ssisa: 0, psa: 0, gia: 0, eas: 0, cisa: 2.13, cia: 4.26, smisa: 2.13 } },
+      { n: 'MK-CIAS-Goal_Unopened_LinkedAccount', c: 'Marketing - Other', s: 34, app: 0, dep: { ssisa: 0, psa: 0, gia: 0, eas: 2.94, cisa: 0, cia: 0, smisa: 0 } },
+      { n: 'MK-GIA-Goal_Unopened_LinkedAccount', c: 'Marketing - GIA', s: 33, app: 12.1, dep: { ssisa: 6.06, psa: 0, gia: 0, eas: 6.06, cisa: 0, cia: 0, smisa: 0 } },
+      { n: 'MK-CISA-Goal_Unopened_LinkedAccount', c: 'Marketing - CB ISA', s: 22, app: 9.1, dep: { ssisa: 4.55, psa: 0, gia: 0, eas: 9.09, cisa: 0, cia: 0, smisa: 0 } }
+    ]
+  }
+};
+
+// ───────────────────────────────────────────────────────────
+// HELPERS
+// ───────────────────────────────────────────────────────────
+
+function getCSS(v) {
+  return getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 }
+const fmt = (n) => {
+  if (n >= 1e6) return (n/1e6).toFixed(2) + 'M';
+  if (n >= 1e4) return (n/1e3).toFixed(0) + 'k';
+  if (n >= 1e3) return (n/1e3).toFixed(2) + 'k';
+  return Math.round(n).toLocaleString();
+};
+
+const lifecycleOf = (cat) => CAT_TO_LIFECYCLE[cat] || 'OT';
+const lifecycleName = (l) => ({
+  AC: 'Activation', PR: 'Surveys / Research', RT: 'Retention',
+  GR: 'Growth (X-Sell)', AB: 'Abandonment', SO: 'Solus', OT: 'Other'
+})[l] || l;
+
+const PRODUCTS = ['ssisa','cia','psa','eas','cisa','gia','smisa'];
+const PRODUCT_LABEL = { ssisa: 'S&S ISA', cia: 'CIA', psa: 'PSA', eas: 'EAS', cisa: 'CISA', gia: 'GIA', smisa: 'SISA', sipp: 'SIPP', multi: 'Multi/All' };
+const PRODUCT_COLOR = {
+  ssisa: getCSS('--p-ssisa'), cia: getCSS('--p-cia'),
+  psa: getCSS('--p-psa'), eas: getCSS('--p-eas'),
+  cisa: getCSS('--p-cisa'), gia: getCSS('--p-gia'),
+  smisa: getCSS('--p-smisa'), sipp: getCSS('--p-sipp'),
+  multi: getCSS('--p-multi')
+};
+const LIFECYCLE_COLOR = {
+  AC: getCSS('--acc-sage'), PR: getCSS('--acc-cream'),
+  RT: getCSS('--acc-blue'), GR: getCSS('--acc-violet'),
+  AB: getCSS('--acc-rust'), SO: getCSS('--acc-burnt'),
+  OT: getCSS('--t-3')
+};
+
+function totalDepRate(comm) {
+  return PRODUCTS.reduce((a, p) => a + (comm.dep[p] || 0), 0);
+}
+function rankImpact(comm) {
+  return comm.s * totalDepRate(comm);
+}
+function totalSends(month) { return month.comms.reduce((a,c) => a + c.s, 0); }
+function totalOpens(month) { return month.comms.reduce((a,c) => a + c.s * (c.app/100), 0); }
+
+function weightedAvgOpenRate(month) {
+  const sends = totalSends(month);
+  return sends > 0 ? (totalOpens(month) / sends) * 100 : 0;
+}
+function weightedAvgDepRate(month) {
+  const sends = totalSends(month);
+  const wSum = month.comms.reduce((a,c) => a + c.s * totalDepRate(c), 0);
+  return sends > 0 ? (wSum / sends) : 0;
+}
+function depRateForProduct(month, product) {
+  const sends = totalSends(month);
+  const wSum = month.comms.reduce((a,c) => a + c.s * (c.dep[product] || 0), 0);
+  return sends > 0 ? (wSum / sends) : 0;
+}
+function depRateForLifecycle(month, lifecycle) {
+  const filtered = month.comms.filter(c => lifecycleOf(c.c) === lifecycle);
+  const sends = filtered.reduce((a,c) => a + c.s, 0);
+  const wSum = filtered.reduce((a,c) => a + c.s * totalDepRate(c), 0);
+  return sends > 0 ? (wSum / sends) : 0;
+}
+function sendsByLifecycle(month) {
+  const out = {};
+  month.comms.forEach(c => {
+    const l = lifecycleOf(c.c);
+    out[l] = (out[l] || 0) + c.s;
+  });
+  return out;
+}
+function topProduct(comm) {
+  let best = { product: '-', pct: 0 };
+  PRODUCTS.forEach(p => {
+    const v = comm.dep[p] || 0;
+    if (v > best.pct) best = { product: PRODUCT_LABEL[p], pct: v };
+  });
+  return best;
+}
+function topRateComm(month) {
+  return month.comms.reduce((best, c) => {
+    const r = totalDepRate(c);
+    if (!best || r > best.r) return { name: c.n, r, sends: c.s };
+    return best;
+  }, null);
+}
+
+function primaryProductTarget(comm) {
+  const cat = comm.c;
+  if (cat === 'Marketing - PSA') return 'psa';
+  if (cat === 'Marketing - EAS') return 'eas';
+  if (cat === 'Marketing - CB ISA') return 'cisa';
+  if (cat === 'Marketing - Investments') return 'gia';
+  if (cat === 'Marketing - Smart ISA') return 'smisa';
+  if (cat === 'Marketing - All' || cat === 'Marketing - Multi') return 'multi';
+  const name = comm.n.toUpperCase();
+  if (name.includes('SSISA') || name.includes('S&S')) return 'ssisa';
+  if (name.includes('CISA')) return 'cisa';
+  if (name.includes('SISA') || name.includes('SMART_CASH') || name.includes('SMART_ISA')) return 'smisa';
+  if (name.includes('-PSA') || name.includes('_PSA') || name.includes('PSA500')) return 'psa';
+  if (name.includes('-EAS') || name.includes('_EAS')) return 'eas';
+  if (name.includes('-INVS') || name.includes('INVEST')) return 'gia';
+  if (name.includes('-CIA') || name.includes('_CIA')) return 'cia';
+  if (name.includes('-GIA') || name.includes('_GIA')) return 'gia';
+  return 'multi';
+}
+function sendsByProductTarget(month) {
+  const out = {};
+  month.comms.forEach(c => {
+    const p = primaryProductTarget(c);
+    out[p] = (out[p] || 0) + c.s;
+  });
+  return out;
+}
+
+// ───────────────────────────────────────────────────────────
+// STATE
+// ───────────────────────────────────────────────────────────
+
+let activeMonth = 'jun';
+let activeTab = 'summary';
+let commFilter = 'all';
+const MONTHS = ['jan','feb','mar','apr','may','jun'];
+const MONTH_SHORT = { jan: 'Jan', feb: 'Feb', mar: 'Mar', apr: 'Apr', may: 'May', jun: 'Jun' };
+
+function priorMonthKey(m) {
+  const i = MONTHS.indexOf(m);
+  return i > 0 ? MONTHS[i-1] : null;
+}
+
+// ───────────────────────────────────────────────────────────
+// RENDERING — SUMMARY TAB
+// ───────────────────────────────────────────────────────────
+
+function renderKPIs() {
+  const m = DATA[activeMonth];
+  const sends = totalSends(m);
+  const openRate = weightedAvgOpenRate(m);
+  const depRate = weightedAvgDepRate(m);
+  const topRate = topRateComm(m);
+
+  let priorM, priorLabel, factor;
+  if (m.partial) {
+    priorM = DATA.apr;
+    priorLabel = `vs Day ${m.elapsed} Apr`;
+    factor = m.elapsed / priorM.days;
+  } else {
+    const pk = priorMonthKey(activeMonth);
+    priorM = pk ? DATA[pk] : null;
+    priorLabel = priorM ? `vs ${MONTH_SHORT[pk]}` : '';
+    factor = 1;
+  }
+
+  // For rates, no factor adjustment — they're per-comm, not period-scaled
+  const priorSends = priorM ? totalSends(priorM) * factor : 0;
+  const priorOpenRate = priorM ? weightedAvgOpenRate(priorM) : 0;
+  const priorDepRate = priorM ? weightedAvgDepRate(priorM) : 0;
+
+  const sDelta = priorM && priorSends ? ((sends - priorSends) / priorSends) * 100 : 0;
+  const oDelta = priorM && priorOpenRate ? ((openRate - priorOpenRate) / priorOpenRate) * 100 : 0;
+  const dDelta = priorM && priorDepRate ? ((depRate - priorDepRate) / priorDepRate) * 100 : 0;
+
+  const fmtDelta = (d) => {
+    if (!priorM) return '';
+    const sign = d >= 0 ? '+' : '';
+    const cls = Math.abs(d) < 3 ? 'flat' : (d > 0 ? 'up' : 'down');
+    return `<span class="delta ${cls}">${sign}${d.toFixed(1)}%</span>`;
+  };
+
+  // Truncate long comm names
+  const truncName = (s, n = 36) => s.length > n ? s.slice(0, n - 1) + '…' : s;
+
+  document.getElementById('kpiRow').innerHTML = `
+    <div class="kpi">
+      <div class="eyebrow">Recipient Sends</div>
+      <div class="number">${fmt(sends)}<span class="unit"></span></div>
+      <div class="compare">${fmtDelta(sDelta)} <span>${priorLabel}</span></div>
+    </div>
+    <div class="kpi">
+      <div class="eyebrow">Weighted-avg app-open rate</div>
+      <div class="number">${openRate.toFixed(1)}<span class="unit">%</span></div>
+      <div class="compare">${fmtDelta(oDelta)} <span>${priorLabel}</span></div>
+    </div>
+    <div class="kpi">
+      <div class="eyebrow">Weighted-avg deposit rate</div>
+      <div class="number">${depRate.toFixed(2)}<span class="unit">%</span></div>
+      <div class="compare">${fmtDelta(dDelta)} <span>${priorLabel}</span></div>
+    </div>
+    <div class="kpi">
+      <div class="eyebrow">Top deposit-rate comm</div>
+      <div class="number compact">${topRate ? topRate.r.toFixed(1) : '0'}<span class="unit">%</span></div>
+      <div class="sub">${topRate ? truncName(topRate.name) : '—'}</div>
+    </div>
+  `;
+}
+
+function renderTopContributors() {
+  const m = DATA[activeMonth];
+  const sorted = [...m.comms]
+    .map(c => ({ ...c, impact: rankImpact(c), tdr: totalDepRate(c), tp: topProduct(c), lc: lifecycleOf(c.c), tp_type: typeOf(c.n) }))
+    .sort((a,b) => b.impact - a.impact)
+    .slice(0, 15);
+
+  const tbody = document.querySelector('#topContributorsTable tbody');
+  tbody.innerHTML = sorted.map(c => `
+    <tr>
+      <td>${c.n}</td>
+      <td><span class="type-badge ${c.tp_type === 'Solus' ? 'solus' : 'auto'}">${c.tp_type}</span></td>
+      <td><span class="cat-badge ${c.lc}">${c.lc}</span></td>
+      <td class="r">${fmt(c.s)}</td>
+      <td class="r dim">${c.tp.product} (${c.tp.pct.toFixed(1)}%)</td>
+      <td class="r"><strong>${c.tdr.toFixed(1)}%</strong></td>
+    </tr>
+  `).join('');
+}
+
+let charts = {};
+function destroyChart(name) { if (charts[name]) { charts[name].destroy(); delete charts[name]; } }
+function destroyAllCharts() { Object.keys(charts).forEach(destroyChart); }
+
+const baseChartOpts = (fmtFn) => ({
+  responsive: true,
+  maintainAspectRatio: false,
+  animation: { duration: 600, easing: 'easeOutQuart' },
+  interaction: { mode: 'index', intersect: false },
+  plugins: {
+    legend: {
+      display: true, position: 'bottom',
+      labels: { color: getCSS('--t-2'), boxWidth: 10, padding: 14, font: { size: 11, family: 'IBM Plex Mono' } }
+    },
+    tooltip: {
+      backgroundColor: getCSS('--bg-2'),
+      borderColor: getCSS('--border-strong'),
+      borderWidth: 1,
+      titleColor: getCSS('--t-1'),
+      bodyColor: getCSS('--t-2'),
+      padding: 10,
+      titleFont: { family: 'IBM Plex Sans', size: 12, weight: '500' },
+      bodyFont: { family: 'IBM Plex Mono', size: 11 },
+      callbacks: fmtFn ? { label: (ctx) => `${ctx.dataset.label}: ${fmtFn(ctx.parsed.y)}` } : {}
+    }
+  },
+  scales: {
+    x: {
+      grid: { color: getCSS('--grid') },
+      ticks: { color: getCSS('--tick'), font: { family: 'IBM Plex Mono', size: 11 } },
+      border: { color: 'transparent' }
+    },
+    y: {
+      grid: { color: getCSS('--grid') },
+      ticks: { color: getCSS('--tick'), font: { family: 'IBM Plex Mono', size: 11 }, callback: fmtFn || (v => v) },
+      border: { color: 'transparent' }
+    }
+  }
+});
+
+const fmtPct = (v) => `${(v).toFixed(2)}%`;
+
+function renderTrajectoryCharts() {
+  destroyChart('sends');
+  destroyChart('depRate');
+
+  const labels = MONTHS.map(m => DATA[m].label.replace(' 2026','').replace(' (to 28 May)',' MTD'));
+  const sendData = MONTHS.map(m => totalSends(DATA[m]));
+  const rateData = MONTHS.map(m => weightedAvgDepRate(DATA[m]));
+
+  const sendColors = MONTHS.map(m => m === activeMonth ? getCSS('--acc-cream') : getCSS('--acc-blue'));
+  const rateColors = MONTHS.map(m => m === activeMonth ? getCSS('--acc-cream') : getCSS('--acc-sage'));
+
+  charts.sends = new Chart(document.getElementById('chartSends'), {
+    type: 'bar',
+    data: { labels, datasets: [{ label: 'Total sends', data: sendData, backgroundColor: sendColors, borderRadius: 2, barThickness: 36 }] },
+    options: { ...baseChartOpts(fmt), plugins: { ...baseChartOpts().plugins, legend: { display: false } } }
+  });
+
+  charts.depRate = new Chart(document.getElementById('chartDepRate'), {
+    type: 'bar',
+    data: { labels, datasets: [{ label: 'Weighted-avg deposit rate', data: rateData, backgroundColor: rateColors, borderRadius: 2, barThickness: 36 }] },
+    options: { ...baseChartOpts(fmtPct), plugins: { ...baseChartOpts().plugins, legend: { display: false } } }
+  });
+}
+
+
+// ───────────────────────────────────────────────────────────
+// RENDERING — COMMUNICATIONS TAB
+// ───────────────────────────────────────────────────────────
+
+function renderTopPerformers() {
+  const m = DATA[activeMonth];
+  document.getElementById('topPerformersMonth').textContent = m.label;
+
+  const enriched = m.comms
+    .map(c => ({ ...c, impact: rankImpact(c), tdr: totalDepRate(c), tp: topProduct(c), tp_type: typeOf(c.n), lc: lifecycleOf(c.c) }))
+    .sort((a,b) => b.impact - a.impact);
+
+  const topSolus = enriched.filter(c => c.tp_type === 'Solus').slice(0, 5);
+  const topAuto = enriched.filter(c => c.tp_type === 'Automation').slice(0, 5);
+
+  const renderList = (items, id) => {
+    document.getElementById(id).innerHTML = items.length === 0
+      ? `<div class="item"><div class="rank">—</div><div class="name dim">No data in selected month</div><div class="value"></div></div>`
+      : items.map((c, i) => `
+          <div class="item">
+            <div class="rank">${(i+1).toString().padStart(2,'0')}</div>
+            <div class="name">${c.n}<span class="sub">${c.lc} · ${fmt(c.s)} sends · ${c.tp.product} ${c.tp.pct.toFixed(1)}%</span></div>
+            <div class="value">${c.tdr.toFixed(1)}%<span class="vsub">Total dep. rate</span></div>
+          </div>
+        `).join('');
+  };
+
+  renderList(topSolus, 'topSolusList');
+  renderList(topAuto, 'topAutomationsList');
+}
+
+function renderLifecycleActivity() {
+  destroyChart('lifecycleActivity');
+
+  const LIFECYCLES = ['SO','RT','AC','PR','GR','AB'];
+  const labels = MONTHS.map(m => DATA[m].label.replace(' 2026','').replace(' (to 28 May)',' MTD'));
+  const datasets = LIFECYCLES.map(l => ({
+    label: lifecycleName(l),
+    data: MONTHS.map(m => (sendsByLifecycle(DATA[m])[l] || 0)),
+    backgroundColor: LIFECYCLE_COLOR[l],
+    borderRadius: 2,
+    barThickness: 40
+  }));
+
+  charts.lifecycleActivity = new Chart(document.getElementById('chartLifecycleActivity'), {
+    type: 'bar',
+    data: { labels, datasets },
+    options: {
+      ...baseChartOpts(fmt),
+      scales: {
+        ...baseChartOpts().scales,
+        x: { ...baseChartOpts().scales.x, stacked: true },
+        y: { ...baseChartOpts().scales.y, stacked: true, ticks: { ...baseChartOpts().scales.y.ticks, callback: fmt } }
+      }
+    }
+  });
+}
+
+function renderCommsTable() {
+  const m = DATA[activeMonth];
+  document.getElementById('commsMonth').textContent = m.label;
+
+  const filtered = m.comms.filter(c => {
+    const t = typeOf(c.n);
+    if (commFilter === 'automation') return t === 'Automation';
+    if (commFilter === 'solus') return t === 'Solus';
+    return true;
+  });
+  const search = document.getElementById('commSearch').value.toLowerCase();
+  const visible = filtered.filter(c => !search || c.n.toLowerCase().includes(search) || c.c.toLowerCase().includes(search));
+
+  const tbody = document.querySelector('#commsTable tbody');
+  tbody.innerHTML = visible
+    .map(c => ({ ...c, impact: rankImpact(c), tdr: totalDepRate(c), tp: topProduct(c), lc: lifecycleOf(c.c), tp_type: typeOf(c.n) }))
+    .sort((a,b) => b.impact - a.impact)
+    .map(c => `
+      <tr>
+        <td>${c.n}</td>
+        <td><span class="type-badge ${c.tp_type === 'Solus' ? 'solus' : 'auto'}">${c.tp_type}</span></td>
+        <td><span class="cat-badge ${c.lc}">${c.lc}</span></td>
+        <td class="r">${fmt(c.s)}</td>
+        <td class="r dim">${c.app.toFixed(1)}%</td>
+        <td class="r dim">${c.tp.product}</td>
+        <td class="r"><strong>${c.tp.pct.toFixed(1)}%</strong></td>
+        <td class="r"><strong>${c.tdr.toFixed(1)}%</strong></td>
+      </tr>
+    `).join('');
+}
+
+// ───────────────────────────────────────────────────────────
+// RENDERING — LIFECYCLE & PRODUCT TAB
+// ───────────────────────────────────────────────────────────
+
+function renderProductTrend() {
+  destroyChart('productTrend');
+  const labels = MONTHS.map(m => DATA[m].label.replace(' 2026','').replace(' (to 28 May)',' MTD'));
+
+  const datasets = PRODUCTS.map(p => ({
+    label: PRODUCT_LABEL[p],
+    data: MONTHS.map(m => depRateForProduct(DATA[m], p)),
+    borderColor: PRODUCT_COLOR[p],
+    backgroundColor: PRODUCT_COLOR[p],
+    borderWidth: 2,
+    pointRadius: 3,
+    pointHoverRadius: 5,
+    tension: 0.25,
+    fill: false
+  }));
+
+  charts.productTrend = new Chart(document.getElementById('chartProductTrend'), {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      ...baseChartOpts(fmtPct),
+      scales: {
+        ...baseChartOpts().scales,
+        y: { ...baseChartOpts().scales.y, title: { display: true, text: 'Weighted-avg deposit rate (%)', color: getCSS('--t-3'), font: { family: 'IBM Plex Mono', size: 10 } } }
+      }
+    }
+  });
+}
+
+function renderLifecycleTrend() {
+  destroyChart('lifecycleTrend');
+  const labels = MONTHS.map(m => DATA[m].label.replace(' 2026','').replace(' (to 28 May)',' MTD'));
+  // Surveys (PR) excluded — they're not a lifecycle, and their self-selected audiences
+  // distort the lifecycle comparison. Surveys remain visible in the comms table.
+  const LIFECYCLES = ['SO','RT','AC','GR','AB'];
+
+  const datasets = LIFECYCLES.map(l => ({
+    label: lifecycleName(l),
+    data: MONTHS.map(m => depRateForLifecycle(DATA[m], l)),
+    borderColor: LIFECYCLE_COLOR[l],
+    backgroundColor: LIFECYCLE_COLOR[l],
+    borderWidth: 2,
+    pointRadius: 3,
+    pointHoverRadius: 5,
+    tension: 0.25,
+    fill: false
+  }));
+
+  charts.lifecycleTrend = new Chart(document.getElementById('chartLifecycleTrend'), {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      ...baseChartOpts(fmtPct),
+      scales: {
+        ...baseChartOpts().scales,
+        y: { ...baseChartOpts().scales.y, title: { display: true, text: 'Weighted-avg total deposit rate (%)', color: getCSS('--t-3'), font: { family: 'IBM Plex Mono', size: 10 } } }
+      }
+    }
+  });
+}
+
+function renderSendTarget() {
+  destroyChart('sendTarget');
+  const labels = MONTHS.map(m => DATA[m].label.replace(' 2026','').replace(' (to 28 May)',' MTD'));
+  const TARGETS = ['multi','psa','cisa','smisa','eas','gia','cia','ssisa'];
+
+  const datasets = TARGETS.map(p => ({
+    label: PRODUCT_LABEL[p],
+    data: MONTHS.map(m => sendsByProductTarget(DATA[m])[p] || 0),
+    backgroundColor: PRODUCT_COLOR[p],
+    borderRadius: 2,
+    barThickness: 40
+  }));
+
+  charts.sendTarget = new Chart(document.getElementById('chartSendTarget'), {
+    type: 'bar',
+    data: { labels, datasets },
+    options: {
+      ...baseChartOpts(fmt),
+      scales: {
+        ...baseChartOpts().scales,
+        x: { ...baseChartOpts().scales.x, stacked: true },
+        y: { ...baseChartOpts().scales.y, stacked: true, ticks: { ...baseChartOpts().scales.y.ticks, callback: fmt } }
+      }
+    }
+  });
+}
+
+function renderDepositPacing() {
+  destroyChart('depPacing');
+
+  const selectedKey = activeMonth;
+  const priorKey = priorMonthKey(selectedKey);
+  const selectedM = DATA[selectedKey];
+
+  const titleEl = document.getElementById('depPacingTitle');
+  if (priorKey) {
+    titleEl.textContent = `Weighted deposit-driving impact — ${selectedM.label} vs ${DATA[priorKey].label} (cumulative)`;
+  } else {
+    titleEl.textContent = `Weighted deposit-driving impact — ${selectedM.label}`;
+  }
+
+  const wrap = document.getElementById('depPacingChartWrap');
+  if (!priorKey) {
+    wrap.innerHTML = `<div class="empty-state">
+      <div class="icon">—</div>
+      <div class="msg">No prior month available in the dataset. Pacing comparison requires the month before the selected month.</div>
+    </div>`;
+    return;
+  }
+  if (!document.getElementById('chartDepPacing')) {
+    wrap.innerHTML = `<canvas id="chartDepPacing"></canvas>`;
+  }
+
+  const priorM = DATA[priorKey];
+  const maxDays = Math.max(selectedM.days, priorM.days);
+  const dayLabels = Array.from({length: maxDays}, (_, i) => `D${i+1}`);
+
+  // Cumulative "deposit-driving impact" = Σ(sends × total dep rate / 100) up to day N
+  // Approximated by daily-averaging from the monthly aggregate (same approach as the
+  // legacy Send Pacing chart). Not a unique-depositor count — see Findings · M3.
+  const impactTotal = (month) => month.comms.reduce((a,c) => a + c.s * (totalDepRate(c) / 100), 0);
+
+  const selDaily = impactTotal(selectedM) / selectedM.elapsed;
+  const priorDaily = impactTotal(priorM) / priorM.elapsed;
+
+  const selCumul = dayLabels.map((_, i) => i < selectedM.elapsed ? selDaily * (i+1) : null);
+  const priorCumul = dayLabels.map((_, i) => i < priorM.elapsed ? priorDaily * (i+1) : null);
+
+  charts.depPacing = new Chart(document.getElementById('chartDepPacing'), {
+    type: 'line',
+    data: {
+      labels: dayLabels,
+      datasets: [
+        {
+          label: `${MONTH_SHORT[priorKey]} cumulative impact`,
+          data: priorCumul,
+          borderColor: getCSS('--acc-blue'),
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          pointRadius: 0,
+          tension: 0.2,
+          spanGaps: false,
+        },
+        {
+          label: `${MONTH_SHORT[selectedKey]} cumulative impact`,
+          data: selCumul,
+          borderColor: getCSS('--acc-burnt'),
+          backgroundColor: 'transparent',
+          borderWidth: 2.5,
+          pointRadius: 0,
+          tension: 0.2,
+          spanGaps: false,
+        }
+      ]
+    },
+    options: {
+      ...baseChartOpts(fmt),
+      scales: {
+        ...baseChartOpts().scales,
+        y: { ...baseChartOpts().scales.y, title: { display: true, text: 'Cumulative weighted impact (sends × dep rate)', color: getCSS('--t-3'), font: { family: 'IBM Plex Mono', size: 10 } } }
+      }
+    }
+  });
+}
+
+// ───────────────────────────────────────────────────────────
+// EVENTS
+// ───────────────────────────────────────────────────────────
+
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    activeTab = t.dataset.tab;
+    document.getElementById('panel-' + activeTab).classList.add('active');
+    redraw();
+  });
+});
+
+document.querySelectorAll('.month-chip').forEach(c => {
+  c.addEventListener('click', () => {
+    document.querySelectorAll('.month-chip').forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    activeMonth = c.dataset.month;
+    redraw();
+  });
+});
+
+document.querySelectorAll('.pill-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.pill-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    commFilter = b.dataset.filter;
+    renderCommsTable();
+  });
+});
+
+document.getElementById('commSearch').addEventListener('input', renderCommsTable);
+
+function redraw() {
+  if (activeTab === 'summary') {
+    renderKPIs();
+    renderTopContributors();
+    renderTrajectoryCharts();
+  } else if (activeTab === 'comms') {
+    renderTopPerformers();
+    renderLifecycleActivity();
+    renderCommsTable();
+  } else if (activeTab === 'stage') {
+    renderProductTrend();
+    renderLifecycleTrend();
+    renderSendTarget();
+    renderDepositPacing();
+  }
+}
+
+window.addEventListener('load', () => { redraw(); });
 </script>
 
-
-</body></html>
+</body>
+</html>
